@@ -1,0 +1,1008 @@
+Apprentissage automatique
+(Redirigé depuis Machine learning)
+Sauter à la navigation
+Sauter à la recherche
+Page d'aide sur les redirections « Machine Learning » redirige ici. Pour la revue scientifique, voir Machine Learning (revue).
+Par l'entraînement, ici supervisé, sur un grand nombre de mesures, il devient facile à un programme d'apprentissage automatique de reconnaître des formes, même complexes, et d'y classifier ensuite de nouveaux points (exemple d'usage du programme mldemos).
+
+L'apprentissage automatique (en anglais machine learning, littéralement « l'apprentissage machine ») ou apprentissage statistique est un champ d'étude de l'intelligence artificielle qui se fonde sur des approches statistiques pour donner aux ordinateurs la capacité d' « apprendre » à partir de données, c'est-à-dire d'améliorer leurs performances à résoudre des tâches sans être explicitement programmés pour chacune. Plus largement, cela concerne la conception, l'analyse, le développement et l'implémentation de telles méthodes.
+
+L'apprentissage automatique comporte généralement deux phases. La première consiste à estimer un modèle à partir de données, appelées observations, qui sont disponibles et en nombre fini, lors de la phase de conception du système. L'estimation du modèle consiste à résoudre une tâche pratique, telle que traduire un discours, estimer une densité de probabilité, reconnaître la présence d'un chat dans une photographie ou participer à la conduite d'un véhicule autonome. Cette phase dite « d'apprentissage » ou « d'entraînement » est généralement réalisée préalablement à l'utilisation pratique du modèle. La seconde phase correspond à la mise en production : le modèle étant déterminé, de nouvelles données peuvent alors être soumises afin d'obtenir le résultat correspondant à la tâche souhaitée. En pratique, certains systèmes peuvent poursuivre leur apprentissage une fois en production, pour peu qu'ils aient un moyen d'obtenir un retour sur la qualité des résultats produits.
+
+Selon les informations disponibles durant la phase d'apprentissage, l'apprentissage est qualifié de différentes manières. Si les données sont étiquetées (c'est-à-dire que la réponse à la tâche est connue pour ces données), il s'agit d'un apprentissage supervisé. On parle de classification ou de classement1 si les étiquettes sont discrètes, ou de régression si elles sont continues. Si le modèle est appris de manière incrémentale en fonction d'une récompense reçue par le programme pour chacune des actions entreprises, on parle d'apprentissage par renforcement. Dans le cas le plus général, sans étiquette, on cherche à déterminer la structure sous-jacente des données (qui peuvent être une densité de probabilité) et il s'agit alors d'apprentissage non supervisé. L'apprentissage automatique peut être appliqué à différents types de données, tels des graphes, des arbres, des courbes, ou plus simplement des vecteurs de caractéristiques, qui peuvent être continues ou discrètes.
+Sommaire
+
+    1 Historique
+    2 Principes
+    3 Applications
+    4 Types d'apprentissage
+    5 Algorithmes utilisés
+    6 Facteurs de pertinence et d'efficacité
+    7 Étapes d'un projet d'apprentissage automatique
+    8 Controverses techniques
+    9 Application à la voiture autonome
+    10 Prospective
+    11 Notes et références
+    12 Bibliographie
+    13 Voir aussi
+        13.1 Articles connexes
+        13.2 Liens externes
+
+Historique
+
+Depuis l'antiquité, le sujet des machines pensantes préoccupe les esprits. Ce concept est la base de pensées pour ce qui deviendra ensuite l'intelligence artificielle, ainsi qu'une de ses sous-branches : l'apprentissage automatique.
+
+La concrétisation de cette idée est principalement due à Alan Turing et à son concept de la « machine universelle » en 19362, qui est à la base des ordinateurs d'aujourd'hui. Il continuera à poser les bases de l'apprentissage automatique, avec son article sur « L'ordinateur et l'intelligence » en 19503, dans lequel il développe, entre autres, le test de Turing.
+
+En 1943, le neurophysiologiste Warren McCulloch et le mathématicien Walter Pitts publient un article décrivant le fonctionnement de neurones en les représentant à l'aide de circuits électriques. Cette représentation sera la base théorique des réseaux neuronaux4.
+
+Arthur Samuel, informaticien américain pionnier dans le secteur de l'intelligence artificielle, est le premier à faire usage de l'expression machine learning (en français, « apprentissage automatique ») en 1959 à la suite de la création de son programme pour IBM en 1952. Le programme jouait au Jeu de Dames et s'améliorait en jouant. À terme, il parvint à battre le 4e meilleur joueur des États-Unis5,6.
+
+Une avancée majeure dans le secteur de l'intelligence machine est le succès de l'ordinateur développé par IBM, Deep Blue, qui est le premier à vaincre le champion mondial d'échecs Garry Kasparov en 1997. Le projet Deep Blue en inspirera nombre d'autres dans le cadre de l'intelligence artificielle, particulièrement un autre grand défi : IBM Watson, l'ordinateur dont le but est de gagner au jeu Jeopardy!7. Ce but est atteint en 2011, quand Watson gagne à Jeopardy! en répondant aux questions par traitement de langage naturel8.
+
+Durant les années suivantes, les applications de l'apprentissage automatique médiatisées se succèdent bien plus rapidement qu'auparavant.
+
+En 2012, un réseau neuronal développé par Google parvient à reconnaître des visages humains ainsi que des chats dans des vidéos YouTube9,10.
+
+En 2014, 64 ans après la prédiction d'Alan Turing, le dialogueur Eugene Goostman est le premier à réussir le test de Turing en parvenant à convaincre 33 % des juges humains au bout de cinq minutes de conversation qu'il est non pas un ordinateur, mais un garçon ukrainien de 13 ans11.
+
+En 2015, une nouvelle étape importante est atteinte lorsque l'ordinateur « AlphaGo » de Google gagne contre un des meilleurs joueurs au jeu de Go, jeu de plateau considéré comme le plus dur du monde12.
+
+En 2016, un système d'intelligence artificielle à base d'apprentissage automatique nommé LipNet parvient à lire sur les lèvres avec un grand taux de succès13,14.
+Principes
+
+Les algorithmes utilisés permettent, dans une certaine mesure, à un système piloté par ordinateur (un robot éventuellement), ou assisté par ordinateur, d'adapter ses analyses et ses comportements en réponse, en se fondant sur l'analyse de données empiriques provenant d'une base de données ou de capteurs.
+
+La difficulté réside dans le fait que l'ensemble de tous les comportements possibles compte tenu de toutes les entrées possibles devient rapidement trop complexe à décrire (on parle d'explosion combinatoire). On confie donc à des programmes le soin d'ajuster un modèle pour simplifier cette complexité et de l'utiliser de manière opérationnelle. Idéalement, l'apprentissage visera à être non supervisé, c'est-à-dire que la nature des données d'entrainement n'est pas connue15.
+
+Ces programmes, selon leur degré de perfectionnement, intègrent éventuellement des capacités de traitement probabiliste des données, d'analyse de données issues de capteurs, de reconnaissance (reconnaissance vocale, de forme, d'écriture…), de fouille de données, d'informatique théorique…
+Applications
+
+L'apprentissage automatique est utilisé pour doter des ordinateurs ou des machines de systèmes de : perception de leur environnement : vision, reconnaissance d'objets (visages, schémas, langages naturels, écriture, formes syntaxiques…) ; moteurs de recherche ; aide aux diagnostics, médical notamment, bio-informatique, chémoinformatique ; interfaces cerveau-machine ; détection de fraudes à la carte de crédit, analyse financière, dont analyse du marché boursier ; classification des séquences d'ADN ; jeu ; génie logiciel ; adaptation de sites Web ; locomotion de robots ; analyse prédictive en matière juridique et judiciaire…
+
+Exemples :
+
+    Un système d'apprentissage automatique peut permettre à un robot ayant la capacité de bouger ses membres mais ne sachant initialement rien de la coordination des mouvements permettant la marche, d'apprendre à marcher. Le robot commencera par effectuer des mouvements aléatoires, puis, en sélectionnant et privilégiant les mouvements lui permettant d'avancer, mettra peu à peu en place une marche de plus en plus efficace ;
+    La reconnaissance de caractères manuscrits est une tâche complexe car deux caractères similaires ne sont jamais exactement égaux. On peut concevoir un système d'apprentissage automatique qui apprend à reconnaître des caractères en observant des « exemples », c'est-à-dire des caractères connus.
+
+Types d'apprentissage
+
+Les algorithmes d'apprentissage peuvent se catégoriser selon le mode d'apprentissage qu'ils emploient :
+
+Apprentissage supervisé
+    Si les classes sont prédéterminées et les exemples connus, le système apprend à classer selon un modèle de classification ou de classement ; on parle alors d'apprentissage supervisé (ou d'analyse discriminante). Un expert (ou oracle) doit préalablement étiqueter des exemples. Le processus se passe en deux phases. Lors de la première phase (hors ligne, dite d'apprentissage), il s'agit de déterminer un modèle à partir des données étiquetées. La seconde phase (en ligne, dite de test) consiste à prédire l'étiquette d'une nouvelle donnée, connaissant le modèle préalablement appris. Parfois il est préférable d'associer une donnée non pas à une classe unique, mais une probabilité d'appartenance à chacune des classes prédéterminées (on parle alors d'apprentissage supervisé probabiliste). ex. : L'analyse discriminante linéaire ou les SVM en sont des exemples typiques. Autre exemple : en fonction de points communs détectés avec les symptômes d'autres patients connus (les exemples), le système peut catégoriser de nouveaux patients au vu de leurs analyses médicales en risque estimé (probabilité) de développer telle ou telle maladie.
+
+Apprentissage non supervisé
+    Quand le système ou l'opérateur ne dispose que d'exemples, mais non d'étiquette, et que le nombre de classes et leur nature n'ont pas été prédéterminées, on parle d'apprentissage non supervisé ou clustering en anglais. Aucun expert n'est requis. L'algorithme doit découvrir par lui-même la structure plus ou moins cachée des données. Le partitionnement de données, data clustering en anglais, est un algorithme d'apprentissage non supervisé.
+    Le système doit ici — dans l'espace de description (la somme des données) — cibler les données selon leurs attributs disponibles, pour les classer en groupe homogènes d'exemples. La similarité est généralement calculée selon une fonction de distance entre paires d'exemples. C'est ensuite à l'opérateur d'associer ou déduire du sens pour chaque groupe et pour les motifs (patterns en anglais) d'apparition de groupes, ou de groupes de groupes, dans leur « espace ». Divers outils mathématiques et logiciels peuvent l'aider. On parle aussi d'analyse des données en régression (ajustement d'un modèle par une procédure de type moindres carrés ou autre optimisation d'une fonction de coût). Si l'approche est probabiliste (c'est-à-dire que chaque exemple, au lieu d'être classé dans une seule classe, est caractérisé par un jeu de probabilités d'appartenance à chacune des classes), on parle alors de « soft clustering » (par opposition au « hard clustering »).
+    Cette méthode est souvent source de sérendipité. ex. : Pour un épidémiologiste qui voudrait dans un ensemble assez large de victimes de cancer du foie tenter de faire émerger des hypothèses explicatives, l'ordinateur pourrait différencier différents groupes, que l'épidémiologiste chercherait ensuite à associer à divers facteurs explicatifs, origines géographique, génétique, habitudes ou pratiques de consommation, expositions à divers agents potentiellement ou effectivement toxiques (métaux lourds, toxines telle que l'aflatoxine, etc.).
+
+Apprentissage semi-supervisé 
+    Effectué de manière probabiliste ou non, il vise à faire apparaître la distribution sous-jacente des exemples dans leur espace de description. Il est mis en œuvre quand des données (ou « étiquettes ») manquent… Le modèle doit utiliser des exemples non étiquetés pouvant néanmoins renseigner. ex. : En médecine, il peut constituer une aide au diagnostic ou au choix des moyens les moins onéreux de tests de diagnostic.
+
+Apprentissage partiellement supervisé
+    Probabiliste ou non, quand l'étiquetage des données est partiel16. C'est le cas quand un modèle énonce qu'une donnée n'appartient pas à une classe A, mais peut-être à une classe B ou C (A, B et C étant 3 maladies par exemple évoquées dans le cadre d'un diagnostic différentiel).:
+
+Apprentissage par renforcement17 
+    l'algorithme apprend un comportement étant donné une observation. L'action de l'algorithme sur l'environnement produit une valeur de retour qui guide l'algorithme d'apprentissage. ex. : L'algorithme de Q-learning18 est un exemple classique.
+
+Apprentissage par transfert19 
+    L’apprentissage par transfert peut être vu comme la capacité d’un système à reconnaître et appliquer des connaissances et des compétences, apprises à partir de tâches antérieures, sur de nouvelles tâches ou domaines partageant des similitudes. La question qui se pose est : comment identifier les similitudes entre la ou les tâche(s) cible(s) et la ou les tâche(s) source(s), puis comment transférer la connaissance de la ou des tâche(s) source(s) vers la ou les tâche(s) cible(s) ?
+
+Algorithmes utilisés
+
+Ce sont, dans ce domaine :
+
+    les machines à vecteur de support ;
+    le boosting ;
+    les réseaux de neurones20 , dont les méthodes d'apprentissage profond (deep learning en anglais) pour un apprentissage supervisé ou non-supervisé ;
+    la méthode des k plus proches voisins pour un apprentissage supervisé ;
+    les arbres de décision21 , méthodes à l'origine des Random Forest, par extension également du boosting (notamment xgboost) ;
+    les méthodes statistiques comme le modèle de mixture gaussienne ;
+    la régression logistique ;
+    l'analyse discriminante linéaire ;
+    les algorithmes génétiques22 et la programmation génétique.
+
+Ces méthodes sont souvent combinées pour obtenir diverses variantes d'apprentissage. L'utilisation de tel ou tel algorithme dépend fortement de la tâche à résoudre (classification, estimation de valeurs…).
+
+L'apprentissage automatique est utilisé pour un large spectre d'applications, par exemple :
+
+    moteur de recherche,
+    aide au diagnostic,
+    détection de donnée aberrante,
+    détection de données manquantes,
+    détection de fraudes,
+    analyse des marchés financiers,
+    reconnaissance de la parole,
+    reconnaissance de l'écriture manuscrite,
+    analyse et indexation d'images et de vidéo, en particulier pour la recherche d'image par le contenu,
+    robotique,
+
+Facteurs de pertinence et d'efficacité
+
+La qualité de l'apprentissage et de l'analyse dépendent du besoin en amont et a priori de la compétence de l'opérateur pour préparer l'analyse. Elle dépend aussi de la complexité du modèle (spécifique ou généraliste), de son adéquation et de son adaptation au sujet à traiter. In fine, la qualité du travail dépendra aussi du mode (de mise en évidence visuelle) des résultats pour l'utilisateur final (un résultat pertinent pourrait être caché dans un schéma trop complexe, ou mal mis en évidence par une représentation graphique inappropriée).
+
+Avant cela, la qualité du travail dépendra de facteurs initiaux contraignants, liées à la base de données :
+
+    Nombre d'exemples (moins il y en a, plus l'analyse est difficile, mais plus il y en a, plus le besoin de mémoire informatique est élevé et plus longue est l'analyse) ;
+    Nombre et qualité des attributs décrivant ces exemples. La distance entre deux « exemples » numériques (prix, taille, poids, intensité lumineuse, intensité de bruit, etc) est facile à établir, celle entre deux attributs catégoriels (couleur, beauté, utilité…) est plus délicate ;
+    Pourcentage de données renseignées et manquantes ;
+    « Bruit » : le nombre et la « localisation » des valeurs douteuses (erreurs potentielles, valeurs aberrantes…) ou naturellement non-conformes au pattern de distribution générale des « exemples » sur leur espace de distribution impacteront sur la qualité de l'analyse.
+
+Étapes d'un projet d'apprentissage automatique
+
+L'apprentissage automatique ne se résume pas seulement à un ensemble d'algorithmes mais c'est une listes d'étapes à prendre en compte et à exécuter afin d'arriver à un résultat optimal23:
+
+    L'acquisition de données : L'algorithme se nourrissant des données en entrée, c'est une étape importante. Il en va de la réussite du projet, de récolter des données pertinentes et en quantité suffisante.
+    La préparation, et le nettoyage de la donnée : Il peut arriver que la donnée recueillie à l'étape précédente ne soit pas pleinement pertinente, ou contienne du bruit, ou ne soit pas assez structurée. Un opérateur humain va donc optimiser la donnée pour que l'algorithme puisse mieux la traiter, ou arriver plus rapidement à son but.
+    La création du modèle
+    L'évaluation : Une fois l'algorithme d'apprentissage automatique entrainé sur un premier jeu de donnée, on va l'évaluer sur un deuxième ensemble de données afin de vérifier que le modèle ne fasse pas de surapprentissage.
+    Le déploiement : Le modèle va être déployé en production pour faire des prédictions, et potentiellement utiliser les nouvelles données en entrée pour se ré-entrainer et améliorer son modèle.
+
+Controverses techniques
+
+L’apprentissage automatique demande de grandes quantités de données pour fonctionner correctement. Il peut s’avérer difficile de contrôler l’intégrité des jeux de données, notamment dans le cas de données générées par les réseaux sociaux24.
+
+La qualité des « décisions » prises par un algorithme d’AA dépend non seulement de la qualité (donc de leur homogénéité, fiabilité, etc.) des données utilisées pour l’entrainement mais surtout de leur quantité. Donc, pour un jeu de données sociales collecté sans attention particulière à la représentation des minorités, l’AA est statistiquement injuste vis-à-vis de celles-ci. En effet, la capacité à prendre de « bonnes » décisions dépend de la taille des données, or celle-ci sera proportionnellement inférieure pour les minorités.
+Incapacité d'extrapolation de l'apprentissage automatique, application identité.
+
+L’AA ne distingue actuellement pas cause et corrélation de par sa construction mathématique, et est incapable d’aller au-delà du cadre imposé par ses données, il n’a donc pas de capacité d’extrapolation. Un exemple : si on apprend à un algorithme de retourner le chiffre qu’on lui donne (application identité) en l’entraînant uniquement avec les nombres 1 à 5, il sera incapable de correctement répondre à 6. Il est donc incapable d’extrapoler.
+
+L’utilisation d’algorithmes d’apprentissage automatique demande donc d’avoir conscience du cadre de données que l’on a utilisé pour l’apprentissage lors de leur utilisation. Il est donc prétentieux d’attribuer des vertus trop grandes aux algorithmes d’apprentissage automatique25.
+Application à la voiture autonome
+
+La voiture autonome paraît réalisable grâce à l’apprentissage automatique et les énormes quantités de données générées par la flotte automobile, de plus en plus connectée. Contrairement aux algorithmes classiques (qui suivent un ensemble de règles prédéterminées), l’apprentissage automatique apprend ses propres règles26.
+
+Les principaux innovateurs dans le domaine insistent sur le fait que le progrès provient de l’automatisation des processus. Ceci présente le défaut que le processus d’apprentissage automatique devient privatisé et obscur. Privatisé, car les algorithmes d’AA constituent des gigantesques opportunités économiques, et obscurs car leur compréhension passe derrière leur optimisation. Cette évolution peut potentiellement nuire à la confiance du public envers l’apprentissage automatique, mais surtout au potentiel long-terme de technologies très prometteuses27.
+
+La voiture autonome présente un cadre test pour affronter l’apprentissage automatique à la société. En effet, ce n’est pas seulement l’algorithme qui se forme à la circulation routière et ses règles, mais aussi l’inverse. Le principe de responsabilité est remis en cause par l’apprentissage automatique, car l’algorithme n’est plus écrit mais apprend et développe une sorte d’intuition numérique. Les créateurs d’algorithmes ne sont plus en mesure de comprendre les « décisions » prises par leurs algorithmes, ceci par construction mathématique même de l’algorithme d’apprentissage automatique28.
+
+Dans le cas de l’AA et les voitures autonomes, la question de la responsabilité en cas d’accident se pose. La société doit apporter une réponse à cette question, avec différentes approches possibles. Aux États-Unis, il existe la tendance à juger une technologie par la qualité du résultat qu’elle produit, alors qu’en Europe le principe de précaution est appliqué, et on y a plus tendance à juger une nouvelle technologie par rapport aux précédentes, en évaluant les différences par rapport à ce qui est déjà connu. Des processus d’évaluation de risques sont en cours en Europe et aux États-Unis27.
+
+La question de responsabilité est d’autant plus compliquée que la priorité chez les concepteurs réside en la conception d’un algorithme optimal, et non pas de le comprendre. L’interprétabilité des algorithmes est nécessaire pour en comprendre les décisions, notamment lorsque ces décisions ont un impact profond sur la vie des individus. Cette notion d’interprétabilité, c’est-à-dire de la capacité de comprendre pourquoi et comment un algorithme agit, est aussi sujette à interprétation.
+
+La question de l’accessibilité des données est sujette à controverse : dans le cas des voitures autonomes, certains défendent l’accès public aux données, ce qui permettrait un meilleur apprentissage aux algorithmes et ne concentrerait pas cet « or numérique » dans les mains d’une poignée d’individus, de plus d’autres militent pour la privatisation des données au nom du libre marché, sans négliger le fait que des bonnes données constituent un avantage compétitif et donc économique27,29.
+Prospective
+
+Dans les années 2000-2010, l'apprentissage automatique est encore une technologie émergente, mais polyvalente, qui est par nature théoriquement capable d'accélérer le rythme de l'automatisation et de l'autoaprentissage lui-même. Combiné à l'apparition de nouveaux moyens de produire, stocker et faire circuler l'énergie, ainsi qu'à l'informatique ubiquiste, il pourrait bouleverser les technologies et la société (comme l'ont fait la machine à vapeur et l'électricité, puis le pétrole et l'informatique lors des révolutions industrielles précédentes. L'apprentissage automatique pourrait générer des innovations et des capacités inattendues, mais avec un risque selon certains observateurs de perte de maitrise de la part des humains sur de nombreuses tâches qu'ils ne pourront plus comprendre et qui seront faites en routine par des entités informatiques et robotisées. Ceci laisse envisager des impacts spécifiques complexes et encore impossibles à évaluer sur l'emploi, le travail et plus largement l'économie et les inégalités.
+Selon le journal Science fin 2017 : « Les effets sur l'emploi sont plus complexes que la simple question du remplacement et des substitutions soulignées par certains. Bien que les effets économiques du BA soient relativement limités aujourd'hui et que nous ne soyons pas confrontés à une « fin du travail » imminente comme cela est parfois proclamé, les implications pour l'économie et la main-d'œuvre sont profondes »30.
+
+Il est tentant de s'inspirer des êtres vivants sans les copier naïvement31 pour concevoir des machines capables d'apprendre. Les notions de percept et de concept comme phénomènes neuronaux physiques ont d'ailleurs été popularisés dans le monde francophone par Jean-Pierre Changeux. L'apprentissage automatique reste avant tout un sous-domaine de l'informatique, mais il est étroitement lié opérationnellement aux sciences cognitives, aux neurosciences, à la biologie et à la psychologie, et pourrait à la croisée de ces domaines, nanotechnologies, biotechnologies, informatique et sciences cognitives, aboutir à des systèmes d'intelligence artificielle ayant une assise plus vaste. Des enseignements publics ont notamment été dispensés au Collège de France, l'un par Stanislas Dehaene32 orienté sur l'aspect bayésien des neurosciences, et l'autre par Yann LeCun33 sur les aspects théoriques et pratiques de l'apprentissage profond. 
+
+Un ordinateur est un système de traitement de l'information programmable tel que défini par Turing et qui fonctionne par la lecture séquentielle d'un ensemble d'instructions, organisées en programmes, qui lui font exécuter des opérations logiques et arithmétiques. Sa structure physique actuelle fait que toutes les opérations reposent sur la logique binaire et sur des nombres formés à partir de chiffres binaires. Dès sa mise sous tension, un ordinateur exécute, l'une après l'autre, des instructions qui lui font lire, manipuler, puis réécrire un ensemble de données déterminées par une mémoire morte d'amorçage (Boot ROM, BIOS, UEFI, etc.). Des tests et des sauts conditionnels permettent de passer à l'instruction suivante et donc d'agir différemment en fonction des données ou des nécessités du moment ou de l'environnement.
+
+Les données à manipuler sont obtenues, soit par la lecture de mémoires, soit par la lecture d'information en provenance de périphériques internes ou externes (déplacement d'une souris, touche appuyée sur un clavier, température, vitesse, compression…). Une fois utilisés, ou manipulés, les résultats sont écrits, soit dans des mémoires, soit dans des composants qui peuvent transformer une valeur binaire en une action physique (écriture sur une imprimante ou sur un moniteur, accélération ou freinage d'un véhicule, changement de température d'un four…). L'ordinateur peut aussi répondre à des interruptions qui lui permettent d’exécuter des programmes de réponses spécifiques à chacune, puis de reprendre l’exécution séquentielle du programme interrompu.
+
+De 1834 à 1837, Charles Babbage conçoit une machine à calculer programmable en associant un des descendants de la Pascaline (première machine à calculer mécanique inventée par Blaise Pascal) avec des instructions écrites sur le même type de cartes perforées que celles inventées par Jacquard pour ses métiers à tisser1. C'est durant cette période qu'il imagine la plupart des caractéristiques de l'ordinateur moderne2. Babbage passera le reste de sa vie à essayer de construire sa machine analytique, mais sans succès. Beaucoup de personnes s’y intéressèrent et essayèrent de développer cette machine3, mais c'est cent ans plus tard, en 1937, qu'IBM inaugurera l'ère de l'informatique en commençant le développement de l'ASCC/Mark I, une machine basée sur l’architecture de Babbage qui, une fois réalisée, sera considérée comme l'achèvement de son rêve4.
+
+La technique actuelle des ordinateurs date du milieu du xxe siècle. Les ordinateurs peuvent être classés selon plusieurs critères5 tel que le domaine d'application, la taille ou l'architecture.
+Acer Aspire 8920 Gemstone.jpgColumbia Supercomputer - NASA Advanced Supercomputing Facility.jpgIntertec Superbrain.jpg
+2010-01-26-technikkrempel-by-RalfR-05.jpgThinking Machines Connection Machine CM-5 Frostburg 2.jpgG5 supplying Wikipedia via Gigabit at the Lange Nacht der Wissenschaften 2006 in Dresden.JPG
+DM IBM S360.jpgAcorn BBC Master Series Microcomputer.jpgDell PowerEdge Servers.jpg
+Différents modèles d'ordinateurs
+(cliquez pour agrandir).
+Sommaire
+
+    1 Étymologie
+    2 Histoire
+        2.1 Première invention
+        2.2 Concept initial et réalisation
+        2.3 Machines à calculer
+        2.4 Électromécanique et mécanographie
+        2.5 Années 1930
+    3 Évolution
+        3.1 Premier ordinateur (1937-1946)
+        3.2 Tubes à vide et commutateurs (1946-1955)
+        3.3 Générations suivantes (1955-2000)
+        3.4 Généralités
+    4 Fonctionnement
+        4.1 UAL et UC
+        4.2 Mémoire
+        4.3 Entrées-Sorties
+        4.4 Bus
+        4.5 Architecture
+        4.6 Instructions
+        4.7 Logiciels
+    5 Types d'ordinateurs
+        5.1 Par domaine d'application
+        5.2 Par taille
+        5.3 Par architecture
+    6 Notes et références
+    7 Voir aussi
+        7.1 Bibliographie
+        7.2 Articles connexes
+        7.3 Lien externe
+
+Étymologie
+
+Le mot « ordinateur » fut introduit par IBM France en 19556,7 après que François Girard, alors responsable du service publicité de l'entreprise, eut l'idée de consulter son ancien professeur de lettres à Paris, Jacques Perret. Avec Christian de Waldner, alors président d'IBM France, ils demandèrent au professeur Perret, de suggérer un « nom français pour sa nouvelle machine électronique destinée au traitement de l'information (IBM 650), en évitant d'utiliser la traduction littérale du mot anglais computer (« calculateur » ou « calculatrice »), qui était à cette époque plutôt réservé aux machines scientifiques »8.
+
+En 1911, une description de la machine analytique de Babbage utilisait le mot ordonnateur pour en décrire son organe moteur: « Pour aller prendre et reporter les nombres… et pour les soumettre à l’opération demandée, il faut qu'il y ait dans la machine un organe spécial et variable : c'est l'ordonnateur. Cet ordonnateur est constitué simplement par des feuilles de carton ajourées, analogues à celle des métiers Jacquard… »9.
+
+Le professeur proposa un mot composé centré autour d'ordonnateur : celui qui met en ordre10 et qui avait aussi la notion d'ordre ecclésiastique dans l'église catholique (ordinant)11. Il suggéra plus précisément « ordinatrice électronique », le féminin ayant pu permettre, selon lui, de mieux distinguer l'usage religieux de l'usage comptable du mot12.
+
+« IBM France retint le mot ordinateur et chercha au début à protéger ce nom comme une marque. Mais le mot fut facilement et rapidement adopté par les utilisateurs et IBM France décida au bout de quelques mois de le laisser dans le domaine public. »8
+Histoire
+L'image la plus célèbre du début de l'histoire de l'informatique13
+Ce portrait de Jacquard, tissé en soie sur un métier Jacquard, demandait la lecture de 24 000 cartes de plus de 1 000 trous chacune (1839). Il n'était produit que sur demande. Charles Babbage l'utilisa souvent pour expliquer ses idées sur ce que fut la première esquisse d'un ordinateur, sa machine analytique, qui utilisait des cartes Jacquard pour ses commandes et ses données14.
+Première invention
+Article détaillé : Histoire des ordinateurs.
+
+Selon Bernard Cohen, auteur de l'ouvrage intitulé Howard Aiken: Portrait of a computer pioneer, « les historiens des technologies et les informaticiens intéressés en histoire, ont adopté un certain nombre de caractéristiques qui définissent un ordinateur. C'est ainsi que la question de savoir si le Mark I était ou n'était pas un ordinateur ne dépend pas d'une opinion majoritaire mais plutôt de la définition utilisée. Souvent, quelques-unes des caractéristiques fondamentales nécessaires pour être considérées comme un ordinateur sont :
+
+    qu'il soit électronique ;
+    numérique (au lieu d'analogique) ;
+    qu'il soit programmable ;
+    qu'il puisse exécuter les quatre opérations élémentaires (addition, soustraction, multiplication, division) et -souvent- qu'il puisse extraire une racine carrée ou adresser une table qui en contient ;
+    qu'il puisse exécuter des programmes enregistrés en mémoire.
+
+Une machine n'est généralement pas classifiée comme un ordinateur à moins qu'elle n'ait des caractéristiques supplémentaires comme la possibilité d’exécuter des opérations spécifiques automatiquement et ceci d'une façon contrôlée et dans une séquence prédéterminée. Pour d'autres historiens et informaticiens, il faut aussi que la machine ait été vraiment construite et qu'elle ait été complètement opérationnelle15. »
+Concept initial et réalisation
+
+Sans une définition stricte il est impossible d'identifier la machine qui devint le premier ordinateur, mais il faut remarquer certaines des étapes fondamentales qui vont du développement du concept de la machine à calculer programmable par Charles Babbage en 1837 au premier développement de l'ère de l'informatique cent ans plus tard.
+
+En 1834, Charles Babbage commence à développer une machine à calculer programmable, sa machine analytique. Il pense la programmer grâce à un cylindre à picots comme dans les automates de Vaucanson, mais, deux ans plus tard, il remplace ce cylindre par la lecture de cartes Jacquard, et ainsi crée une machine à calculer infiniment programmable16.
+
+En 1843, Ada Lovelace écrit le premier programme informatique pour calculer les nombres de Bernoulli, pour la machine analytique qui ne sera jamais construite.
+
+Henry Babbage construit une version extrêmement simplifiée de l'unité centrale de la « machine analytique » de son père et l'utilise en 1906, pour calculer et imprimer automatiquement les quarante premiers multiples du nombre Pi avec une précision de vingt-neuf décimales17, démontrant sans ambiguïté que le principe de la machine analytique était viable et réalisable. En 1886, sa plus grande contribution fut de donner un ensemble mécanique de démonstration d'une des machines de son père à l'université Harvard18. Car c'est cinquante ans plus tard, après avoir entendu la présentation de Howard Aiken sur son super calculateur, qu'un technicien de Harvard, Carmello Lanza, lui fit savoir qu'une machine similaire avait déjà été développée et qu'il lui montra l'ensemble mécanique de démonstration donné par Henry Babbage qui se trouvait dans un des greniers de l'université; c'est ainsi qu'il découvrit les travaux de Babbage et qu'il les incorpora dans la machine qu'il présenta à IBM en 193719. C'était la troisième fois qu'il essayait de trouver un sponsor pour le développement de sa machine car son projet avait déjà été rejeté deux fois avant l'intégration des travaux de Babbage dans l'architecture de sa machine (une fois par la Monroe Calculating Company20 et une fois par l'université Harvard19).
+
+Leonardo Torres Quevedo remplaça toutes les fonctions mécaniques de Babbage par des fonctions électromécaniques (addition, soustraction, multiplication et division mais aussi la lecture de cartes et les mémoires). En 1914 et en 1920, Il construisit deux machines analytiques, non programmable, extrêmement simplifiées21 mais qui montraient que des relais électromécaniques pouvaient être utilisés dans une machine à calculer qu'elle soit programmable ou non. Sa machine de 1914 avait une petite mémoire électromécanique et son arithmomètre de 1920, qu'il développa pour célébrer le centième anniversaire de l'invention de l'arithmomètre, était commandé par une machine à écrire qui était aussi utilisée pour imprimer ses résultats.
+
+Percy Ludgate améliora et simplifia les fonctions mécaniques de Babbage mais ne construisit pas de machine. Et enfin, Louis Couffignal essaya au début des années 193022, de construire une machine analytique « purement mécanique, comme celle de Babbage, mais sensiblement plus simple », mais sans succès. C'est cent ans après la conceptualisation de l'ordinateur par Charles Babbage que le premier projet basé sur l'architecture de sa machine analytique aboutira. En effet, c'est en 1937 qu'Howard Aiken présenta à IBM un projet de machine à calculer programmable qui sera le premier projet qui finira par une machine qui puisse être, et qui sera utilisée, et dont les caractéristiques en font presque un ordinateur moderne. Et donc, bien que le premier ordinateur ne sera jamais déterminé à l’unanimité, le début de l'ère de l'informatique moderne peut être considéré comme la présentation d'Aiken à IBM, en 1937, qui aboutira par l'ASCC.
+Machines à calculer
+
+Les machines à calculer jouèrent un rôle primordial dans le développement des ordinateurs pour deux raisons tout à fait indépendantes. D'une part, pour leurs origines : c'est pendant le développement d'une machine à calculer automatique à imprimante qu'en 1834 Charles Babbage commença à imaginer sa machine analytique, l’ancêtre des ordinateurs. C’était une machine à calculer programmée par la lecture de cartes perforées (inspirées du Métier Jacquard), avec un lecteur de cartes pour les données et un pour les programmes, avec des mémoires, un calculateur central et des imprimantes et qui inspirera le développement des premiers ordinateurs à partir de 1937 ; ce qui nous amènera aux mainframes des années 1960.
+
+D'autre part, leur propagation se fit grâce à la commercialisation en 1971 du premier microprocesseur, l'Intel 4004, qui fut inventé pendant le développement d'une machine à calculer électronique pour la compagnie japonaise Busicom, qui est à l'origine de l'explosion de la micro-informatique à partir de 197523 et qui réside au cœur de tous les ordinateurs actuels quelles que soient leurs tailles ou fonctions (bien que seulement 2 % des microprocesseurs produits chaque année soient utilisés comme unités centrales d'ordinateur, les 98 % restant sont utilisés dans la construction de voitures, de robots ménagers, de montres, de caméras de surveillance24…).
+Électromécanique et mécanographie
+
+Outre les avancées observées dans l'industrie du textile et celles de l'électronique, les avancées de la mécanographie à la fin du XIXe siècle, pour achever les recensements aux États-Unis, la mécanisation de la cryptographie au début du XXe siècle, pour chiffrer puis déchiffrer automatiquement des messages, le développement des réseaux téléphoniques (à base de relais électromécaniques), sont aussi à prendre en compte pour comprendre l'avènement de ce nouveau genre de machine qui ne calculent pas (comme font/faisaient les calculatrices), mais lisent et interprètent des programmes qui -eux- calculent. Pour le monde des idées, avant l'invention de ces nouvelles machines, l'élément fondateur de la science informatique est en 1936, la publication de l'article On Computable Numbers with an Application to the Entscheidungsproblem25 par Alan Turing qui allait déplacer le centre de préoccupation de certains scientifiques (mathématiciens et logiciens) de l'époque, du sujet de la calculabilité (ou décidabilité) ouvert par Hilbert, malmené par Godël, éclairci par Church, vers le sujet de la mécanisation du calcul (ou calculabilité effective). Dans ce texte de 36 pages, Turing expose une machine théorique capable d'effectuer tout calcul ; il démontre que cette machine est aussi puissante, au niveau du calcul, que tout être humain. Autrement dit, un problème mathématique possède une solution, si et seulement si, il existe une machine de Turing capable de résoudre ce problème. Par la suite, il expose une machine de Turing universelle apte à reproduire toute machine de Turing, il s'agit des concepts d'ordinateur, de programmation et de programme. Il termine en démontrant qu'il existe au moins un problème mathématique formellement insoluble, le problème de l'arrêt.
+
+Peu avant la Seconde Guerre mondiale, apparurent les premières calculatrices électromécaniques, construites selon les idées d'Alan Turing. Les machines furent vite supplantées par les premiers calculateurs électroniques, nettement plus performants.
+Années 1930
+
+La fin des années 1930 virent, pour la première fois dans l'histoire de l'informatique, le début de la construction de deux machines à calculer programmables. Elles utilisaient des relais et étaient programmées par la lecture de rouleaux perforés et donc, pour certains, étaient déjà des ordinateurs. Elles ne furent mises en service qu'au début des années 1940, faisant ainsi de 1940 la première décennie dans laquelle on trouve des ordinateurs et des machines à calculer programmables totalement fonctionnels. C'est d'abord en 1937 que Howard Aiken, qui avait réalisé que la machine analytique de Babbage était le type de machine à calculer qu'il voulait développer26, proposa à IBM de la créer et de la construire ; après une étude de faisabilité, Thomas J. Watson accepta de la construire en 1939 ; elle fut testée en 1943 dans les locaux d'IBM et fut donnée et déménagée à l'université Harvard en 1944, changeant son nom de ASCC à Harvard Mark I ou Mark I.
+
+Mais c'est aussi Konrad Zuse qui commença le développement de son Zuse 3, en secret, en 1939, et qui le finira en 1941. Parce que le Zuse 3 resta inconnu du grand public jusqu’après la fin de la Seconde Guerre mondiale (sauf des services secrets américains qui le détruisirent dans un bombardement en 1943), ses solutions très inventives ne furent pas utilisées dans les efforts communs mondiaux de développement de l’ordinateur.
+Évolution
+Premier ordinateur (1937-1946)
+
+Six machines furent construites durant ces 9 ans. Elles furent toutes décrites, au moins une fois, dans la multitude de livres de l'histoire de l'informatique, comme étant le premier ordinateur ; aucune autre machine, construite ultérieurement, ne fut décrit comme telle. Ces six précurseurs peuvent être divisées en trois groupes bien spécifiques :
+
+    D'une part, deux machines à calculer. Ces deux machines n'étaient pas programmables, l'une était électromécanique, l'autre électronique :
+        1937 : l'ABC qui pouvait résoudre des équations linéaires et reconnu comme le premier ordinateur numérique,
+        1939 : le Complex Number Calculator de George Stibitz, conçu pour faire des opérations sur des nombres complexes ;
+    D'autre part, deux machines électromécaniques programmables, programmées par la lecture de rouleaux perforés, mais qui ne possédaient pas d'instruction de branchement conditionnel, et donc ne pouvaient aller d'une partie d'un programme à une autre :
+        1941 : le Zuse 3,
+        1944 : l'ASCC/Mark I d'IBM ;
+
+« Sans un branchement conditionnel, et donc l’implémentation mécanique du mot SI, le plus grand des calculateurs ne serait qu'une super machine à calculer. Il pourrait être comparé à une ligne d'assemblage, tout étant organisé du début à la fin, avec aucune possibilité de changement une fois que la machine est mise en marche27. »
+
+— Andrew Hodges, Alan Turing: the enigma, 1983.
+
+    Et enfin, deux machines électroniques spécialisées. Initialement ces machines ne pouvaient faire que cela, et étaient programmées par le changement de fils et d'interrupteurs :
+        le Colossus, conçu pour déchiffrer des messages secrets allemands,
+        1946 : l'ENIAC28, conçu pour calculer des trajectoires balistiques.
+
+« L'ENIAC et le Colosse étaient comme deux kits à assembler, desquelles beaucoup de machines similaires, mais différentes, pouvaient être construites. Aucun n’essaya d’implémenter l'universalité de la « machine de Babbage » dans laquelle la machine n'est jamais modifiée, et où seulement les instructions sont réécrites sur des cartes perforées29. »
+
+— Andrew Hodges, Alan Turing: the enigma, 1983.
+
+De ces six machines, seulement quatre furent connues de leurs contemporains, les deux autres, le Colosse et le Z3, utilisées dans l'effort de guerre, ne furent découvertes qu'après la fin de la Seconde Guerre mondiale, et donc ne participèrent pas au développement communautaire mondial des ordinateurs. Seulement deux de ces machines furent utilisées dans les années 1950, l'ASCC/Mark I et l'ENIAC, et chacune fut éventuellement modifiée pour en faire une machine Turing-complet. En juin 1945 est publié un article fondateur de John von Neumann30 donnant les bases de l'architecture utilisée dans la quasi-totalité des ordinateurs depuis lors. Dans cet article, von Neumann veut concevoir un programme enregistré et programmé dans la machine. La première machine correspondant à cette architecture, dite depuis architecture de von Neumann est une machine expérimentale la Small-Scale Experimental Machine (SSEM ou baby) construite à Manchester en juillet 1948. En août 1949 la première machine fonctionnelle, fondée sur les bases de von Neumann fut l'EDVAC.
+Tubes à vide et commutateurs (1946-1955)
+
+Cette chronologie31 demande qu'un ordinateur soit électronique et donc elle commence, en 1946, avec l'ENIAC qui, au départ, était programmé avec des interrupteurs et par le positionnement de fils sur un commutateur, comme sur un ancien standard téléphonique. Les ordinateurs de cette période sont énormes avec des dizaines de milliers de tubes à vide. L'ENIAC faisait 30 m de long, 2,40 m de haut et pesait 30 tonnes. Ces machines n’étaient pas du tout fiables, par exemple, en 1952, dix-neuf mille tubes furent remplacés sur l'ENIAC, soit plus de tubes qu'il n'en contient32.
+
+« L'ENIAC prouva, sans ambiguïté, que les principes de base de l'électronique était bien fondés. Il était vraiment inévitable que d'autres machines à calculer de ce type seraient perfectionnées grâce aux connaissances et à l’expérience acquises sur cette première33. »
+
+De nouveau, le titre de premier ordinateur commercialisé dépend de la définition utilisée ; trois ordinateurs sont souvent cités. En premier, le BINAC34, conçu par la Eckert–Mauchly Computer Corporation et livré à la Northrop Corporation en 1949 qui, après sa livraison, ne fut jamais fonctionnel35,36. En deuxième, le Ferranti Mark I, dont le prototype avait été développé par l'université de Manchester, fut amélioré et construit en un exemplaire par la société Ferranti et revendu à l'université de Manchester en février 195137. Et en dernier, UNIVAC I34, conçu par la « Eckert–Mauchly Computer Corporation », dont le premier fut vendu à l'United States Census Bureau le 30 mars 1951. Une vingtaine de machines furent produites et vendues entre 1951 et 195438.
+Générations suivantes (1955-2000)
+Un mini-ordinateur PDP-8.
+
+« L'utilisation de transistors au milieu des années 1950 changea le jeu complètement. Les ordinateurs devinrent assez fiables pour être vendus à des clients payants sachant qu'ils fonctionneraient assez longtemps pour faire du bon travail39 » Les circuits intégrés réduisirent la taille et le prix des ordinateurs considérablement. Les moyennes entreprises pouvaient maintenant acheter ce genre de machines.
+
+Les circuits intégrés permettent de concevoir une informatique plus décentralisée les constructeurs souhaitant concurrencer le géant IBM. Le microprocesseur fut inventé en 1969 par Ted Hoff d'Intel pendant le développement d'une calculatrice pour la firme japonaise Busicom. Intel commercialisera le 4004 fin 1971. Ted Hoff avait copié l'architecture du PDP-8, le premier mini-ordinateur, et c'est grâce à la technologie de circuits intégrés LSI (large scale integration), qui permettait de mettre quelques milliers de transistors sur une puce40 qu'il put miniaturiser les fonctions d'un ordinateur en un seul circuit intégré. La fonction première du microprocesseur était de contrôler son environnement. Il lisait des interrupteurs, les touches d'un clavier et il agissait en exécutant les opérations requises (addition, multiplication, etc.) et en affichant les résultats. Le premier ordinateur personnel fut décrit dans le livre d'Edmund Berkeley, Giant brain, or machines that think, en 1949, et sa construction fut décrite dans une série d'articles du magazine Radio-Electronics à partir du numéro d'octobre 1950. En 1972, une société française développe le Micral, premier micro-ordinateur à être basé sur le microprocesseur 8008. Mais l’ordinateur qui créa l'industrie de l'ordinateur personnel est l'Altair 880041,42 qui fut décrit pour la première fois dans le magazine Radio-Electronics de janvier 1975. Bill Gates, Paul Allen, Steve Wozniak et Steve Jobs (ordre chronologique) firent tous leurs débuts dans la micro-informatique sur ce produit moins de six mois après son introduction.
+Généralités
+
+Les ordinateurs furent d'abord utilisés pour le calcul (en nombres entiers d'abord, puis flottants). On ne peut cependant les assimiler à de simples calculateurs : en effet, le résultat du traitement d'un ordinateur peut être non seulement une série de nombres, mais aussi un nouveau programme (utilisable par cet ordinateur ou par un autre).
+
+    Dans l'architecture de von Neumann, les données sont banalisées et peuvent être interprétées indifféremment comme des nombres, des instructions, des valeurs logiques ou tout symbole défini arbitrairement (lettre de l’alphabet, par exemple).
+    Le calcul représente une des applications possibles. Dans ce cas, les données sont traitées comme des nombres.
+    L’ordinateur est utilisé aussi pour ses possibilités d'organisation de l’information, entre autres sur des périphériques de stockage magnétique. On a calculé à la fin des années 1980 que sans les ordinateurs il faudrait toute la population française juste pour faire dans ce pays le seul travail des banques.
+        Cette capacité d’organiser les informations a généralisé l’usage du traitement de texte dans le grand public ;
+        la gestion des bases de données relationnelles permet également de retrouver et de consolider des informations réparties vues par l'utilisateur comme plusieurs tables indépendantes.
+
+Le superordinateur Cray-1, lancé en 1976.
+
+Cette création d'un néologisme fut à l'origine de traductions multiples des expressions supercomputer, superordinateur ou supercalculateur, et Quantum computer, calculateur quantique ou ordinateur quantique. Dans ce dernier cas, l'utilisation du mot « ordinateur » est justement surfaite car les possibilités envisageables pour le calcul quantique sont loin de la polyvalence d'un « ordinateur ».[Information douteuse] [?]
+
+L'expérience a appris à distinguer dans un ordinateur deux aspects, dont le second avait été au départ sous-estimé :
+
+    l'architecture physique, matérielle (alias hardware ou hard) ;
+    l'architecture logicielle (alias software ou soft) ; un ordinateur très avancé techniquement pour son époque comme le Gamma 60 de la compagnie Bull n'eut pas le succès attendu, pour la simple raison qu'il existait peu de moyens de mettre en œuvre commodément ses possibilités techniques. Le logiciel - et son complément les services (formation, maintenance…) - forme depuis le milieu des années 1980 l’essentiel des coûts d'équipement informatique, le matériel n’y ayant qu'une part minoritaire.
+
+Les ordinateurs peuvent être sensibles aux bombes IEM.
+Fonctionnement
+Vue d'ensemble des différents organes d'un ordinateur personnel.
+Éclaté d'un ordinateur personnel :
+1 : Écran ;
+2 : Carte mère ;
+3 : Processeur ;
+4 : Parallèle ATA ;
+5 : Mémoire vive (RAM) ;
+6 : Connecteurs d'extensions : Carte Graphique, Carte Son, Carte réseau, etc. ;
+7 : Alimentation électrique ;
+8 : Lecteur de disque optique ;
+9 : Disque dur, disque électronique ;
+10 : Clavier ;
+11 : Souris.
+
+.
+
+Parmi toutes les machines inventées par l'Homme, l'ordinateur est celle qui se rapproche le plus du concept anthropologique suivant : Organe d'entrée, organe de traitement de l'information et organe de sortie. Chez l'humain, les organes d'entrée sont les organes sensoriels, l'organe de traitement est le cerveau dont les logiciels sont l'apprentissage avec des mises à jour constantes en cours de vie, puis les organes de sortie sont les muscles. Pour les ordinateurs modernes, les organes d'entrée sont le clavier et la souris et les organes de sortie, l'écran, l'imprimante, le graveur de DVD, etc. Les techniques utilisées pour fabriquer ces machines ont énormément changé depuis les années 1940 et sont devenues une technologie (c’est-à-dire un ensemble industriel organisé autour de techniques) à part entière depuis les années 1970. Beaucoup utilisent encore les concepts définis par John von Neumann, bien que cette architecture soit en régression : les programmes ne se modifient plus guère eux-mêmes (ce qui serait considéré comme une mauvaise pratique de programmation), et le matériel prend en compte cette nouvelle donne en séparant aujourd'hui nettement le stockage des instructions et des données, y compris dans les caches.
+
+L’architecture de von Neumann décomposait l’ordinateur en quatre parties distinctes :
+
+    l’unité arithmétique et logique (UAL) ou unité de traitement : son rôle est d’effectuer les opérations de base, un peu comme le ferait une calculatrice ;
+    l’unité de contrôle. C’est l’équivalent des doigts qui actionneraient la calculatrice ;
+    la mémoire qui contient à la fois les données et le programme qui dira à l’unité de contrôle quels calculs faire sur ces données. La mémoire se divise entre mémoire vive (programmes et données en cours de fonctionnement) et mémoire permanente (programmes et données de base de la machine) ;
+    les entrées-sorties : dispositifs qui permettent de communiquer avec le monde extérieur.
+
+UAL et UC
+
+L’unité arithmétique et logique ou UAL est l’élément qui réalise les opérations élémentaires (additions, soustractions…), les opérateurs logiques (ET, OU, NI, etc.) et les opérations de comparaison (par exemple la comparaison d’égalité entre deux zones de mémoire). C’est l’UAL qui effectue les calculs de l’ordinateur. L’unité de contrôle prend ses instructions dans la mémoire. Celles-ci lui indiquent ce qu’elle doit ordonner à l’UAL et, comment elle devra éventuellement agir selon les résultats que celle-ci lui fournira. Une fois l’opération terminée, l’unité de contrôle passe soit à l’instruction suivante, soit à une autre instruction à laquelle le programme lui ordonne de se brancher.
+
+L'unité de contrôle facilite la communication entre l'unité arithmétique et logique, la mémoire ainsi que les périphériques. Elle gère la plupart des exécutions des instructions dans l'ordinateur.
+Mémoire
+
+Au sein du système, la mémoire peut être décrite comme une suite de cellules numérotées contenant chacune une petite quantité d’informations. Cette information peut servir à indiquer à l’ordinateur ce qu’il doit faire (instructions) ou contenir des données à traiter. Dans la plupart des architectures, c'est la même mémoire qui est utilisée pour les deux fonctions. Dans les calculateurs massivement parallèles, on admet même que des instructions de programmes soient substituées à d’autres en cours d’opération lorsque cela se traduit par une plus grande efficacité. Cette pratique était jadis courante, mais les impératifs de lisibilité du génie logiciel l'ont fait régresser, hormis dans ce cas particulier, depuis plusieurs décennies. Cette mémoire peut être réécrite autant de fois que nécessaire. La taille de chacun des blocs de mémoire ainsi que la technologie utilisée ont varié selon les coûts et les besoins : 8 bits pour les télécommunications, 12 bits pour l’instrumentation (DEC) et 60 bits pour de gros calculateurs scientifiques (Control Data). Un consensus a fini par être trouvé autour de l’octet comme unité adressable et d’instructions sur format de 4 ou 8 octets.
+
+Dans tous les cas de figure, l'octet reste adressable, ce qui simplifie l'écriture des programmes. Les techniques utilisées pour la réalisation des mémoires ont compris des relais électromécaniques, des tubes au mercure au sein desquels étaient générées des ondes acoustiques, des transistors individuels, des tores de ferrite et enfin des circuits intégrés incluant des millions de transistors.
+Entrées-Sorties
+
+Les dispositifs d’entrée/sortie permettent à l’ordinateur de communiquer avec l’extérieur. Ces dispositifs sont très importants, du clavier à l’écran. La carte réseau permet par exemple de relier les ordinateurs en réseau informatique, dont le plus grand est Internet. Le point commun entre tous les périphériques d’entrée est qu’ils convertissent l’information qu’ils récupèrent de l’extérieur en données compréhensibles par l’ordinateur. À l’inverse, les périphériques de sortie décodent l’information fournie par l’ordinateur afin de la rendre compréhensible par l’utilisateur.
+Bus
+Article détaillé : bus (informatique).
+
+Ces différentes parties sont reliées par trois bus, le bus d'adresse, le bus de données et le bus de commande. Un bus est un groupement d'un certain nombre de fils électriques réalisant une liaison pour transporter des informations binaires codées sur plusieurs bits. Le bus d'adresse transporte les adresses générées par l'UCT (Unité Centrale de Traitement) pour sélectionner une case mémoire ou un registre interne de l'un des blocs. Le nombre de bits véhiculés par ce bus dépend de la quantité de mémoire qui doit être adressée. Le bus de données transporte les données échangées entre les différents éléments du système. Le bus de contrôle transporte les différents signaux de synchronisation nécessaires au fonctionnement du système : signal de lecture (RD), signal d'écriture (WR), signal de sélection (CS : Chip Select).
+Architecture
+
+La miniaturisation permet d’intégrer l’UAL et l’unité de contrôle au sein d’un même circuit intégré connu sous le nom de microprocesseur. Typiquement, la mémoire est située sur des circuits intégrés proches du processeur, une partie de cette mémoire, la mémoire cache, pouvant être située sur le même circuit intégré que l’UAL.
+
+L’ensemble est, sur la plupart des architectures, complété d’une horloge qui cadence le processeur. Bien sûr, on souhaite qu'elle soit le plus rapide possible, mais on ne peut pas augmenter sans limites sa vitesse pour deux raisons :
+
+    plus l’horloge est rapide et plus le processeur dégage de la chaleur (selon le carré de la fréquence). Une trop grande température peut détériorer le processeur ;
+    il existe une cadence où le processeur devient instable ; il génère des erreurs qui mènent le plus souvent à un plantage.
+
+Évolution du nombre de transistors sur un circuit intégré selon la loi de Moore.
+
+La tendance a été à partir de 2004 de regrouper plusieurs UAL dans le même processeur, voire plusieurs processeurs dans la même puce. En effet, la miniaturisation progressive (voir Loi de Moore) le permet sans grand changement de coût. Une autre tendance, depuis 2006 chez ARM, est aux microprocesseurs sans horloge : la moitié de la dissipation thermique est en effet due aux signaux d'horloge quand le microprocesseur fonctionne ; de plus, un microprocesseur sans horloge a une consommation presque nulle quand il ne fonctionne pas : le seul signal d'horloge nécessaire est alors celui destiné au rafraîchissement des mémoires. Cet atout est important pour les modèles portables.
+
+Le principal écart fonctionnel aujourd’hui par rapport au modèle de von Neumann est la présence sur certaines architectures de deux antémémoires différentes : une pour les instructions et une pour les données (alors que le modèle de von Neumann spécifiait une mémoire commune pour les deux). La raison de cet écart est que la modification par un programme de ses propres instructions est aujourd’hui considérée (sauf sur les machines hautement parallèles) comme une pratique à proscrire. Dès lors, si le contenu du cache de données doit être récrit en mémoire principale quand il est modifié, on sait que celui du cache d’instructions n’aura jamais à l’être, d’où simplification des circuits et gain de performance.
+Instructions
+
+Les instructions que l’ordinateur peut comprendre ne sont pas celles du langage humain. Le matériel sait juste exécuter un nombre limité d’instructions bien définies. Des instructions typiques comprises par un ordinateur sont par exemple :
+
+    « copier le contenu de la cellule 123 et le placer dans la cellule 456 »,
+    « ajouter le contenu de la cellule 321 à celui de la cellule 654
+    placer le résultat dans la cellule 777 »
+    « si le contenu de la cellule 999 vaut 0, exécuter l’instruction à la cellule 345 ».
+
+La plupart des instructions se composent de deux zones : l’une indiquant quoi faire, nommée code opération, et l’autre indiquant où le faire, nommée opérande.
+
+Au sein de l’ordinateur, les instructions correspondent à des codes - le code pour une copie étant par exemple 001. L’ensemble d’instructions qu’un ordinateur supporte se nomme son langage machine, langage qui est une succession de chiffres binaires, car les instructions et données qui sont comprises par le processeur (CPU) sont constituées uniquement de 0 (zéro) et de 1 (un) :
+
+    0 = Le courant électrique ne passe pas.
+    1 = Le courant électrique passe.
+
+En général, ce type de langage n'est pas utilisé car on lui préfère ce que l’on appelle un langage de haut niveau qui est ensuite transformé en langage binaire par un programme spécial (interpréteur ou compilateur selon les besoins). Les programmes ainsi obtenus sont des programmes compilés compréhensibles par l'ordinateur dans son langage natif. Certains langages de programmation, comme l’assembleur sont dits langages de bas niveau car les instructions qu’ils utilisent sont très proches de celles de l’ordinateur. Les programmes écrits dans ces langages sont ainsi très dépendants de la plate-forme pour laquelle ils ont été développés. Le langage C, beaucoup plus facile à relire que l’assembleur, permet de produire plus facilement des programmes. Pour cette raison, on l’a vu de plus en plus utilisé à mesure que les coûts du matériel diminuaient et que les salaires horaires des programmeurs augmentaient[réf. nécessaire].
+Logiciels
+
+Les logiciels informatiques sont des listes (généralement longues) d’instructions exécutables par un ordinateur. De nombreux programmes contiennent des millions d’instructions, effectuées pour certaines de manière répétitive. De nos jours, un ordinateur personnel exécute plusieurs milliards d’instructions par seconde. Depuis le milieu des années 1960, des ordinateurs exécutent plusieurs programmes simultanément. Cette possibilité est appelée multitâche. C’est le cas de tous les ordinateurs aujourd’hui[Quand ?]. En réalité, chaque cœur de processeur n’exécute qu’un programme à la fois, passant d’un programme à l’autre chaque fois que nécessaire. Si la rapidité du processeur est suffisamment grande par rapport au nombre de tâches à exécuter, l’utilisateur aura l’impression d’une exécution simultanée des programmes. Les priorités associées aux différents programmes sont, en général, gérées par le système d'exploitation.
+
+Le système d’exploitation est le programme central qui contient les programmes de base nécessaires au bon fonctionnement des applications de l’ordinateur. Le système d’exploitation alloue les ressources physiques de l’ordinateur (temps processeur, mémoire…) aux différents programmes en cours d’exécution. Il fournit aussi des outils aux logiciels (comme les pilotes) afin de leur faciliter l’utilisation des différents périphériques sans avoir à en connaître les détails physiques.
+
+Calculatrice mécanique
+Sauter à la navigation
+Sauter à la recherche
+Exemple de calculatrice mécanique : la Divisumma 24 d'Olivetti, datant de 1964. Le capot est retiré afin de faire ressortir le mécanisme de la machine. Les moteurs électriques sont à l’arrière
+
+Une calculatrice mécanique, appelée selon l'époque machine à calculer ou machine arithmétique, est une machine conçue pour simplifier et fiabiliser des opérations de calculs, et dont le fonctionnement est principalement mécanique.
+
+Le nom machine arithmétique fut choisi par Blaise Pascal, et donc utilisé à partir de 1642 et pendant tout le XVIIIe siècle. Il fut suivi du nom machine à calculer, qui fut utilisé pendant le XIXe siècle et la première moitié du XXe siècle. Le nom calculatrice mécanique, un néologisme de la deuxième moitié du XXe siècle, fut utilisé pour différencier les machines à calculer mécaniques des machines à calculer électroniques à partir de 1961, date de présentation de la première calculatrice entièrement électronique de Sumlock Comptometera.
+Sommaire
+
+    1 Historique
+        1.1 Origines
+        1.2 Le XVIIe siècle - Première machine à calculer fonctionnelle
+            1.2.1 Siècle pivot
+            1.2.2 Premières machines à calculer
+            1.2.3 Autres aides au calcul
+            1.2.4 Horloges à calculer imparfaites
+        1.3 Le XVIIIe siècle - De très nombreux prototypes
+        1.4 XIXe siècle - Le début de la production industrielle
+        1.5 XXe siècle - Le foisonnement des productions et l'extinction brutale
+        1.6 Déclin
+        1.7 Un objet de musée et de collection
+    2 Exemples d'utilisation
+        2.1 Principes
+        2.2 Addition
+        2.3 Soustraction
+        2.4 Multiplication
+        2.5 Division
+    3 Notes et références
+        3.1 Notes
+        3.2 Références
+    4 Annexes
+        4.1 Sources bibliographiques
+        4.2 Articles connexes
+        4.3 Liens externes
+
+Historique
+Dessin de boulier ; le nombre représenté est 6 302 715 408).
+Origines
+
+Les abaques, outils d'aide au calcul, sont utilisés depuis plusieurs millénaires. Outre le fait de compter sur ses doigts, le plus ancien outil de calcul est probablement le bâton de comptage. Le boulier est inventé avant 2000 av. J.-C.
+
+Des calculateurs analogiques sont construits aux époques antique et médiévale afin de réaliser des calculs astronomiques, comme la machine d'Anticythère ou l'astrolabe grecs (vers 150-100 av. J.-C.), les outils conçus par Al-Biruni comme le planisphère (vers 1000), l'équatorium et l'astrolabe universel indépendant de la latitude d'Al-Zarqali (vers 1015) ou la tour-horloge astronomique de Su Song (vers 1090).
+
+La suite de l'histoire se déroule sur quatre siècles et dure environ 330 ans, dont 120 ans seulement de production industrielle (1851-1970 environ).
+Le XVIIe siècle - Première machine à calculer fonctionnelle
+Article détaillé : Pascaline: Précurseurs de la machine à calculer.
+Siècle pivot
+
+Le XVIIe siècle fut un siècle charnière dans l'histoire des machines à calculer. D'abord il vit l'invention de la machine à calculer en 1642 par Blaise Pascal qui lança le développement du calcul mécanique d'abord en Europe (jusqu'aux années 1880), puis dans le monde entier et, par ailleurs, il vit la création d'un ensemble d'outils d'aide au calcul révolutionnaires comme les tables de logarithmes et les règles à calcul qui, de par la facilité qu'ils donnaient aux mathématiciens et aux physiciens de multiplier et de diviser, dominèrent et freinèrent le développement des machines à calculer1 jusqu'à la commercialisation de l'arithmomètre en 1851.
+Premières machines à calculer
+Quatre Pascalines et une machine construite par Lépine en 17252, Musée des arts et métiers.
+
+En 1642, Blaise Pascal invente la machine à calculer3, dénommée machine arithmétique, roue pascaline et enfin Pascaline, elle marque l'origine du calcul mécanique. Pascal construisit une vingtaine de pascalines dans la décennie suivante souvent en les perfectionnant; huit de ces machines ont survécu jusqu’à nos jours, une neuvième fut construite au XVIIIe siècle avec des pièces restantes4. Un privilège royal, promulgué par Louis XIVb, lui donna l'exclusivité de la production de machines à calculer en Francec,5.
+
+A partir de 1671, Gottfried Leibniz commence ses travaux sur les machines à calculer. Il veut ajouter une interface de multiplication et de division automatique à la pascaline. C'est ainsi qu'il est le premier à décrire une roue à nombre variable de dents en 16856 et qu'il invente son fameux cylindre cannelé 7. Il construit deux machines avec des cylindres cannelés qui peuvent multiplier deux nombres d'une manière directe, une en 1694 et une en 17068 ; seule la machine de 1694 nous est parvenue et son étude en 1893, exposa un problème avec le système de retenue ; la machine donnait un mauvais résultat quand le multiplicateur était un nombre de deux ou trois chiffres9. Ceci fait de la Pascaline la seule machine à calculer opérationnelle au XVIIe siècle.
+Autres aides au calcul
+
+John Napier introduisit les logarithmes et les tables de logarithmes en 1614 avec la publication de Mirifici logarithmorum canonis descriptio (les logarithmes transforment les multiplications en de simples additions et les divisions en soustractions). C'est pendant l’écriture de ce livre, qui demandait beaucoup de calculs, qu'il inventa les bâtons de Napier, qui furent décrit dans le livre Rabdologiæ seu Numerationis per Virgulas libri duo (1617).
+
+La règle à calcul, qui utilise le principe des logarithmes, fut inventée en 1622 par William Oughtred. Cet outil permet, par simple déplacement longitudinal d’échelles graduées, d’effectuer directement des opérations arithmétiques de multiplication et de division mais peut aussi servir à exécuter des opérations plus complexes, telles que le calcul de racines carrées, de cubiques, des calculs logarithmiques ou bien trigonométriques10. Il fut emmené sur cinq missions du programme Apollo dans les années 196011 et resta en usage jusqu'à l'invention de la calculatrice de poche vers 1970.
+Horloges à calculer imparfaites
+
+La construction d'une horloge à calculer (un mécanisme d'horloge avec des roues de résultats, d'inscriptions et de retenues ajoutées à chaque unité) était au-delà des capacités des artisans du XVIIe siècle12. La raison principale vient du fait que les roues d'une telle machine devaient être plus fortes, et donc plus lourdes, pour résister à la force d'entrée des données et donc leurs inerties et frictions cumulées pouvaient entraîner un blocage et une destruction des engrenages quand une retenue devait être propagée sur plusieurs chiffres successifs. Les seules horloges à calculer de ce siècle qui nous sont parvenues n'ont pas de systèmes de retenue complets et ne peuvent donc pas être appelées machines à calculer. La première horloge à calculer proprement dite fut construite par l'italien Giovanni Poleni au siècle suivant et ce n'était pas une machine à mode d'inscription direct (les chiffres était inscrits d'abord puis la machine était mise en marche).
+
+    En 1623, Wilhelm Schickard, un pasteur et universitaire souabe dessina une horloge à calculer sur deux lettres adressées à Johannes Kepler. La première machine qui devait être construite par un professionnel fut détruite, à moitié finie, dans un incendie en 1624 et Schickard abandonna son projet. Ces lettres furent publiées au moins une fois par siècle à partir de la publication d'un recueil de lettres de Kepler par Michael Hansch en 171813. En 1957 Dr. Franz Hammer réintroduisit cette machine proclamant, en erreur, qu'elle avait été oubliée pendant plus de trois siècles. La construction des premières répliques en 1960 ne put se faire qu'en ajoutant des roues et des ressorts qui ne se trouvaient pas dans les dessins de Schickard14 et la roue de transmission de retenue à une dent s’avéra ne pas être un système de retenue adéquat15.
+
+    Vers 1643, un horloger de Rouen, ayant pris connaissance des travaux de Pascal, construisit et vendit une horloge à calculer. Pascal licencia tous ses ouvriers dès qu'il apprit la nouvelle: « l'aspect de ce petit avorton me déplut au dernier point et refroidit tellement l'ardeur avec laquelle je faisais lors travailler à l'accomplissement de mon modèle qu'à l'instant même je donnai congé à tous les ouvriers »5. Pascal reprit son travail après avoir reçu la promesse d'une protection par privilège royal mais aussi après avoir constaté que cette horloge à calculer ne marchait pas correctement car ce n'était « qu'une pièce inutile, propre véritablement, polie et très bien limée par le dehors, mais tellement imparfaite au dedans qu'elle n'est d'aucun usage »5.
+
+    En 1659, l'italien Tito Livio Burattini construisit une horloge à calculer avec neuf roues indépendantes. Chaque roue était appairée à une petite roue de retenue. À la fin d'une addition il fallait ajouter soit mentalement, soit physiquement le contenu des roues de retenues aux chiffres suivants16. Ce n’était pas une machine à calculer.
+
+    En 1666, Samuel Morland inventa une machine pour ajouter des quantités monétaires anglaises. Chaque roue était appairée à une petite roue de retenue comme sur la machine de Burattini. Ce n’était pas une machine à calculer. Morland construisit une autre machine avec des disques interchangeables similaires au système des Bâtons de Napier17,18
+
+    En 1673, l'horloger parisien René Grillet publia dans Curiositez mathématiques de l'invention du Sr Grillet, horloger à Paris la description d'une machine à calculer qui aurait été plus petite et plus performante que celle de Pascal. Les deux seules machines de Grillet qui nous sont parvenues n'ont pas de système de retenue du tout, elles ont vingt-sept roues totalement indépendantes. « La machine de Grillet ne mérite donc pas même le nom de machine »19.
+
+Le XVIIIe siècle - De très nombreux prototypes
+Détails d'une machine à calculer construite au XVIIIe siècle par l'allemand Johann Helfrich Müller.
+Articles détaillés : Roue à nombre variable de dents et Cylindre cannelé de Leibniz.
+
+Le XVIIIe siècle vit les premières machines à calculer complètes, qui pouvaient faire les quatre opérations d’arithmétique automatiquement. Elles utilisaient soit des cylindres cannelés de Leibniz soit des roues à nombre variable de dents. Les quelques essais de commercialisation n'eurent aucun succès. Les premières horloges à calculer dignes de ce nom firent aussi leur apparition.
+
+    En 1709 l'italien Giovanni Poleni construisit la première machine à calculer utilisant des roues à nombre variable de dents. En fait, c’était une horloge à calcul et elle était en bois20,21. Poleni décrivit sa machine dans son livre Miscellanea en 1709, et elle fut aussi décrite par Jacob Leupold dans son livre Theatrum Machinarum Generale, publié en 1727.
+
+    En 1725, l'Académie des sciences certifia une machine à calculer inventée par Lépine, un artisan français. Cette machine ressemblait à une pascaline de l’extérieur et avait un mécanisme d'horloge à calculer à l’intérieur, « ...le report ne s'effectuant pas en cascade, la machine devait se bloquer au-delà de quelques reports simultanés »22.
+
+    En 1727, Antonius Braun, un natif de Souabe, présenta une machine basée sur le principe des roues à nombre variable de dents à l'empereur Charles VI de Vienne. Elle était cylindrique et ressemblait à une horloge de table de la renaissance; elle était finement ciselée, faite d'acier, d'argent et de bronze. Elle pouvait faire les quatre opérations et utilisait des roues à nombre variable de dents23.
+
+    En 1730, l'Académie des sciences certifia trois machines inventées par Hillerin de Boistissandeau qui avaient un mécanisme d'horloge à calculer. La première machine utilisait un système de retenue à une dent (comme l'horloge de Schickard) et d'après Boistissandeau lui-même la machine ne fonctionnait pas correctement après deux reports consécutifs. Les deux autres machines utilisaient des ressorts pour armer les retenues ce qui est une solution adéquate pour le système de report de retenue d'une horloge à calculer24 (sur la Pascaline les retenues sont armées progressivement en augmentant l'énergie potentielle des sautoirs).
+
+    En 1770, Philipp-Matthaüs Hahn, un pasteur allemand, construisit deux machines de forme circulaire utilisant les cylindres de Leibniz25,26. J.C. Schuster, horloger à Ansbach et beau-frère de Hahn, construisit quelques machines de Hahn jusqu'en 180027.
+
+    En 1775, le comte Charles Stanhope d’Angleterre conçut une machine multiplicatrice basée sur une amélioration des cylindres de Leibniz. Il conçut une machine multiplicatrice à nombre variable de dents en 1777 et une machine logique, le Demonstrator28.
+
+    En 1783, Johann-Helfrich Müller construisit une machine similaire à celle de Hahn.
+
+XIXe siècle - Le début de la production industrielle
+Chronologie des machines à calculer de bureau en production au XIXe siècle.
+Vue détaillée d'un arithmomètre capable d'opérer les quatre opérations d'arithmétique avec le curseur du multiplicateur à un chiffre sur la gauche. Thomas ne construisit que quelques prototypes avec ce curseur (1850-51).
+
+En 1820 Thomas de Colmar invente l'Arithmomètre, sur la base de la machine de Leibniz de 1673, et de ses fameux cylindres à dents de longueurs progressive. Il permet de multiplier et de diviser un opérande de quelques chiffres par un opérateur à un chiffre. Thomas passera 30 ans et 300.000 francs pour améliorer cette machine29. Incidemment, il acheta le Château de Maisons-Laffitte en 1848 pour la moitié de cette somme30.
+
+En 1834, Charles Babbage associe les cartes du métier Jacquard à une machine à calculer et imagine sa machine analytique, l’ancêtre des ordinateurs. Il la dote de mémoires, d'imprimantes, d'une unité centrale de calcul, d'un lecteur de cartes Jacquard pour les données et d'un autre pour les cartes de programmes (il crée ainsi le premier langage machine de programmation)31. Cette machine ne fut jamais construite mais cent ans plus tard, en 1937, Howard Aiken en fit mention plusieurs fois quand il convainquit IBM de se lancer dans le développement d'ordinateurs avec la construction de l'Harvard Mark Id,e.
+Vue détaillée d'un Arithmomètre avec sa platine mobile étendue. Les machines d'après 1851 ne peuvent faire que des additions et des soustractions de façon directe, mais le déplacement manuel du chariot permet multiplications, divisions, et racines carrées avec rapidité.
+
+En 1851, Thomas de Colmar simplifie l'arithmomètre en ôtant le curseur multiplicateur. Ce n'est plus qu'une machine à addition et soustraction directes mais grâce à son plateau de résultat mobile, et, bientôt, le compteur de tours de manivelle, elle permet de faire des multiplications, des divisions, des racines carrées, d'une manière simple et rapide. Chaque machine est dotée d'un numéro de série et des notices d'instructions sont imprimées. C'est grâce à sa simplicité, à sa fiabilité et à sa robustesse que les banques, les compagnies d'assurances, les bureaux du gouvernement commencent à utiliser une machine à calculer dans leurs opérations journalières. L'arithmomètre devient la première machine à calculer commercialisée ; le début de sa production en série crée l'industrie de la machine à calculer. L'arithmomètre n'a pas de concurrent pendant quarante ans (sauf pour deux de ses clones vers la fin de cette période). Il s'en fabrique près de 5000, jusqu'en 1915/1920, en comptant les fabrications, sur des bases communes, de son mécanicien et successeur, Louis Payen, puis celles de Mme veuve Payen32.
+Arithmomètre d'Odhner
+
+En 1873 W.T. Odhner crée l'Arithmomètre d'Odhner en dessinant une machine autour des roues à nombres variables de dents de Poléni. Sa commercialisation commença en 1890. Au fil du temps, cette machine sera clonée dans le monde entier et des millions d'exemplaires seront vendus, jusque dans les années 1970.
+
+Le Comptomètre est breveté aux États-Unis en 1886 ; en 1887 il devient le premier appareil à clavier direct à être commercialisé. Un clavier direct est très rapide car chaque touche ajoute sa valeur au total dès qu'elle est enfoncée (au lieu d'avoir à actionner une manette) et plusieurs touches peuvent être utilisées à la fois. C'est le Comptomètre qui gagne le plus grand nombre de concours de vitesse (addition et soustraction). En 1961, il deviendra la première machine à calculer à avoir un organe de calcul électronique (ANITA mark VII de Sumlock Comptometer Ltd)
+
+La Millionnaire est introduite en 1893. Elle permet la multiplication directe.
+
+Le concept de la calculatrice à crosses est inventé par Louis Troncet en 1889. Il conduit à des instruments plats et portables, qui ne sont pas de véritables machines : L'opérateur effectue un mouvement particulier quand une retenue est nécessaire, mais l'utilisation en est très simple. Ils sont popularisés dans les années 1920 avec l'Addiator.
+XXe siècle - Le foisonnement des productions et l'extinction brutale
+Calculatrice mécanique en 1914.
+
+Entre 1900 et 1960, les calculatrices mécaniques se développent, leur mécanisme s'affine. Certains appareils possèdent des moteurs électriques. De nombreuses calculatrices possèdent une rangée entière de touches numérotées par position décimale, ce qu'on appelle le clavier complet.
+
+En 1902 Dalton introduit la première machine à n'utiliser que 10 touches numériques,(le clavier réduit).
+En 1932, la Facit-T est la première machine de ce type à rencontrer un succès commercial.
+En 1964, la Divisumma-14 d'Olivetti est la première machine à réaliser les 4 opérations et posséder à la fois 10 touches et un dispositif d'impression du résultat.
+
+En 1948, la Curta est introduite. Il s'agit d'une calculatrice miniaturisée, qui tient dans la main et qui est opérée par une manivelle, comme un moulin à café. Clin d'œil au génie de Leibniz, elle utilise son cylindre cannelé, premier organe de multiplication de l'histoire.
+Déclin
+
+À la suite du développement des calculateurs électroniques, le marché des calculatrices mécaniques décroît, mais les appareils continuent à se vendre jusqu'au début des années 1970. Les appareils de type Comptomètre sont souvent conservés plus longtemps, leurs opérateurs entraînés étant capables d'effectuer les calculs plus rapidement qu'avec une calculatrice électronique. Néanmoins, le développement des ordinateurs les rend finalement obsolètes.
+Un objet de musée et de collection
+
+Les calculatrices mécaniques ont accompagné une période de développement particulièrement intense des sciences et de l'industrie. Elles apparaissent brutalement en 1850, leur marché explose au tournant du XXe siècle et disparaît tout aussi brutalement dans les années 1970, supplantées par les machines électroniques. Elles ont été pendant 120 ans l'outil de travail des chercheurs comme des ingénieurs et des commerçants. Il est important, pour les générations futures et leur compréhension des progrès de cette période, de conserver une trace de ces machines, de leurs inventeurs, de leurs fabricants, de leurs utilisateurs, ou encore de leur fonctionnement, dont l'ingéniosité est toujours impressionnante.
+
+On peut en voir dans les musées des sciences et des techniques des grands pays industriels (Musée des arts et métiers en France) qui leur consacrent systématiquement une section. On peut aussi rencontrer des chercheurs et des collectionneurs dans un nombre très restreint d'associations nationales33. Musées et associations recueillent et préservent documents et matériels et sont des sources de renseignement inépuisables[réf. souhaitée].
+
+    Quelques calculateurs mécaniques
+
+    Facit NTK (1954).
+
+    Triumphator CRN1 (1958).
+
+    Walther WSR160 (1960).
+
+    Nisa K.
+
+    Contex 10.
+
+    Calculatrice italienne Everest (1955)
+
+    Curta.
+
+Cliquez sur une vignette pour l’agrandir.
+Exemples d'utilisation
+Principes
+Calculatrice mécanique produite par la société suédoise Facit.
+
+Les calculatrices mécaniques fonctionnent, pour la plupart, sur des principes similaires. Elles sont capables d'effectuer les quatre types d'opérations usuelles : addition, soustraction, multiplication et division.
+
+Les paragraphes qui suivent décrivent des exemples d'opérations sur une machine de type Facit, une compagnie suédoise. Cette machine dispose de trois cadrans : celui en haut à gauche permet d'afficher les résultats, celui de droite s'incrémente ou se décrémente à chaque tour positif (dans le sens horaire) ou négatif (dans le sens antihoraire) de la manivelle, et celui du bas affiche les nombres tapés sur le clavier. Trois leviers permettent d'effacer séparément chacun des trois cadrans et une manivelle permet de réaliser les opérations. Les nombres sont entrés à l'aide d'un clavier numérique similaire à celui d'une machine à écrire. Deux touches fléchées permettent de décaler d'une position décimale vers la droite ou la gauche le nombre utilisé par la manivelle. Cette disposition se retrouve sur de nombreux modèles de calculatrices mécaniques.
+Addition
+
+L'opération 252+49 s'effectue ainsi :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    En faisant un tour positif de manivelle, reproduire ce nombre sur l'écran de résultat.
+    Réinitialiser l'écran du bas avec la manette correspondante.
+    Introduire le nombre 49. Celui-ci s'affiche sur l'écran du bas.
+    En faisant un tour positif de manivelle, ce nombre est ajouté sur l'écran de résultat : 301.
+
+Soustraction
+
+L'opération 252-49 s'effectue de la manière suivante :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    En faisant un tour positif de manivelle, reproduire ce nombre sur l'écran de résultat.
+    Réinitialiser l'écran du bas avec la manette correspondante.
+    Introduire le nombre 49. Celui-ci s'affiche sur l'écran du bas.
+    En faisant un tour négatif de manivelle, ce nombre est retranché de l'écran de résultat : 203.
+
+Multiplication
+
+Pour effectuer l'opération 252×49, trois méthodes sont possibles :
+
+    Méthode fastidieuse (jamais utilisée mais utile en pédagogie), en considérant la multiplication par 49 comme l'équivalent de 48 additions successives de 252 sur lui-même :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    Faire 49 tours positifs de la manivelle. L'écran de droite indique le nombre de tours. Finalement, l'écran de gauche indique le résultat obtenu : 12 348.
+
+    Méthode rapide, en décomposant 49 sous la forme 4×10+9 :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    Traiter le chiffre des unités de 49 : faire 9 tours positifs de manivelle. L'écran de droite indique le nombre de tours (9) et l'écran de gauche indique le résultat obtenu : 2 268.
+    Appuyer une fois sur la flèche de gauche : cette opération décale le nombre posé et permet d'ajouter à chaque tour de manivelle le nombre 2 520 et non plus 252.
+    Traiter le chiffre des dizaines de 49 : faire 4 tours positifs de la manivelle. L'écran de droite indique le nombre de tours et l'écran de gauche indique le résultat final : 12 348.
+
+    Multiplication dite "abrégée". En considérant 49 comme 5×10-1 :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    Appuyer une fois sur la flèche de gauche pour passer aux dizaines : chaque tour de manivelle ajoute alors 2 520 à l'écran de résultat.
+    Faire 5 tours positifs. L'écran de droite indique le nombre de tours (50) et l'écran de gauche indique le résultat obtenu : 12 600.
+    Appuyer une fois sur la flèche de droite pour revenir aux unités : chaque tour de manivelle ajoute 252 à l'écran de résultat.
+    Faire 1 tour négatif. L'écran de droite indique le nombre de tours (49) et l'écran de gauche indique le résultat final : 12 348.
+
+Six tours de manivelle ont suffi dans la multiplication abrégée au lieu de 13 dans la multiplication classique. Les machines électromécaniques les plus évoluées utilisent automatiquement ce principe pour réduire le temps de calcul.
+Division
+
+Pour effectuer l'opération 252/49 :
+
+    Introduire le nombre 252. Celui-ci s'affiche sur l'écran du bas.
+    Faire 1 tour positif. Le nombre 252 est écrit sur les cadrans de gauche et du bas, le nombre 1 est écrit à droite.
+    Effacer l'écran du bas et l'écran de droite à l'aide des leviers appropriées.
+    Introduire le nombre 49. Celui-ci s'affiche sur l'écran du bas.
+    Faire des tours négatifs jusqu'à ce que le cadran de gauche indique un nombre inférieur à 49.
+    le quotient s'écrit sur le cadran de droite : 5. Le reste est affiché sur celui de gauche : 7.
+
+Notes et références
+Notes
+
+    ↑ La différence est évidente quand on compare les deux révisions (1949 et 1963) du n° 367 de la collection Que sais-je ?: Le calcul mécanique.
+    ↑ En 1649, pendant la régence de sa mère Anne d’Autriche.
+    ↑ L'exclusivité portait sur tout type de machine à calculer, pas seulement la Pascaline.
+    ↑ « Babbage devoted his energy to the design and construction of an analytical engine ... which was never completed, being too ambitious for the time. It pointed the way, however, to the modern punched-card-type of calculating machinery since it was intended to use perforated cards for its control, similar to those used in the Jacquard loom... Since the time of Babbage, the development of calculating machinery has continued at an increasing rate,...in large commercial enterprises, however, the volume of accounting work is so great that these machines are no longer adequate in scope. Hollerith, therefore, returned to the punched card first employed in calculating machinery by Babbage... », Howard Aiken, p.192, copie du memorandum soumis à IBM en 1937.
+    ↑ « Watson ne pensait pas que le calcul scientifique puisse représenter un jour un marché rémunérateur ; mais le projet ambitieux d'Aiken l’impressionna ; son mémorandum de 1937, 750 lignes à peine, remarquable de précision et de densité, constituait déjà un véritable cadre de travail ; d'une réalisation de cette envergure découlerait une bonne publicité pour IBM ; la machine pourrait intéresser la Marine américaine (confrontée à des calculs complexes et délicats) et un financement partiel sur fond publics n'était pas à exclure. », Robert Ligonnière, p.237 (1987)
+
+Pascaline
+Sauter à la navigation
+Sauter à la recherche
+Page d'aide sur l'homonymie Pour les articles homonymes, voir Pascaline (homonymie).
+Une pascaline, signée par Pascal en 1652, visible au musée des arts et métiers du Conservatoire national des arts et métiers à Paris.
+
+La pascaline, initialement dénommée machine d’arithmétique puis roue pascaline1, est une calculatrice mécanique inventée par Blaise Pascal, considéré comme l'inventeur de la machine à calculer2,3. C'est en 1642, à l'âge de dix-neuf ans, qu'il en conçut l’idée4, voulant soulager la tâche de son père qui venait d’être nommé surintendant de la Haute-Normandie par le cardinal de Richelieu et qui devait remettre en ordre les recettes fiscales de cette province5 ; elle permettait d’additionner et de soustraire deux nombres d'une façon directe et de faire des multiplications et des divisions par répétitions.
+
+C'est en 1645, après trois ans de recherches et cinquante prototypes, que Pascal présenta sa première machine en la dédiant au chancelier de France, Pierre Séguier6. Il construisit une vingtaine de pascalines dans la décennie suivante souvent en les perfectionnant ; huit de ces machines ont survécu jusqu’à nos jours, une neuvième fut assemblée au XVIIIe siècle avec des pièces restantes7. Un privilège royal, promulgué par Louis XIV8, lui donna l'exclusivité de la production de machines à calculer en France9,10.
+
+La pascaline fut la seule machine à calculer opérationnelle au XVIIe siècle11 car elle utilisait des pignons lanternes, empruntés aux machines de force (moulins à eau, horloges de clocher) que Pascal avait adaptés et miniaturisés pour sa machine. Ces pignons lanternes permettaient de résister aux mouvements brusques et irréguliers de la main de l'opérateur12 tout en ajoutant très peu de friction à l'ensemble du mécanisme13. De plus, Pascal inventa un reporteur : le sautoir, qui isolait chaque chiffre car il n'était lancé d'un chiffre à l'autre que pour ajouter une unité de retenue à la roue suivante, créant ainsi une progression des retenues en cascade14. Grâce au sautoir la pascaline n’était pas limitée en capacité : « pour la facilité de ce ... mouvement .... il est aussi facile de faire mouvoir mille et dix mille roues tout à la fois, si elles y étaient... que d'en faire mouvoir une seule »15.
+
+À partir de 1649, Pascal cherche à réduire le coût de fabrication de sa machine, qui la rend inaccessible au grand public. En 1654, toutefois, il abandonne le projet à la suite d'un traumatisme crânien sévère reçu au cours d'un accident de carrosse16, et se retire définitivement du monde de la science pour se consacrer à l'étude de la philosophie et à la religion. Il a trente-et-un ans.
+
+L'introduction de la pascaline marque le commencement du développement du calcul mécanique en Europe, puis, à partir du milieu du XIXe siècle, dans le monde entier. Ce développement, qui passera des machines à calculer aux calculatrices électriques et électroniques des siècles suivants, culminera avec l'invention du microprocesseur par Intel en 197117,18. Mais c'est aussi Charles Babbage qui concevra sa machine analytique de 1834 à 1837, une machine à calculer programmable qui est l'ancêtre des ordinateurs des années 194019, ceci en associant les inventions de Blaise Pascal et de Jacquard, commandant, avec des instructions écrites sur des cartes perforées, un des descendants de la pascaline, la première machine qui suppléa l'intelligence de l'homme20.
+
+La Pascaline fut à l'origine de beaucoup de machines et d'inventions clés de cette industrie. En effet, c'est en cherchant à y ajouter une interface de multiplication automatique que Leibniz inventa son fameux cylindre cannelé (1671)21 ; Thomas de Colmar s'inspira des travaux de Pascal et de Leibniz quand il conçut son arithmomètre, qui, après trente ans de développement, deviendra, en 1851, la première machine à calculer commercialisée au monde ; Dorr E. Felt substitua les roues d'entrée de la pascaline par un clavier à touches pour son comptomètre, qui sera la première machine à calculer utilisant un clavier et, soixante-dix ans plus tard, la première machine à calculer à devenir électronique. La pascaline fut aussi souvent améliorée avec les machines de Boistissandeau en 1730, mais surtout avec les machines de Didier Roth22 vers 1840, et enfin avec des machines portables jusqu'à l'avènement des premières calculatrices électroniques.
+Sommaire
+
+    1 Précurseurs de la machine à calculer
+        1.1 Abaques
+        1.2 Calculateurs analogiques, automates, podomètres
+    2 Historique
+        2.1 Développement
+        2.2 Seule machine à calculer opérationnelle au XVIIe siècle
+        2.3 Échec commercial
+        2.4 Accomplissements
+    3 Éloges littéraires
+    4 Applications
+    5 Machines connues et recensées
+    6 Composants
+        6.1 La platine
+            6.1.1 Vue d'ensemble
+            6.1.2 Roue d'inscription
+            6.1.3 Rayons contigus marqués
+            6.1.4 Les rondelles de mémoire
+            6.1.5 Les rondelles concentriques de soustraction
+        6.2 Rouages internes
+            6.2.1 Miniaturisation d'un mécanisme d'horloge de clocher
+            6.2.2 Roue à cliquet
+        6.3 Le sautoir
+            6.3.1 Principe de fonctionnement
+            6.3.2 Les trois phases de progression de retenue
+            6.3.3 Compétition
+    7 Notices d'utilisation
+    8 Les opérations
+        8.1 Principe
+        8.2 Complément à 9
+        8.3 Remise à zéro de la machine
+        8.4 Addition
+        8.5 Soustraction
+    9 Pascal versus Schickard
+        9.1 Horloges à calculer: impossibles à construire au XVIIe siècle
+        9.2 Les dessins de Schickard avaient été publiés dès 1718
+        9.3 Dessins d'une machine incomplète
+        9.4 Inadéquate roue de retenue à une dent
+        9.5 Conclusion
+    10 Par la suite
+    11 Notes
+    12 Sources
+    13 Articles connexes
+    14 Lien externe
+
+Précurseurs de la machine à calculer
+Abaques
+bâtons de Napier
+
+« Le mot calcul, symbole même de notre ère scientifique et technique, dérive du mot latin calculus qui signifie petit caillou »23
+
+    « Le désir d’accélérer le calcul mental et d'en réduire l'effort intellectuel, ainsi que celui d'éliminer les erreurs dues à la faillibilité de l'esprit humain, est probablement aussi vieux que l'histoire des mathématiques. Ce désir engendra la création et la construction d'abaques de toutes sortes, commençant avec le groupement de petits objets, comme des cailloux, utilisés initialement en petits tas, puis utilisés comme compteurs sur des planches compartimentées et enfin coulissant sur des fils montés dans un cadre comme dans le boulier. Cet instrument fut vraisemblablement inventé par les Sémites, puis adopté en Inde, d'où il se propagea à l'Ouest vers l'Europe et à l'Est vers la Chine et le Japon.
+
+    Après le développement du boulier, il n'y eut aucune amélioration des abaques jusqu’à l'invention par John Napier de ses bâtons, ou réglettes de Neper, en 1617. Ces réglettes furent incorporées dans des instruments de formes diverses, parfois approchant le début de la mécanisation du calcul, mais c'est Blaise Pascal qui nous donnera la première machine à calculer au sens du terme que nous utilisons aujourd'hui. »
+
+— Howard Aiken, Introduction de Proposed automatic calculating machine, présenté à IBM en 1937, pour la construction de l'ASCC24
+
+Dans les mains d'un professionnel bien entraîné le boulier était un instrument extrêmement rapide et très fiable, si bien qu'au Japon, en 1946, une compétition de vitesse entre un opérateur japonais avec son soroban, la version japonaise du boulier, et un opérateur américain avec un calculateur de bureau dernier cri (machine à calculer électrique) fut gagnée par Kiyoshi Mastuzaki, un employé du service de communication japonais, avec son soroban25.
+
+    « Une civilisation, au seuil de l'ère atomique, a chancelé lundi après-midi quand l'abaque, vieux de 2 000 ans, battit la machine à calculer électrique dans des épreuves d'addition, de soustraction, de division et dans un problème qui avait toutes ces opérations et même une multiplication ajoutée ... La machine à calculer ne gagna que dans l'épreuve de multiplication ... »
+
+— Nippon Times, 194626
+Calculateurs analogiques, automates, podomètres
+La machine d'Anticythère. Premier calculateur analogique destiné aux calculs astronomiques, activé par une manivelle.
+
+Toutes les machines à engrenage antérieures à la pascaline sont des précurseurs de la machine à calculer. Elles font partie d'une catégorie de calculateurs analogiques mécaniques qui répondent à l'action répétitive et continue d'un stimulateur comme la rotation d'une manivelle ou la descente d'un poids. Une fois que les données initiales sont entrées dans ces machines elles ne sont plus modifiées que par l'action continue de leurs stimulateurs. Ce genre de machine produit toujours un résultat identique pour des conditions de départ identiques. Certains automates furent aussi des précurseurs de la machine à calculer.
+Un carrosse de la dynastie Han avec deux figurines sonnant les distances.
+
+Une liste sommaire se doit d'inclure la machine d'Anticythère, un astrolabe d'avant 87 av. J.-C. unique et sans lendemain puis les astrolabes et les horloges mécaniques à partir du XIIe siècle. Ces machines permirent aux sociétés qui les produisaient de se familiariser avec la notion de mouvements à engrenage, avec le travail minutieux des métaux qui les composaient et avec leur assemblage27,28.
+
+Un odomètre, instrument qui mesure la distance parcourue par un véhicule, fut décrit pour la première fois par le Romain Vitruve vers 25 av. J.-C. ; dans le dixième volume de son De architectura il présente un odomètre, installé dans un chariot, qui consistait en une série de roues dentées liées par une progression de retenue. La première roue était entraînée par une des roues du chariot et la dernière faisait tomber une petite boule dans un sac à chaque mille romain parcouru29.
+
+Un texte chinois du IIIe siècle décrit un chariot monté de deux figurines en bois et d'un mécanisme qui faisait donner un coup de tambour à une des figurines tous les lis et qui faisait sonner une cloche à l'autre tous les dix lis30.
+Odomètre de Léonard de Vinci (avant 1519)
+
+Léonard de Vinci dessina un odomètre avant 1519.
+
+En 1525, l'artisan français Jean Fernel créa le premier podomètre, une machine qui compte le nombre de pas d'un homme ou d'un cheval ; il avait la forme d'une montre et avait quatre cadrans d'affichage (unités, dizaines, centaines, milliers) liés par un système de progression de retenue31.
+
+En 1623 et 1624, Wilhelm Schickard, un pasteur et universitaire souabe dessina une horloge à calculer sur deux lettres adressées à Johannes Kepler. La première machine qui devait être construite par un professionnel fut détruite, à moitié finie, dans un incendie en 1624 et Schickard abandonna son projet. Des copies furent construites dans les années 1960, mais il fallut finir la machine avec des roues et des ressorts supplémentaires, de plus le système de retenue à une dent n'était pas adéquat pour ce type de machine. Ce fut le premier des cinq essais infructueux de construire une machine à calculer en utilisant les rouages et le principe d'une horloge à calculer au XVIIe siècle (Schickard, un horloger de Rouen vers 1643, Burattini, Morland, Grillet)32. La première horloge à calculer proprement dite fut construite par l'italien Giovanni Poleni au siècle suivant (1709) et ce n'était pas une machine à mode d'inscription direct (les chiffres étaient inscrits d'abord puis la machine était mise en marche). En 1730, l'Académie des sciences certifia trois machines inventées par Hillerin de Boistissandeau qui avaient un mécanisme d'horloge à calculer. La première machine utilisait un système de retenue à une dent (comme l'horloge de Schickard) et d'après Boistissandeau lui-même la machine ne fonctionnait pas correctement après deux reports consécutifs. Les deux autres machines utilisaient des ressorts pour armer les retenues ce qui est une solution adéquat pour le système de report de retenue d'une horloge à calculer33(voir Pascal versus Schickard).
+Historique
+Développement
+
+Pascal décida de construire une machine à calculer pour aider son père dont l'occupation demandait beaucoup de calculs, mais qui à l'époque étaient effectués par des calculateurs (humains) avec des jetons ou à la plume. Les calculs comptables de cette époque étaient compliqués du fait que le système monétaire n’était pas décimal puisqu'il comptait 20 sols dans une livre et 12 deniers dans un sol. Il en était de même pour le calcul de longueurs et de poids.
+
+Il commença son développement en 1642 et expérimenta avec une cinquantaine de prototypes avant de s'arrêter sur la conception de la première machine qu'il présentera en 1645 ; voici comment il décrivit son effort :
+
+    « Au reste, si quelquefois tu as exercé ton esprit à l'invention des machines, je n'aurai pas grand-peine à te persuader que la forme de l'instrument, en l'état où il est à présent, n'est pas le premier effet de l'imagination que j'ai eue sur ce sujet : j' avais commencé l'exécution de mon projet par une machine très différente de celle-ci et en sa matière et en sa forme, laquelle (bien qu'en état de satisfaire à plusieurs) ne me donna pas pourtant la satisfaction entière ; ce qui fit qu'en la corrigeant peu à peu j'en fis insensiblement une seconde, en laquelle rencontrant encore des inconvénients que je ne pus souffrir, pour y apporter le remède, j'en composai une troisième qui va par ressorts et qui est très simple en sa construction. C'est celle de laquelle, comme j'ai déjà dit, je me suis servi plusieurs fois, au vu et su d'une infinité de personnes, et qui est encore en état de servir autant que jamais. Toutefois, en la perfectionnant toujours, je trouvai des raisons de la changer, et enfin reconnaissant dans toutes, ou de la difficulté d'agir, ou de la rudesse aux mouvements, ou de la disposition à se corrompre trop facilement par le temps ou par le transport, j'ai pris la patience de faire jusqu'à plus de cinquante modèles, tous différents, les uns de bois, les autres d'ivoire et d'ébène, et les autres de cuivre, avant que d'être venu à l'accomplissement de la machine que maintenant je fais paraître ; laquelle, bien que composée de tant de petites pièces différentes, comme tu pourras voir, est toutefois tellement solide, qu'après l'expérience dont j'ai parle ci-devant, j'ose te donner assurance que tous les efforts qu'elle pourrait recevoir en la transportant si loin que tu voudras, ne sauraient la corrompre ni lui faire souffrir la moindre altération15. »
+
+Cette invention le rendit immédiatement célèbre.
+
+Seule machine à calculer opérationnelle au XVIIe siècle
+Un dessin de Leibniz qui montre 124 * 365 exécuté sur la pascaline.
+
+Leibniz commença à développer des machines à calculer après la mort de Pascal. Il voulait d'abord construire une machine qui pourrait faire des multiplications automatiquement et qu'il voulait installer directement sur la pascaline pensant, à tort, que les roues de la pascaline pouvaient être actionnées simultanément. Il abandonna ce projet, mais, ce faisant, il fut le premier à décrire un système mécanique de calcul qui se basait sur des roues à nombre variable de dents.
+
+Il décida ensuite de construire une machine tout à fait nouvelle, utilisant pour la première fois dans une machine à calculer, des curseurs, une manivelle, un chariot mobile pour les résultats et son cylindre de Leibniz. Toutes ces inventions seront utilisées dans l'arithmomètre, la première machine commercialisée. Il construisit deux machines, une en 1694 et une en 1706. Seule la machine de 1694 nous est parvenue. Elle fut retrouvée après 250 ans d'abandon dans les greniers de l'université de Göttingen. Burkhardt, le premier producteur de clones d'arithmomètres l'examina à la fin du XIXe siècle et trouva un problème avec le report de retenue34.
+
+Il faut aussi noter qu'aucun des essais de produire une machine à calculer à partir d'une base d'horloge au XVIIe siècle ne furent fructueux :
+
+    l'horloge de Schickard était incomplète et avait un mauvais système de retenue à une dent ;
+    celle d'un horloger de Rouen vers 1643 a été décrite comme avorton incomplet par Pascal ;
+    les machines de Burattini, Morland, Grillet, qui furent les seules machines à nous être parvenues, n'étaient pas des machines à calculer car elles n'avaient pas de système de report de retenue entre les chiffres de l’accumulateur.
+
+Claude Perrault inventa un « Abaque Rhabdologique » vers 1660 qui est souvent confondu pour une machine à calculer car il a un report de retenue automatique, mais c'est un abaque car l'opérateur doit manipuler la machine différemment après une retenue35.
+
+Pascal fut donc le premier et le seul à avoir une machine à calculer opérationnelle au XVIIe siècle. La seconde machine opérationnelle fut l'horloge à calculer de l'italien Giovanni Poleni construite au début du XVIIIe siècle, en 1709.
+Échec commercial
+Machine comptable de Louis Périer : les deux roues de droite sont pour les livres et les deniers
+Machine comptable de Louis Périer : le mécanisme complet est exposé par l'ouverture de la trappe d’accès
+
+La commercialisation de la pascaline fut un échec principalement à cause de son prix élevé qui était de 100 à 400 livres mais le texte du privilège royal de 1649 montre que Pascal était en train de développer une machine à calculer plus simple :
+
+    « Et parce que ledit instrument est maintenant à un prix excessif qui le rend, par sa cherté, comme inutile au public, et qu'il espère le réduire à moindre prix et tel qu'il puisse avoir cours, ce qu'il prétend faire par l'invention d'un mouvement plus simple et qui opère néanmoins le même effet, à la recherche duquel il travaille continuellement, et en y stylant peu à peu les ouvriers encore peu habitués10... »
+
+Pascal voulait donc simplifier sa machine et la rendre plus accessible au grand public mais un accident de carrosse malencontreux, en octobre 1654, le fit se retirer du monde scientifique et se consacrer uniquement à la poursuite de la philosophie et de la religion. L'accident arriva quand deux des quatre chevaux de son carrosse tombèrent dans la Seine sur le pont de Neuilly ; alors,
+
+    « ...il eut beaucoup de peine à revenir d'un long évanouissement ; son cerveau fut tellement ébranlé, que dans la suite, au milieu de ses insomnies et de ses exténuations, il croyait voir de temps en temps, à côté de son lit, un précipice prêt à l'engloutir36. »
+
+Cet échec commercial vient aussi du fait que (en parlant des machines de Pascal et de ses successeurs en 1779) :
+
+    « ...ces machines sont coûteuses, un peu embarrassantes par le volume, et sujettes à se déranger. Ces inconvénients font plus que compenser leurs avantages. Aussi les Mathématiciens préfèrent-ils généralement les tables des logarithmes, qui changent les opérations les plus compliquées de l’arithmétique en de simples additions ou soustractions, auxquelles il suffit d'apporter une légère attention, pour éviter les erreurs de calcul37. »
+
+Il semble aussi qu'au siècle de Pascal les gens n’avaient pas l'habitude d'utiliser des machines, comme cette mise en garde le montre :
+
+    « Il est bon d'avertir que lorsqu'on remarque ainsi qu'en opérant sur une roue, les autres roues changent de chiffre, il ne faut pas s'imaginer qu'il y ait du désordre dans la machine car au contraire38... »
+
+Accomplissements
+
+En plus d'être la première machine à calculer dont la description ait été rendue publique en son temps, la pascaline est aussi :
+
+    la première machine à calculer à posséder un reporteur qui permettait la progression effective des retenues en cascade14 ;
+    la première machine à calculer utilisée dans un bureau (celui de son père pour le calcul d'impôt et la levée des tailles) ;
+    la première machine à calculer commercialisée (avec vingt exemplaires construits39) ;
+    la première machine brevetée (privilège royal de 164910) ;
+    la seule machine arithmétique décrite dans l'encyclopédie de Diderot & d'Alembert (1751) :
+
+« La première machine arithmétique qui ait paru, est de Blaise Pascal, né à Clermont en Auvergne le 19 juin 1623 ; Il l'inventa à l'âge de dix-neuf ans. On en a fait quelques autres depuis qui, au jugement même de MM. de l’Académie des Sciences, paraissent avoir sur celle de Pascal des avantages dans la pratique ; mais celle de Pascal est la plus ancienne ; elle a pu servir de modèle à toutes les autres ; c'est pourquoi nous l'avons préférée40. »
+
+    la première machine à calculer disponible chez un distributeur (« le Sieur de Roberval ... au Collège Maître Gervais ... tous les matins jusqu'à huit heures15 ») ;
+    la première machine à calculer utilisant d'autres bases que la base dix et adaptant dans la même machine plusieurs bases. Une machine compte les deniers (12 par sol), les sols (20 par livre), et les livres en utilisant des roues de 12,20,et 10 dents. Une autre machine compte les pouces, pieds et toises (12,12,6,10 dents) ;
+    la première machine à avoir été copiée (premier clone par un horloger de Rouen avant 164515).
+
+Éloges littéraires
+
+Le génie de Pascal et sa machine furent célébrés par les plus grands écrivains français :
+
+    « Il y avait un homme qui à douze ans avec des barres et des ronds, avait créé les mathématiques ; qui à seize avait fait le plus savant traité des coniques qu'on eût vu depuis l'antiquité ; qui à dix-neuf réduisit en machine une science qui existe tout entière dans l'entendement ; qui à vingt-trois ans démontra les phénomènes de la pesanteur de l'air, et détruisit une des grandes erreurs de l'ancienne physique ; qui à cet âge où les autres hommes commencent à peine de naître, ayant achevé de parcourir le cercle des sciences humaines, s’aperçut de leur néant, et tourna ses pensées vers la religion ; qui depuis ce moment jusqu’à sa mort, arrivée dans sa trente-neuvième année, toujours infirme et souffrant, fixa la langue que parlèrent Bossuet et Racine, donna le modèle de la plus parfaite plaisanterie comme du raisonnement le plus fort ; enfin, qui, dans les courts intervalles de ses maux, résolut par abstraction un des plus hauts problèmes de géométrie et jeta sur le papier des pensées qui tiennent autant du dieu que de l’homme : cet effrayant génie se nommait Blaise Pascal. »
+
+— Chateaubriand, le Génie du christianisme
+
+    « Pascal, fou sublime, né un siècle trop tôt. »
+
+— Voltaire
+
+Dans sa lettre dédicatoire au chancelier Seguier, Pascal parle des sciences diverses qu'il utilisa pour construire sa machine d'arithmétique: « Les lumières de la géométrie, de la physique et de la mécanique m'en fournirent le dessein »6. À la suite du trois centième anniversaire de sa naissance, Léon Brunschvicg expliqua que :
+
+    « ...l'universalité de l'hommage rendu à Pascal, chez nous et dans le monde, avait sa raison dans l'unité d'un génie véritablement universel. Il arrive, en effet, que certains hommes sont doués d'un certain génie, correspondant au développement extraordinaire d'une faculté maîtresse nettement définie, à l'impérieux appel d'une vocation bien déterminée. Mais à d'autres il est donné d'incarner le génie lui-même, parce qu'ils semblent défier la théorie des facultés, planer au-dessus de toute classification. D'eux, on ne peut pas dire qu'ils sont ceci ou cela ; ils sont ceci et cela, dominant toute matière à laquelle il leur a plu de s'appliquer, y imprimant, pour la durée des temps, la trace de leur passage. À l'un des premiers rangs, dans cette famille supérieure, il y a Blaise Pascal. »
+
+— Léon Brunschvicg, Le génie de Pascal, 192441
+
+Pascal lui-même remarqua que :
+
+    « La machine d'arithmétique fait des effets qui approchent plus de la pensée que tout ce que font les animaux ; mais elle ne fait rien qui puisse faire dire qu'elle a de la volonté, comme les animaux. »
+
+— Pascal, Pensées42
+
+Son génie et sa machine furent aussi célébrés par quelques poèmes d'auteurs moins connus :
+
+
+La platine
+Vue d'ensemble
+Roue d'inscription
+Deux poinçons sur deux rayons consécutifs (en haut à droite) marquent l'emplacement de remise à zéro pour cette roue.
+Il y a une rondelle de soustraction mais les chiffres sont à peine visibles.
+
+La platine a deux parties bien distinctes: la partie basse qui permet l'entrée des données et qui est composée de roues d'inscriptions qui ressemblent aux cadrans téléphoniques du milieu du XXe siècle, et la partie haute, composée d'un ensemble de lucarnes, qui servent à l’affichage des résultats. Chaque lucarne de résultat présente deux chiffres. Ils sont positionnés au-dessus l'un de l'autre et sont complémentaires dans la base choisie ; une barre horizontale, coulissante, masque une ligne à la fois, montrant ainsi soit tous les nombres directs quand elle est le plus près du bord de la machine, soit tous leurs compléments quand elle est positionnée vers le centre de la machine. Chaque lucarne de résultat est directement associée à une roue d'inscription.
+Roue d'inscription
+
+Pour une roue de 10 chiffres, l’extérieur fixe est numéroté, dans le sens des aiguilles d'une montre, à partir du butoir, avec une suite de nombres d'ordre décroissant de 9 à 0. Une roue étoilée mobile à 10 rayons est positionnée à l’intérieur de ce cadran. Pour ajouter 5 il suffit de positionner la pointe d'un stylet entre les rayons qui encadrent le chiffre 5 et de tourner la roue, dans le sens des aiguilles d'une montre, jusqu'au butoir.
+Rayons contigus marqués
+
+Sur toutes les machines47, les roues ont des marques sur deux rayons consécutifs de la roue étoilée. Le type de marque dépend de la machine (ce sont deux poinçons sur la photo de droite)48. En positionnant le stylet entre ces deux rayons et en tournant jusqu'au butoir, la roue concernée est mise à son maximum (5, 9, 11, 19), prête à être remise à zéro. En effet la roue étoilée est solidaire de son cylindre d'affichage (c'est pourquoi elle tourne d'un cran pendant un report de retenue) et donc chaque position de la roue correspond à un nombre sur son cylindre. Pour inscrire ces rayons pendant la fabrication d'une machine il suffit d'amener le cylindre à son maximum et de marquer le rayon en dessous du butoir et celui immédiatement à sa droite.
+
+Ces deux rayons marqués peuvent aussi être utilisés pour entrer le premier nombre d'une soustraction dans la fenêtre des compléments. L’opérateur doit inscrire les chiffres de droite à gauche ; pour chaque chiffre dans le nombre, il suffit d’encadrer sa représentation sur la jante fixe avec ces deux rayons sans oublier de le faire aussi pour les zéros d'ordre supérieur. Si l'on procède ainsi, il n'est pas nécessaire de remettre la machine à zéro préalablement.
+Les rondelles de mémoire
+
+Quatre des neuf machines recensées possèdent des rondelles de mémoires montées sur la barre horizontale coulissante. Elles sont appelées roues de quotient ou cercles de quotient et sont utilisées par l’opérateur pour mémoriser les quotients dans une division49.
+Les rondelles concentriques de soustraction
+
+Quatre machines possèdent des rondelles concentriques de soustraction50. Ces rondelles sont solidaires des roues étoilées qui les supportent, elles sont placées en leurs centres et tournent avec elles. Il suffit de positionner la pointe d'un stylet entre les rayons qui encadrent un chiffre gravé sur ces rondelles et de tourner dans le sens des aiguilles d'une montre jusqu'au butoir pour inscrire ce chiffre directement dans la fenêtre de soustraction. Les deux rayons contigus encadrent le chiffre 0 de la rondelle de soustraction.
+Rouages internes
+Miniaturisation d'un mécanisme d'horloge de clocher
+
+Pascal passa un peu plus de deux ans pour trouver un mécanisme qui marche, nous savons que son troisième prototype était encore basé sur un mécanisme d'horloge à calculer51. Finalement, c'est en miniaturisant des rouages à lanterne, qui se trouvent dans les rouages de moulins à eau et dans ceux d'horloges d'édifice, et qui permettent de résister à des forces et à des secousses très fortes, en ajoutant très peu de friction, qu'il réussira52.
+rouage à lanterne, assez solide pour résister à la force d'une bête de somme, ou de l'eau courante
+
+rouage à lanterne, dans une horloge d'édifice actionnée par des poids de centaines de kilos
+
+Adaptation par Pascal d'un rouage à lanterne, permettant de résister à n'importe quelle force d'entrée d'un opérateur
+
+Dans le dessin coloré ci-dessus, les rouages bleus (entrée des données) s’emboîtent avec les jaunes (application des règles d'arithmétique, recevant le sautoir du chiffre précédent, et prêt à envoyer son propre sautoir au chiffre suivant) qui eux-mêmes font tourner les rouages d'affichage (rouges). L’intersection de deux cylindres perpendiculaires se fait théoriquement en un point53, et donc la friction de tous ces cylindres pour un chiffre donné est théoriquement minimale et presque non-existante.
+Roue à cliquet
+
+Pascal adapta aussi une roue à cliquet, qui limite la rotation du mécanisme à un seul sens mais, dans son utilisation, il l'utilisa aussi pour centrer la roue d'affichage et le mécanisme de retenue parfaitement, tout ceci en apportant le moins de friction possible durant son utilisation. Pour une roue donnée, ce mécanisme marcherait six fois si l'opérateur ajoutait un six à la roue d'inscription correspondante.
+Le sautoir
+Le sautoir
+Le cliquet (en rouge) avec son ressort (en jaune) qui le pousse contre une des chevilles de la roue suivante.
+(détail d'une planche de 1779 coloriée)
+Principe de fonctionnement
+
+Pascal disait à propos du sautoir :
+
+    « ...pour la facilité de ce ... mouvement .... il est aussi facile de faire mouvoir mille et dix mille roues tout à la fois, si elles y étaient, quoique toutes achèvent leur mouvement très parfait, que d'en faire mouvoir une seule (je ne sais si, après le principe sur lequel j'ai fondé cette facilité, il en reste un autre dans la nature)15... »
+
+Une machine à dix mille roues marcherait aussi bien qu'une machine à deux roues car chaque roue d’entrée est totalement indépendante des autres. Quand il est temps de transmettre l'information de retenue, la roue concernée envoie son sautoir vers la roue suivante sans qu'il y ait de contact entre les deux roues. En tombant de son seul poids54, le sautoir se lance vers la roue suivante comme un acrobate qui se jette d'un trapèze à un autre sans que les trapèzes se touchent. Toutes les roues (avec engrenages et sautoir) sont ainsi identiques en poids et en taille quel que soit le nombre de roues.
+
+Pascal utilisa la gravité pour « armer » ses sautoirs. Il faut tourner une roue de cinq crans pour armer le sautoir totalement (il est engagé quand le chiffre du cadran est à 4 et monte progressivement jusqu'à 9) en revanche, quand il transmet la retenue, le sautoir ne doit faire tourner la roue suivante que d'un cran. Le sautoir a donc un surplus d’énergie important, ce qui permet au système de retenue de ne jamais se bloquer.
+
+Tous les sautoirs sont armés par l'entrée des données et par les retenues des roues précédentes. Pour remettre à zéro une machine de dix mille chiffres, si elle existait, il faudrait amener chacun des dix mille cadrans à neuf (ce qui armerait tous les sautoirs) et puis ajouter un 1 à la roue des unités. La propagation des retenues ressemblerait alors à un effet domino très rapide.
+Les trois phases de progression de retenue
+Les trois temps de l'utilisation du sautoir.
+(détail d'une planche de 1779 coloriée)
+
+L'image de droite montre les trois différentes phases de progression de retenue.
+
+    Pour une roue décimale, c'est pendant que le résultat affiché va de 4 à 9 que, l'une après l'autre, les deux chevilles de retenue lèvent le sautoir en le poussant sur sa partie échancrée (3,4,5). Pendant ce temps, le cliquet (1) est poussé contre une des chevilles de la roue de retenue grâce à son ressort (z,u) mais il n'a aucun effet sur cette roue car le cliquet supérieur (C) l'en empêche.
+    La retenue se transmet quand le cadran d'affichage va de 9 à 0. En premier lieu, le cliquet (1) dépasse la cheville sur laquelle il était appuyé et son ressort le pousse au-dessus de celle-là prêt à la pousser quand il retombera ; le sautoir continue de monter puis, un instant plus tard, la deuxième cheville de retenue le laisse tomber. Le sautoir est maintenant en chute libre55.
+    Le cliquet (1) entre en contact avec la cheville de la roue de retenue et la pousse sous l'action de la pesanteur. La roue tourne et le cliquet supérieur (C) se cale entre les deux chevilles suivantes. Le tout s’arrête quand la partie (T) du sautoir rentre en contact avec le butoir (R).
+
+Compétition
+
+Il fallut attendre trois siècles pour voir ce mécanisme amélioré avec le comptomètre A de Dorr E. Felt. Felt utilisa des ressorts pour armer ses retenues et comme avec la pascaline plus le nombre affiché est haut plus le ressort est armé, prêt à délivrer sa retenue à l'ordre suivant56.
+Notices d'utilisation
+
+Pascal pensait qu'une notice d'utilisation n'était pas nécessaire :
+
+    « ...tu jugeras que cette doctrine est du nombre de celles qui ne peuvent être enseignées que de vive voix, et qu'un discours par écrit en cette matière serait autant et plus inutile et embarrassant que celui qu'on emploierait à la description de toutes les parties d'une montre, dont toutefois l'explication est si facile, quand elle est faite bouche à bouche15... »
+
+Il y a une exception décrite dans la Lettre à la Sérénissime Reine de Suède (juin 1652), qu'il écrivit quand il lui fit don d'une de ses machines. Cette lettre dit que M. de Bourdelot, la personne chargée de délivrer cette machine, avait aussi en sa possession un discours qui expliquait :
+
+    « ...toute l'histoire de cet ouvrage, l'objet de son invention, l'occasion de sa recherche, l'utilité de ses ressorts, les difficultés de son exécution, les degrés de son progrès, le succès de son accomplissement et les règles de son usage57. »
+
+Ce discours, qui serait le seul manuel d’utilisation écrit par Pascal, n'a jamais été retrouvé.
+
+En 1982, la municipalité de Clermont-Ferrand fit l'acquisition de la copie d'une notice d'utilisation exécutée au XVIIIe siècle et dont l'auteur pourrait être Etienne Périer58. Cette copie intitulée Usage de la machine fut publiée en 1986 dans le numéro 8 du Courrier du centre international Blaise Pascal de Clermont-Ferrand.
+Les opérations
+Principe
+
+On ne peut effectuer directement que des additions et des soustractions. Les soustractions utilisent le principe du complément à 9. Elles se font aussi facilement que des additions et sont effectuées dans la fenêtre des compléments.
+
+Rien n'empêche de faire des multiplications par additions successives, ni des divisions par soustractions successives. Ce que nous trouverions un peu fastidieux devait être jugé très commode à l'époque de Pascal. Des rondelles de mémoire, présentes sur certaines machines, permettent de conserver des résultats intermédiaires.
+
+Remise à zéro de la machine
+
+Ceci se fait en utilisant les rayons contigus marqués. Pour chaque roue de la machine, il faut positionner le stylet entre ces deux rayons et tourner jusqu'au butoir. Ceci peut se faire dans n’importe quel ordre mais doit être fait sur tous les cadrans60. Puis il faut ajouter un au chiffre des unités61. Si la barre horizontale est en position d'addition, toutes les roues se remettent à zéro et si elle est en position de soustraction, chacune est mise à son maximum. Dans les deux cas, les rayons contigus marqués encadrent le chiffre maximum de chaque roue d'inscription.
+
+Il faut remarquer que la remise à zéro, nécessaire avant chaque nouvelle opération, prouve que la machine fonctionne parfaitement bien car elle force un report de retenue sur toutes les roues. Ceci est un testament de la solidité et de la qualité de la Pascaline car aucune des critiques de la Pascaline formulées au XVIIIe siècle n'ont parlé de problèmes avec le système de retenue et pourtant il était entièrement testé, sur toutes les machines, avant toute opération62.
+Remise à zéro 	Mettre toutes les roues à leur maximum en utilisant les rayons contigus marqués. Aucun report de retenue ne se produit pendant cette opération.
+ 0  	 0  	 0  	 0  	 0
+ 9  	 9  	 9  	 9  	 9
+  	Ajouter un à la roue des unités, la retenue se propage de roue en roue dans un effet domino ce qui remet toutes les roues à zéro.
+ 9  	 9  	 9  	 9  	 9
+ 0  	 0  	 0  	 0  	 0
+Addition
+
+La barre horizontale doit être placée près du bord de la machine en position d'addition. Après avoir mis la machine à zéro, il suffit d'inscrire les nombres les uns après les autres en utilisant les roues étoilées et le stylet. C'est un mode d'inscription direct et donc les retenues se font durant l'inscription des nombres63.
+
+Voici comme exemple l'opération: 12.345 + 56.789 = 69.134
+Addition 	La machine est à zéro, l'opérateur compose 12.345.
+ 8  	 7  	 6  	 5  	 4
+ 1  	 2  	 3  	 4  	 5
+	l'opérateur compose le deuxième nombre: 56.789. Le résultat est immédiatement présent dans l'accumulateur.
+ 3  	 0  	 8  	 6  	 5
+ 6  	 9  	 1  	 3  	 4
+Soustraction
+
+Pendant les deux étapes de la soustraction l'accumulateur aura les valeurs CP(A) au début puis CP(A - B) après l'addition de B. En utilisant la fenêtre des compléments nous voyons CP(CP(A)) qui est A et ensuite CP(CP(A - B)) qui est (A - B).
+
+Une soustraction est similaire à une addition ; les deux seules différences sont le choix de la fenêtre de résultat (direct/complément) et la méthode d'entré du premier nombre (direct/complément).
+
+La barre horizontale doit être placée près du centre de la machine en position de soustraction et donc expose le complément des nombres inscrits. Une remise à zéro de la machine fait apparaître le chiffre maximum sur chaque roue de la forme 99999xxx, x étant un des chiffres 5, 9, 11 ou 19 et dépend du type de machine utilisée (comptable, scientifique, géomètre). Il y a trois méthodes pour inscrire le premier nombre64 :
+
+    Si la machine a des rondelles concentriques de soustraction, pour chaque chiffre dans le nombre, il suffit de le trouver sur sa rondelle de soustraction, de positionner la pointe d'un stylet entre les rayons qui l’entourent et de tourner la roue étoilée dans le sens des aiguilles d'une montre jusqu'au butoir.
+    Une autre méthode, aussi simple, est d'utiliser les rayons contigus marqués et, pour chaque chiffre dans le nombre, il suffit de tourner la roue étoilée dans le sens des aiguilles d'une montre et de s’arrêter quand ces rayons contigus marqués l'encadrent. Après une remise à zéro, et sur toutes les roues, les rayons contigus marqués encadrent le chiffre maximum (5, 9, 11, 19) de la jante fixe .
+    L’opérateur peut aussi utiliser le complément de ce nombre et l'inscrire comme pour une addition. Par exemple, pour faire apparaître 710 dans la fenêtre des compléments d'une machine décimale, il suffit d'inscrire 289 avec les roues étoilées.
+
+Sur une machine de grande capacité et si les nombres à soustraire sont petits, l’opérateur peut soit mettre les chiffres d'ordres supérieurs à zéro, soit les garder à 9, à condition de ne pas les considérer dans le résultat de la soustraction suivante.
+
+L’opérateur peut soustraire autant de nombres qu'il veut tant que le nombre à soustraire est plus petit que le résultat de l’opération précédente.
+
+Les rondelles de mémoire peuvent être utilisées pour mémoriser le résultat d'une soustraction si ce nombre est à utiliser dans une addition suivante.
+
+Voice comme exemple l'opération : 54.321 - 12.345 = 41.976.
+Changement d'espace de visualisation 	Déplacez la barre vers le centre de la machine pour montrer le complément de l'accumulateur.
+ 9  	 9  	 9  	 9  	 9
+ 0  	 0  	 0  	 0  	 0
+Soustraction 	Entrez le complément de 54.321 (45.678) soit en utilisant les rondelles concentriques de soustraction soit en composant 45.678 directement.
+ 5  	 4  	 3  	 2  	 1
+ 4  	 5  	 6  	 7  	 8
+	Ajoutez 12.345. Le résultat 41.976 est présent immédiatement dans la fenêtre des compléments.
+ 4  	 1  	 9  	 7  	 6
+ 5  	 8  	 0  	 2  	 3
+Pascal versus Schickard
+Horloge à calculer de Schickard
+
+À partir de l'introduction de la pascaline et pendant plus de trois siècles Pascal fut connu et célébré comme l'inventeur de la machine à calculer65.
+
+Ce fait fut remis en question par Franz Hammer66, un écrivain biographe de Kepler, qui annonça en 1957 que deux lettres inconnues, écrites par Wilhelm Schickard à son ami Johannes Kepler, venaient d’être retrouvées après trois siècles d’absence. Chacune de ces lettres avait le dessin et la description d'une horloge à calculer oubliée.
+
+Hammer extrapola ses hypothèses et déclara que si cette machine n'avait pas été oubliée et si ses dessins n'avaient pas été perdus pendant plus de trois siècles, elle aurait été considérée comme la première machine à calculer puisqu'elle précédait l'invention de Pascal de vingt ans.
+
+Tous les faits vont à l'encontre des spéculations de Hammer[réf. nécessaire].
+Horloges à calculer: impossibles à construire au XVIIe siècle
+
+Trois machines construites au XVIIe siècle avec des rouages d'horloges nous sont parvenues. La machine de Burattini (1659)67, de Morland (1666)68 et de Grillet (1673). Aucune de ces machines ne possède un système de report de retenues proprement dit. Les deux premières ont une petite roue de retenue située au-dessus de chaque chiffre mais il n'y a pas de lien entre les chiffres. Celle de Grillet possède vingt-sept roues indépendantes sans aucun système de retenue.
+
+Un horloger de Rouen, ayant pris connaissance des travaux de Pascal, construisit et vendit69 une horloge à calculer vers 1643. Pascal licencia tous ses ouvriers dès qu'il apprit la nouvelle : « l'aspect de ce petit avorton me déplut au dernier point et refroidit tellement l'ardeur avec laquelle je faisais lors travailler à l'accomplissement de mon modèle qu'à l'instant même je donnai congé à tous les ouvriers »70. Cependant après avoir examiné cette machine de près Pascal déclara que ce n'était « qu'une pièce inutile, propre véritablement, polie et très bien limée par le dehors, mais tellement imparfaite au dedans qu'elle n'est d'aucun usage »70.
+
+À propos de cette horloge à calculer et d'autres potentielles, Pascal parle de « tous ces avortons illégitimes qui pourraient être engendrés d'ailleurs que de la légitime et nécessaire alliance de la théorie avec l'art »70. Le problème le plus important, que les inventeurs du XVIIe siècle ne réussirent pas à surmonter, vient du fait que les roues d'une horloge à calculer devaient être plus fortes, et donc plus lourdes, pour résister à la force d'entrée des données et donc leurs inerties et frictions cumulées pouvaient entraîner un blocage et une destruction des engrenages quand une retenue devait être propagée sur plusieurs chiffres successifs.
+Les dessins de Schickard avaient été publiés dès 1718
+
+En 1718, le premier écrivain biographe de Kepler, Michael Hansch, publia un livre des lettres de Kepler qui contenait les dessins de la machine de Schickard. En 1899, la machine de Schickard fut discutée dans Stuttgarter Zeitschrift für Vermessungswesen et en 1912 les croquis et les notes de Schickard furent publiés dans le magazine Nachrichten des Württembergischen Vermessungstechnischen Vereins71. Et donc, la machine de Schickard n'avait pas été oubliée pendant plus de trois siècles contrairement à l'argument principal de Hammer.
+Dessins d'une machine incomplète
+
+Le professeur von Freytag Loringhoff, de l'université de Tübingen construisit la première reproduction mais il fallut qu'il perfectionne le système de retenue à une dent qui :
+
+    « ... présente une multitude de problèmes pour toute personne voulant construire une machine à calculer basée sur ce principe. Le problème le plus important vient du fait que la dent unique de la roue mutilée doit s'insérer entre les dents de la roue intermédiaire, la faire tourner de 36 degrés (un dixième de tour), puis doit se retirer, tout cela en ne tournant elle-même que de 36 degrés. La solution la plus simple à ce problème est de composer la roue intermédiaire de deux roues, une avec des dents longues et une avec des dents courtes accouplée à une détente à ressort (similaire au pointeur/curseur utilisé dans une roue de loterie) ce qui permet aux pignons de s’arrêter dans des positions fixes. Nous ne savons pas si Schickard utilisa ce mécanisme, mais il marche bien sur les reproductions de von Freytab Loringhoff. »
+
+— Michael R. Williams72, History of Computing Technology, IEEE, 1997
+
+Sans ce système de retenue perfectionné au XXe siècle avec des roues et des ressorts qui ne figurent ni dans les lettres de Schickard, ni dans ses dessins, les reproductions de son horloge à calculer n'auraient pas fonctionné.
+Inadéquate roue de retenue à une dent
+
+Les deux machines utilisent un mode d'inscription direct (les opérations sont effectuées pendant l'entrée des données) et donc les reports de retenues se font durant l'inscription des opérandes
+
+    « Il est quasi-certain que Pascal ne connaissait rien de la machine de Schickard [...] »
+
+    « Il semble que Pascal ait réalisé dès le départ qu'une roue de propagation à une dent, comme celle utilisée par Schickard, n'était pas une solution adéquate pour le report de retenue. Une roue de propagation à une dent marche bien si la retenue est propagée sur un petit nombre de roues mais quand la retenue est propagée sur plusieurs roues consécutives de l'accumulateur la force requise pour faire avancer la machine est d'une telle magnitude qu'elle peut endommager ses rouages délicats »
+
+— Michael R. Williams73, History of Computing Technology, IEEE, 1997
+
+Un report de retenue qui utilise une roue à une dent marchait déjà bien dans les podomètres du XVIe siècle et marchait encore bien dans les compteurs à gaz du XXe siècle car ces machines ont des mécanismes beaucoup plus simples et beaucoup plus légers.
+
+Dans la machine de Pascal chaque roue est totalement indépendante. Cette indépendance est réalisée grâce à un sautoir à contrepoids « ...qui était en avance sur son temps puisqu'il effectuait les reports en cascade, évitant ainsi le blocage de la machine en cas de report multiple74 ». Il faut noter qu'avant toute opération la remise à zéro de la pascaline prouve que son mécanisme est en parfait état de fonctionnement car l’opérateur doit mettre toutes les roues de sa machine à leur maximum75 puis il doit ajouter 1 à la roue des unités61 ce qui entraîne un report de retenue sur toutes les roues. Ceci prouve que la pascaline marchait bien car aucune des critiques de la pascaline formulées au XVIIIe siècle ne fait mention de problèmes avec le système de retenue et pourtant il était testé, sur toutes les machines, avant toute opération62.
+Conclusion
+
+Bien que la machine de Schickard soit antérieure, elle n'eut aucune influence sur le développement des machines à calculer76, même si, contrairement aux présomptions de Hammer, les dessins de cette machine avaient été publiés dès 1718.
+
+« ...dans l'état actuel de la question, nous paraît-il légitime de considérer Schickard comme le principal précurseur du calcul mécanique, mais non comme l'inventeur de la machine à calculer77 » car la machine décrite dans les dessins et les lettres de Schickard n’était pas complète et même avec son mécanisme de retenue finalisé au XXe siècle elle peut s’autodétruire dans certains cas de figure78.
+
+Schickard vécu onze ans après avoir abandonné son projet, il s'occupa d'astronomie, inventa des instruments astronomiques et enseigna, mais il ne parla jamais plus de son horloge.
+Par la suite
+
+En 1673, Leibniz invente une machine capable d'effectuer plus simplement multiplications et divisions, grâce à un système de cylindres à dents de longueurs inégales, dits cylindres de Leibniz, servant de « mémoire ».
+Calculatrice mécanique hexadécimale IBM
+
+Certains[Qui ?] disent que la Pascaline connut une période de gloire dans les années 1960 en usage interne dans la compagnie IBM, qui en aurait fait fabriquer. C'était alors en effet le seul dispositif bon marché permettant d’effectuer très vite des calculs en numération hexadécimale, comme le demandait la programmation de l’époque. Cette rumeur repose en fait sur la rencontre de deux événements indépendants :
+
+    la commande par IBM, auprès d'un artisan de New-York, d'une centaine de reproductions exactes de la pascaline de leur collection, qui ont été offertes à leurs meilleurs clients, et que l'on trouve aujourd'hui parfois en vente sur le marché de l'antiquité.
+    la réalisation d'une petite machine mécanique de poche, en plastique, basée sur le principe de la pascaline, et possédant 4 roues de 16 chiffres pour calculer en hexadécimal (voir photo).
+
+Il ne resterait plus que 5 Pascaline dans le monde dont une à Clermont Ferrand[réf. nécessaire].

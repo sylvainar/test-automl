@@ -1,0 +1,1140 @@
+Aprendizaje automático
+Ir a la navegación
+Ir a la búsqueda
+
+El aprendizaje automático o aprendizaje automatizado o aprendizaje de máquinas (del inglés, machine learning) es el subcampo de las ciencias de la computación y una rama de la inteligencia artificial, cuyo objetivo es desarrollar técnicas que permitan que las computadoras aprendan. Se dice que un agente aprende cuando su desempeño mejora con la experiencia, es decir, cuando la habilidad no estaba presente entre sus rasgos de nacimiento.1​ De forma más concreta, se trata de encontrar algoritmos y heurísticas para convertir muestras de datos en programas de computadora, sin tener que escribir los últimos explícitamente. Los modelos o programas resultantes deben ser capaces de generalizar comportamientos e inferencias para un conjunto más amplio (potencialmente infinito) de datos.
+
+Es, por lo tanto, un proceso de inducción del conocimiento. En muchas ocasiones el campo de actuación del aprendizaje automático se solapa con el de la estadística inferencial, ya que las dos disciplinas se basan en el análisis de datos. Sin embargo, el aprendizaje automático incorpora las preocupaciones de la complejidad computacional de los problemas. Muchos problemas son de clase NP-hard, por lo que gran parte de la investigación realizada en aprendizaje automático está enfocada al diseño de soluciones factibles a esos problemas. El aprendizaje automático puede ser visto como un intento de automatizar algunas partes del método científico mediante métodos matemáticos.
+
+El aprendizaje automático tiene una amplia gama de aplicaciones, incluyendo motores de búsqueda, diagnósticos médicos, detección de fraude en el uso de tarjetas de crédito, análisis del mercado de valores, clasificación de secuencias de ADN, reconocimiento del habla y del lenguaje escrito, juegos y robótica.
+Aprendizaje automático
+Índice
+
+    1 Resumen
+        1.1 Modelos
+    2 Tipos de algoritmos
+    3 Técnicas de clasificación
+        3.1 Árboles de decisiones
+        3.2 Reglas de asociación
+        3.3 Algoritmos genéticos
+        3.4 Redes neuronales artificiales
+        3.5 Máquinas de vectores de soporte
+        3.6 Algoritmos de agrupamiento
+        3.7 Redes bayesianas
+    4 Conocimiento
+    5 Distinción entre Aprendizaje supervisado y no supervisado
+    6 Aplicaciones
+    7 Temas del aprendizaje automático
+    8 Historia y relación con otros temas
+    9 Software
+        9.1 Software de código abierto
+        9.2 Software comercial
+    10 Publicaciones y conferencias
+    11 Véase también
+    12 Referencias
+    13 Bibliografía
+    14 Enlaces externos
+
+Resumen
+
+Algunos sistemas de aprendizaje automático intentan eliminar toda necesidad de intuición o conocimiento experto de los procesos de análisis de datos, mientras otros tratan de establecer un marco de colaboración entre el experto y la computadora. De todas formas, la intuición humana no puede ser reemplazada en su totalidad, ya que el diseñador del sistema ha de especificar la forma de representación de los datos y los métodos de manipulación y caracterización de los mismos. Sin embargo, las computadoras son utilizadas por todo el mundo con fines tecnológicos muy buenos.
+Modelos
+
+El aprendizaje automático tiene como resultado un modelo para resolver una tarea dada. Entre los modelos se distinguen2​
+
+    Los modelos geométricos, construidos en el espacio de instancias y que pueden tener una, dos o múltiples dimensiones. Si hay un borde de decisión lineal entre las clases, se dice que los datos son linealmente separables. Un límite de decisión lineal se define como w * x = t, donde w es un vector perpendicular al límite de decisión, x es un punto arbitrario en el límite de decisión y t es el umbral de la decisión.
+    Los modelos probabilísticos, que intentan determinar la distribución de probabilidades descriptora de la función que enlaza a los valores de las características con valores determinados. Uno de los conceptos claves para desarrollar modelos probabilísticos es la estadística bayesiana.
+    Los modelos lógicos, que transforman y expresan las probabilidades en reglas organizadas en forma de árboles de decisión.
+
+Los modelos pueden también clasificarse como modelos de agrupamiento y modelos de gradiente. Los primeros tratan de dividir el espacio de instancias en grupos. Los segundos, como su nombre lo indican, representan un gradiente en el que se puede diferenciar entre cada instancia. Clasificadores geométricos como las máquinas de vectores de apoyo son modelos de gradientes.
+Tipos de algoritmos
+Una máquina de vectores de soporte
+
+Los diferentes algoritmos de Aprendizaje Automático se agrupan en una taxonomía en función de la salida de los mismos. Algunos tipos de algoritmos son:
+
+Aprendizaje supervisado
+
+Artículo principal: Aprendizaje supervisado
+
+    El algoritmo produce una función que establece una correspondencia entre las entradas y las salidas deseadas del sistema. Un ejemplo de este tipo de algoritmo es el problema de clasificación, donde el sistema de aprendizaje trata de etiquetar (clasificar) una serie de vectores utilizando una entre varias categorías (clases). La base de conocimiento del sistema está formada por ejemplos de etiquetados anteriores. Este tipo de aprendizaje puede llegar a ser muy útil en problemas de investigación biológica, biología computacional y bioinformática.
+
+Aprendizaje no supervisado
+
+Artículo principal: Aprendizaje no supervisado
+
+    Todo el proceso de modelado se lleva a cabo sobre un conjunto de ejemplos formado tan sólo por entradas al sistema. No se tiene información sobre las categorías de esos ejemplos. Por lo tanto, en este caso, el sistema tiene que ser capaz de reconocer patrones para poder etiquetar las nuevas entradas.
+
+Aprendizaje semisupervisado
+    Este tipo de algoritmos combinan los dos algoritmos anteriores para poder clasificar de manera adecuada. Se tiene en cuenta los datos marcados y los no marcados.
+
+Aprendizaje por refuerzo
+
+Artículo principal: Aprendizaje por refuerzo
+
+    El algoritmo aprende observando el mundo que le rodea. Su información de entrada es el feedback o retroalimentación que obtiene del mundo exterior como respuesta a sus acciones. Por lo tanto, el sistema aprende a base de ensayo-error.
+    El aprendizaje por refuerzo es el más general entre las tres categorías. En vez de que un instructor indique al agente qué hacer, el agente inteligente debe aprender cómo se comporta el entorno mediante recompensas (refuerzos) o castigos, derivados del éxito o del fracaso respectivamente. El objetivo principal es aprender la función de valor que le ayude al agente inteligente a maximizar la señal de recompensa y así optimizar sus políticas de modo a comprender el comportamiento del entorno y a tomar buenas decisiones para el logro de sus objetivos formales.
+    Los principales algoritmos de aprendizaje por refuerzo se desarrollan dentro de los métodos de resolución de problemas de decisión finitos de Markov, que incorporan las ecuaciones de Bellman y las funciones de valor. Los tres métodos principales son: la Programación Dinámica, los métodos de Monte Carlo y el aprendizaje de Diferencias Temporales.3​
+    Entre las implementaciones desarrolladas está AlphaGo, un programa de IA desarrollado por Google DeepMind para jugar el juego de mesa Go. En marzo de 2016 AlphaGo le ganó una partida al jugador profesional Lee Se-Dol que tiene la categoría noveno dan y 18 títulos mundiales. Entre los algoritmos que utiliza se encuentra el árbol de búsqueda Monte Carlo, también utiliza aprendizaje profundo con redes neuronales. Puede ver lo ocurrido en el documental de Netflix “AlphaGo”.
+
+Transducción
+    Similar al aprendizaje supervisado, pero no construye de forma explícita una función. Trata de predecir las categorías de los futuros ejemplos basándose en los ejemplos de entrada, sus respectivas categorías y los ejemplos nuevos al sistema.
+
+Aprendizaje multi-tarea
+    Métodos de aprendizaje que usan conocimiento previamente aprendido por el sistema de cara a enfrentarse a problemas parecidos a los ya vistos.
+
+El análisis computacional y de rendimiento de los algoritmos de aprendizaje automático es una rama de la estadística conocida como teoría computacional del aprendizaje.
+
+El aprendizaje automático las personas lo llevamos a cabo de manera automática ya que es un proceso tan sencillo para nosotros que ni nos damos cuenta de cómo se realiza y todo lo que implica. Desde que nacemos hasta que morimos los seres humanos llevamos a cabo diferentes procesos, entre ellos encontramos el de aprendizaje por medio del cual adquirimos conocimientos, desarrollamos habilidades para analizar y evaluar a través de métodos y técnicas así como también por medio de la experiencia propia. Sin embargo, a las máquinas hay que indicarles cómo aprender, ya que si no se logra que una máquina sea capaz de desarrollar sus habilidades, el proceso de aprendizaje no se estará llevando a cabo, sino que solo será una secuencia repetitiva. También debemos tener en cuenta que el tener conocimiento o el hecho de realizar bien el proceso de aprendizaje automático no implica que se sepa utilizar, es preciso saber aplicarlo en las actividades cotidianas, y un buen aprendizaje también implica saber cómo y cuándo utilizar nuestros conocimientos.
+
+Para llevar a cabo un buen aprendizaje es necesario considerar todos los factores que a este le rodean, como la sociedad, la economía, la ciudad, el ambiente, el lugar, etc. Por lo tanto, es necesario empezar a tomar diversas medidas para lograr un aprendizaje adecuado, y obtener una automatización adecuada del aprendizaje. Así, lo primero que se debe tener en cuenta es el concepto de conocimiento, que es el entendimiento de un determinado tema o materia en el cual tú puedas dar tu opinión o punto de vista, así como responder a ciertas interrogantes que puedan surgir de dicho tema o materia.
+Técnicas de clasificación
+Árboles de decisiones
+Artículo principal: Árbol de decisión
+
+Este tipo de aprendizaje usa un árbol de decisiones como modelo predictivo. Se mapean observaciones sobre un objeto con conclusiones sobre el valor final de dicho objeto.
+
+Los árboles son estructuras básicas en la informática. Los árboles de atributos son la base de las decisiones. Una de las dos formas principales de árboles de decisiones es la desarrollada por Quinlan de medir la impureza de la entropía en cada rama, algo que primero desarrolló en el algoritmo ID3 y luego en el C4.5. Otra de las estrategias se basa en el índice GINI y fue desarrollada por Breiman, Friedman et alia. El algoritmo de CART es una implementación de esta estrategia.4​
+Reglas de asociación
+Artículo principal: Reglas de asociación
+
+Los algoritmo de reglas de asociación procuran descubrir relaciones interesantes entre variables. Entre los métodos más conocidos se hallan el algoritmo a priori, el algoritmo Eclat y el algoritmo de Patrón Frecuente.
+Algoritmos genéticos
+Artículo principal: Algoritmos genéticos
+
+Los algoritmos genéticos son procesos de búsqueda heurística que simulan la selección natural. Usan métodos tales como la mutación y el cruzamiento para generar nuevas clases que puedan ofrecer una buena solución a un problema dado.
+Redes neuronales artificiales
+Artículo principal: Red neuronal artificial
+
+Las redes de neuronas artificiales (RNA) son un paradigma de aprendizaje automático inspirado en las neuronas de los sistemas nerviosos de los animales. Se trata de un sistema de enlaces de neuronas que colaboran entre sí para producir un estímulo de salida. Las conexiones tienen pesos numéricos que se adaptan según la experiencia. De esta manera, las redes neurales se adaptan a un impulso y son capaces de aprender. La importancia de las redes neurales cayó durante un tiempo con el desarrollo de los vectores de soporte y clasificadores lineales, pero volvió a surgir a finales de la década de 2000 con la llegada del aprendizaje profundo.
+Máquinas de vectores de soporte
+Artículo principal: Máquinas de vectores de soporte
+
+Las MVS son una serie de métodos de aprendizaje supervisado usados para clasificación y regresión. Los algoritmos de MVS usan un conjunto de ejemplos de entrenamiento clasificado en dos categorías para construir un modelo que prediga si un nuevo ejemplo pertenece a una u otra de dichas categorías.
+Algoritmos de agrupamiento
+Artículo principal: Algoritmo de agrupamiento
+
+El análisis por agrupamiento (clustering en inglés) es la clasificación de observaciones en subgrupos —clusters— para que las observaciones en cada grupo se asemejen entre sí según ciertos criterios.
+
+Las técnicas de agrupamiento hacen inferencias diferentes sobre la estructura de los datos; se guían usualmente por una medida de similaridad específica y por un nivel de compactamiento interno (similaridad entre los miembros de un grupo) y la separación entre los diferentes grupos.
+
+El agrupamiento es un método de aprendizaje no supervisado y es una técnica muy popular de análisis estadístico de datos.
+Redes bayesianas
+Artículo principal: Red bayesiana
+
+Una red bayesiana, red de creencia o modelo acíclico dirigido es un modelo probabilístico que representa una serie de variables de azar y sus independencias condicionales a través de un grafo acíclico dirigido. Una red bayesiana puede representar, por ejemplo, las relaciones probabilísticas entre enfermedades y síntomas. Dados ciertos síntomas, la red puede usarse para calcular las probabilidades de que ciertas enfermedades estén presentes en un organismo. Hay algoritmos eficientes que infieren y aprenden usando este tipo de representación.
+Conocimiento
+
+En el aprendizaje automático podemos obtener 3 tipos de conocimiento, que son:
+
+1. Crecimiento
+    Es el que se adquiere de lo que nos rodea, el cual guarda la información en la memoria como si dejara huellas.
+
+2. Reestructuración
+    Al interpretar los conocimientos el individuo razona y genera nuevo conocimiento al cual se le llama de reestructuración.
+
+3. Ajuste
+    Es el que se obtiene al generalizar varios conceptos o generando los propios.
+
+Los tres tipos se efectúan durante un proceso de aprendizaje automático pero la importancia de cada tipo de conocimiento depende de las características de lo que se está tratando de aprender.
+
+El aprendizaje es más que una necesidad, es un factor primordial para satisfacer las necesidades de la inteligencia artificial.
+Distinción entre Aprendizaje supervisado y no supervisado
+
+El aprendizaje supervisado se caracteriza por contar con información que especifica qué conjuntos de datos son satisfactorios para el objetivo del aprendizaje. Un ejemplo podría ser un software que reconoce si una imagen dada es o no la imagen de un rostro: para el aprendizaje del programa tendríamos que proporcionarle diferentes imágenes, especificando en el proceso si se trata o no de rostros.
+
+En el aprendizaje no supervisado, en cambio, el programa no cuenta con datos que definan qué información es satisfactoria o no. El objetivo principal de estos programas suele ser encontrar patrones que permitan separar y clasificar los datos en diferentes grupos, en función de sus atributos. Siguiendo el ejemplo anterior un software de aprendizaje no supervisado no sería capaz de decirnos si una imagen dada es un rostro o no pero sí podría, por ejemplo, clasificar las imágenes entre aquellas que contienen rostros humanos, de animales, o las que no contienen. La información obtenida por un algoritmo de aprendizaje no supervisado debe ser posteriormente interpretada por una persona para darle utilidad.
+Aplicaciones
+
+    Motores de búsqueda
+    Diagnóstico médico
+    Detección de fraudes con el uso de tarjetas de crédito
+    Análisis del mercado de valores
+    Clasificación de secuencias de ADN
+    Reconocimiento del habla
+    Robótica
+    Minería de datos
+    Big Data
+    Previsiones de series temporales
+
+Temas del aprendizaje automático
+
+A continuación se muestran una serie de temas que podrían formar parte del temario de un curso sobre aprendizaje automático.
+
+    Modelado de funciones de densidad de probabilidad condicionadas: clasificación y regresión
+        Redes neuronales artificiales
+        Árboles de decisión: El aprendizaje por árboles de decisión usa un árbol de decisión como modelo predictivo que mapea observaciones a conclusiones sobre el valor de un objeto dado.
+        Modelos de regresión múltiple no postulados
+        Regresión en procesos Gaussianos
+        Análisis de discriminantes lineales
+        k-vecinos más próximos
+        Perceptrón
+        Funciones de base radial
+        Máquinas de soporte vectorial
+    Modelado de funciones de densidad de probabilidad mediante modelos generativos
+        Algoritmo EM
+        Modelos gráficos, como las redes bayesianas y los campos aleatorios de Markov
+        Mapeado topográfico generativo
+    Técnicas de inferencia aproximada
+        Cadenas de Markov y Método de Montecarlo
+        Métodos variacionales
+    Optimización: La mayoría de los métodos descritos arriba usan algoritmos de optimización o son por sí mismos instancias de problemas de optimización.
+
+Historia y relación con otros temas
+
+El aprendizaje automático nació de la búsqueda de inteligencia artificial. Ya en los primeros días de la IA como disciplina académica, algunos investigadores se interesaron en hacer que las máquinas aprendiesen. Trataron de resolver el problema con diversos métodos simbólicos, así como lo que ellos llamaron 'redes neurales' que eran en general perceptrones y otros modelos básicamente basados en modelos lineares generalizados como se conocen en las estadísticas.
+Software
+
+Muchos lenguajes de programación pueden usarse para implementar algoritmos de aprendizaje automático. Los más populares para 2015 eran R y Python.5​ R es muy usado ante todo en el campo académico, mientras que Python es más popular en la empresa privada.
+
+Entre los paquetes de software que incluyen algoritmos de aprendizaje automatizado, se hallan los siguientes:
+Software de código abierto
+
+    TensorFlow: plataforma multilenguaje y multiplataforma desarrollada por Google y licenciada como Apache 2.
+    Apache Mahout: plataforma de Java de algoritmos escalables de aprendizaje automático, en especial en las áreas de filtro colaborativo, clustering y clasificación
+    dlib: una biblioteca bajo licencia Boost para desarrollar en C++
+    ELKI: una plataforma para Java con licencia AGPLv3
+    Encog
+    H2O
+    KNIME
+    mlpy
+    MLPACK
+    MOA
+    OpenCV
+    Tortilla JS
+    OpenNN
+    R: lenguaje de programación estadístico con numerosas bibliotecas relacionadas al aprendizaje automático (e1071, rpart, nnet, randomForest, entre otras)
+    RapidMiner
+    scikit-learn: biblioteca en Python que interactúa con NumPy y SciPy
+    Spark MLlib: una librería que forma parte de Apache Spark, una plataforma para computación de grupos
+    Weka: una biblioteca en Java
+
+Software comercial
+
+    SPSS Modeler
+    Mathematica
+    MATLAB
+    Microsoft Azure Machine Learning
+    Neural Designer
+    Oracle Data Mining
+    RCASE
+    STATISTICA
+    SAS
+
+Publicaciones y conferencias
+
+    Machine Learning
+    Journal of Machine Learning Research
+    Neural Computation
+    Conferencia Internacional sobre Aprendizaje Automático (International Conference on Machine Learning)
+    Conferencia sobre Sistemas Neurales de Procesamiento de la Información (Conference on Neural Information Processing Systems)
+
+Véase también
+
+    Aprendizaje profundo
+    Inteligencia artificial
+    Inteligencia computacional
+    Internet de las cosas
+    Sistema dinámico
+    Minería de datos
+    Reconocimiento de patrones
+    Reglas de asociación
+    Robot autónomo
+    Sistema complejo
+    Representación del conocimiento
+
+Computadora
+Ir a la navegación
+Ir a la búsqueda
+Para otros usos de este término, véase Computadora (desambiguación).
+Ordenador personal, vista del hardware típico.
+1: Monitor
+2: Placa base
+3: Microprocesador o CPU
+4: Puertos SATA
+5: Memoria RAM
+6: Placas de expansión
+7: Fuente de alimentación
+8: Unidad de disco óptico
+9: Unidad de disco duro, Unidad de estado sólido
+10: Teclado
+11: Ratón
+
+La computadora1​2​ (del inglés: computer y este del latín: computare,3​ ‘calcular’), también denominada computador4​1​ u ordenador5​6​ (del francés: ordinateur; y este del latín: ordinator), es una máquina digital que lee y realiza operaciones para convertirlos en datos convenientes y útiles que posteriormente se envían a las unidades de salida. Un ordenador está formado físicamente por numerosos circuitos integrados y muchos componentes de apoyo, extensión y accesorios, que en conjunto pueden ejecutar tareas diversas con suma rapidez y bajo el control de un programa (software).
+
+Dos partes esenciales la constituyen, el hardware, que es su estructura física (circuitos electrónicos, cables, gabinete, teclado, etc), y el software, que es su parte intangible (programas, datos, información, señales digitales para uso interno, etc.).
+
+Desde el punto de vista funcional es una máquina que posee, al menos, una unidad central de procesamiento, una memoria principal y algún periférico o dispositivo de entrada y otro de salida. Los dispositivos de entrada permiten el ingreso de datos, la CPU se encarga de su procesamiento (operaciones aritmético-lógicas) y los dispositivos de salida los comunican a otros medios. Es así, que la computadora recibe datos, los procesa y emite la información resultante, la que luego puede ser interpretada, almacenada, transmitida a otra máquina o dispositivo o sencillamente impresa; todo ello a criterio de un operador o usuario y bajo el control de un programa.
+
+El hecho de que sea programable le posibilita realizar una gran diversidad de tareas, esto la convierte en una máquina de propósitos generales (a diferencia, por ejemplo, de una calculadora cuyo único propósito es calcular limitadamente). Es así que, sobre la base de datos de entrada, puede realizar operaciones y resolución de problemas en las más diversas áreas del quehacer humano (administrativas, científicas, de diseño, ingeniería, medicina, comunicaciones, música, etc), incluso muchas cuestiones que directamente no serían resolubles o posibles sin su intervención.
+
+Básicamente, la capacidad de una computadora depende de sus componentes hardware, en tanto que la diversidad de tareas radica mayormente en el software que admita ejecutar y contenga instalado.
+
+Si bien esta máquina puede ser de dos tipos, computadora analógica o sistema digital, el primer tipo es usado para pocos y muy específicos propósitos; la más difundida, utilizada y conocida es la computadora digital (de propósitos generales); de tal modo que en términos generales (incluso populares), cuando se habla de «la computadora» se está refiriendo a computadora digital. Las hay de arquitectura mixta, llamadas computadoras híbridas, siendo también estas de propósitos especiales.
+
+En la Segunda Guerra Mundial se utilizaron computadoras analógicas mecánicas, orientadas a aplicaciones militares, y durante la misma se desarrolló la primera computadora digital, que se llamó ENIAC; ella ocupaba un enorme espacio y consumía grandes cantidades de energía, que equivalen al consumo de cientos de computadores actuales (PC).7​ Los computadores modernos están basados en circuitos integrados, miles de millones de veces más veloces que las primeras máquinas, y ocupan una pequeña fracción de su espacio. 8​
+
+Computadoras simples son lo suficientemente pequeñas para residir en los dispositivos móviles. Las computadoras portátiles, tales como tabletas, netbooks, notebooks, ultrabooks, pueden ser alimentadas por pequeñas baterías. Las computadoras personales en sus diversas formas son iconos de la llamada era de la información y son lo que la mayoría de la gente considera como «ordenador». Sin embargo, los ordenadores integrados se encuentran en muchos dispositivos actuales, tales como reproductores MP4, teléfonos celulares, aviones de combate y desde juguetes hasta robot industriales.
+Índice
+
+    1 Historia
+        1.1 Cronología
+    2 Componentes
+        2.1 Unidad central de procesamiento
+        2.2 Memoria primaria
+        2.3 Periféricos de entrada, de salida o de entrada/salida
+        2.4 Buses
+    3 Otros conceptos
+    4 Etimología de la palabra ordenador
+    5 Véase también
+        5.1 Historia
+        5.2 Tipos de ordenadores
+        5.3 Componentes y periféricos
+        5.4 Otros
+    6 Referencias
+    7 Enlaces externos
+
+Historia
+Artículo principal: Historia de la computación
+
+Lejos de ser un invento de alguien en particular, el computador es el resultado evolutivo de ideas de muchas personas relacionadas con áreas tales como la electrónica, la mecánica, los materiales semiconductores, la lógica, el álgebra y la programación.
+Cronología
+
+A continuación, se presentan resumidamente los principales hitos en la historia de los ordenadores, desde las primeras herramientas manuales para hacer cálculos hasta las modernas computadoras de bolsillo.
+
+    2700 a. C.: se utiliza el ábaco en antiguas civilizaciones como la china o la sumeria, la primera herramienta para realizar sumas y restas.
+    Hacia 830: el matemático e ingeniero persa Musa al-Juarismi inventó el algoritmo, es decir, la resolución metódica de problemas de álgebra y cálculo numérico mediante una lista bien definida, ordenada y finita de operaciones.
+    XVII: italiano Tito Livio Burattini creado una máquina calculadora, que donó al Gran Duque Fernando II de Médici; la calculadora está formada por una máquina de Blaise Pascal y un ábaco neperiano.
+    1614: el escocés John Napier inventa el logaritmo neperiano, que consiguió simplificar el cálculo de multiplicaciones y divisiones reduciéndolo a un cálculo con sumas y restas.
+    1620: el inglés Edmund Gunter inventa la regla de cálculo, instrumento manual utilizado desde entonces hasta la aparición de la calculadora electrónica para hacer operaciones aritméticas.
+    1623: el alemán Wilhelm Schickard inventa la primera máquina de calcular, cuyo prototipo desapareció poco después.
+    1642: el científico y filósofo francés Blaise Pascal inventa una máquina de sumar (la pascalina), que utilizaba ruedas dentadas, y de la que todavía se conservan algunos ejemplares originales.
+    1671: el filósofo y matemático alemán Gottfried Wilhelm Leibniz inventa una máquina capaz de multiplicar y dividir.
+    1801: el francés Joseph Jacquard inventa para su máquina de tejer brocados una tarjeta perforada que controla el patrón de funcionamiento de la máquina, una idea que sería empleada más adelante por los primeros ordenadores.
+    1833: el matemático e inventor británico Charles Babbage diseña e intenta construir la primera computadora, de funcionamiento mecánico, a la que llamó la "máquina analítica". Sin embargo, la tecnología de su época no estaba lo suficientemente avanzada para hacer realidad su idea.
+    1841 : la matemática Ada Lovelace comienza a trabajar junto a Babbage en lo que sería el primer algoritmo destinado a ser procesado por una máquina, por lo que se la considera como la primera programadora de computadores.
+    1890: el norteamericano Herman Hollerith inventa una máquina tabuladora aprovechando algunas de las ideas de Babbage, que se utilizó para elaborar el censo de Estados Unidos. Hollerith fundó posteriormente la compañía que después se convertiría en IBM.
+    1893: el científico suizo Otto Steiger desarrolla la primera calculadora automática que se fabricó y empleó a escala industrial, conocida como la Millonaria.
+    1936: el matemático y computólogo inglés Alan Turing formaliza los conceptos de algoritmo y de máquina de Turing, que serían claves en el desarrollo de la computación moderna.
+    1938: El ingeniero alemán Konrad Zuse completa la Z1, la primera computadora que se puede considerar como tal. De funcionamiento electromecánico y utilizando relés, era programable (mediante cinta perforada) y usaba sistema binario y lógica boleana. A ella le seguirían los modelos mejorados Z2, Z3 y Z4.
+    1944: En Estados Unidos la empresa IBM construye la computadora electromecánica Harvard Mark I, diseñada por un equipo encabezado por Howard H. Aiken. Fue la primera computadora creada en Estados Unidos.
+    1944: En Inglaterra se construyen los ordenadores Colossus (Colossus Mark I y Colossus Mark 2), con el objetivo de descifrar las comunicaciones de los alemanes durante la Segunda Guerra Mundial.
+    1947: En la Universidad de Pensilvania se construye la ENIAC (Electronic Numerical Integrator And Calculator), que funcionaba a válvulas y fue la primera computadora electrónica de propósito general.
+    1947: en los Laboratorios Bell, John Bardeen, Walter H. Brattain y William Shockley inventan el transistor.
+    1951: comienza a operar la EDVAC, concebida por John von Neumann, que a diferencia de la ENIAC no era decimal, sino binaria, y tuvo el primer programa diseñado para ser almacenado.
+    1953: IBM fabrica su primera computadora a escala industrial, la IBM 650. Se amplía el uso del lenguaje ensamblador para la programación de las computadoras. Los ordenadores con transistores reemplazan a los de válvulas, marcando el comienzo de la segunda generación de computadoras.
+    1957: Jack S. Kilby construye el primer circuito integrado.
+    1964: La aparición del IBM 360 marca el comienzo de la tercera generación de computadoras, en la que las placas de circuito impreso con múltiples componentes elementales pasan a ser reemplazadas con placas de circuitos integrados.
+    1971: Nicolette Instruments Corp. lanza al mercado la Nicolette 1080, una computadora de uso científico basada en registros de 20 bits, cuya versatilidad para el cálculo de la Transformada Rápida de Fourier le brinda gran aceptación en el campo de la Resonancia magnética nuclear.
+    1971: Intel presenta el primer procesador comercial, el primer chip: el microprocesador Intel 4004.
+    1975: Bill Gates y Paul Allen fundan Microsoft.
+    1976: Steve Jobs, Steve Wozniak, Mike Markkula fundan Apple.
+    1977: Apple presenta el primer computador personal que se vende a gran escala, el Apple II, desarrollado por Steve Jobs y Steve Wozniak.
+    1981: se lanza al mercado el IBM PC, que se convertiría en un éxito comercial, marcaría una revolución en el campo de la computación personal y definiría nuevos estándares.
+    1982: Microsoft presenta su sistema operativo MS-DOS, por encargo de IBM.
+    1983: ARPANET se separa de la red militar que la originó, pasando a un uso civil y convirtiéndose así en el origen de Internet.
+    1983: Richard Stallman anuncia públicamente el proyecto GNU.
+    1985: Microsoft presenta el sistema operativo Windows 1.0.
+    1990: Tim Berners-Lee idea el hipertexto para crear el World Wide Web (www), una nueva manera de interactuar con Internet.
+    1991: Linus Torvalds comenzó a desarrollar Linux, un sistema operativo compatible con Unix.
+    2000: aparecen a comienzos del siglo XXI los ordenadores de bolsillo, primeras PDAs
+    2007: Presentación del primer iPhone, por la empresa Apple, un teléfono inteligente o smartphone.
+
+Componentes
+Artículo principal: Arquitectura de computadoras
+Modelo básico de la arquitectura de von Neumann, en la que se basan todos los ordenadores modernos.
+
+Las tecnologías utilizadas en computadoras digitales han evolucionado mucho desde la aparición de los primeros modelos en los años 1940, aunque la mayoría todavía utiliza la Arquitectura de von Neumann, publicada por John von Neumann a principios de esa década, que otros autores atribuyen a John Presper Eckert y John William Mauchly.
+
+La arquitectura de Von Neumann describe una computadora con cuatro (4) secciones principales: la unidad aritmético lógica, la unidad de control, la memoria primaria, principal o central, y los dispositivos de entrada y salida (E/S). Estas partes están interconectadas por canales de conductores denominados buses.
+Unidad central de procesamiento
+Artículo principal: Unidad central de procesamiento
+
+La unidad central de procesamiento (CPU, por sus siglas del inglés: Central Processing Unit) consta de manera básica de los siguientes tres elementos:
+Un típico símbolo esquemático para una ALU: A y B son operandos; R es la salida; F es la entrada de la unidad de control; D es un estado de la salida.
+
+    La unidad aritmético lógica (ALU, por sus siglas del inglés: Arithmetic-Logic Unit) es el dispositivo diseñado y construido para llevar a cabo las operaciones elementales como las operaciones aritméticas (suma, resta, ...), operaciones lógicas (Y, O, NO), y operaciones de comparación o relacionales. En esta unidad es en donde se hace todo el trabajo computacional.
+    La unidad de control (UC) sigue la dirección de las posiciones en memoria que contienen la instrucción que el computador va a realizar en ese momento; recupera la información poniéndola en la ALU para la operación que debe desarrollar. Transfiere luego el resultado a ubicaciones apropiadas en la memoria. Una vez que ocurre lo anterior, la unidad de control va a la siguiente instrucción (normalmente situada en la siguiente posición, a menos que la instrucción sea una instrucción de salto, informando al ordenador de que la próxima instrucción estará ubicada en otra posición de la memoria).
+    Los registros: de datos, de memoria, registros constantes, de coma flotante, de propósito general, de propósito específico.
+
+Los procesadores pueden constar de además de las anteriormente citadas, de otras unidades adicionales como la unidad de coma flotante.
+Memoria primaria
+Véanse también: Jerarquía de memoria, Memoria principal, Memoria (Informática) y RAM.
+
+La memoria principal (MP), conocida como memoria de acceso aleatorio (RAM, por sus siglas del inglés: Random-Access Memory), es una secuencia de celdas de almacenamiento numeradas, donde cada una es un bit o unidad de información. La instrucción es la información necesaria para realizar lo que se desea con el computador. Las «celdas» contienen datos que se necesitan para llevar a cabo las instrucciones, con el computador. El número de celdas varían mucho de computador a computador, y las tecnologías empleadas para la memoria han cambiado bastante; van desde los relés electromecánicos, tubos llenos de mercurio en los que se formaban los pulsos acústicos, matrices de imanes permanentes, transistores individuales a circuitos integrados con millones de celdas en un solo chip se subdividen en memoria estática (SRAM) con seis transistores por bit y la mucho más utilizada memoria dinámica (DRAM) un transistor y un condensador por bit. En general, la memoria puede ser reescrita varios millones de veces (memoria RAM); se parece más a una pizarra que a una lápida (memoria ROM) que sólo puede ser escrita una vez.
+Periféricos de entrada, de salida o de entrada/salida
+Véanse también: Periférico (informática), Periférico de entrada y Periférico de entrada/salida.
+
+Los dispositivos de entrada/salida (E/S) sirven a la computadora para obtener información del mundo exterior y/o comunicar los resultados generados por el computador al exterior. Hay una gama muy extensa de dispositivos E/S como teclados, monitores, unidades de disco flexible o cámaras web.
+Buses
+
+Las tres unidades básicas en una computadora: la CPU, la MP y el subsistema de E/S, están comunicadas entre sí por buses o canales de comunicación:
+
+    Bus de direcciones, para seleccionar la dirección del dato o del periférico al que se quiere acceder,
+    Bus de control, básicamente para seleccionar la operación a realizar sobre el dato (principalmente lectura, escritura o modificación) y desarrollar
+    Bus de datos, por donde circulan los datos.
+
+Otros conceptos
+
+En la actualidad se puede tener la impresión de que los computadores están ejecutando varios programas al mismo tiempo. Esto se conoce como multitarea, y es más común que se utilice el segundo término. En realidad, la CPU ejecuta instrucciones de un programa y después tras un breve periodo de tiempo, cambian a un segundo programa y ejecuta algunas de sus instrucciones. Esto crea la ilusión de que se están ejecutando varios programas simultáneamente, repartiendo el tiempo de la CPU entre los programas. Esto es similar a la película que está formada por una sucesión rápida de fotogramas. El sistema operativo es el programa que generalmente controla el reparto del tiempo. El procesamiento simultáneo viene con computadoras de más de un CPU, lo que da origen al multiprocesamiento.
+
+El sistema operativo es una especie de caja de herramientas llena de utilerías que sirven para decidir, por ejemplo, qué programas se ejecutan, y cuándo, y qué fuentes se utilizan (memoria o dispositivos E/S). El sistema operativo tiene otras funciones que ofrecer a otros programas, como los códigos que sirven a los programadores, escribir programas para una máquina sin necesidad de conocer los detalles internos de todos los dispositivos electrónicos conectados.
+
+A 2014-2018 se están empezando a incluir en las distribuciones donde se incluye el sistema operativo, algunos programas muy usados, debido a que es ésta una manera económica de distribuirlos. No es extraño que un sistema operativo incluya navegadores de Internet, procesadores de texto, programas de correo electrónico, interfaces de red, reproductores de películas y otros programas que antes se tenían que conseguir e instalar separadamente.
+
+Los primeros computadores digitales, de gran tamaño y coste, se utilizaban principalmente para hacer cálculos científicos. ENIAC, uno de los primeros computadores, calculaba densidades de neutrón transversales para ver si explotaría la bomba de hidrógeno. El CSIR Mk I, el primer ordenador australiano, evaluó patrones de precipitaciones para un gran proyecto de generación hidroeléctrica. Los primeros visionarios vaticinaron que la programación permitiría jugar al ajedrez, ver películas y otros usos.
+
+La gente que trabajaba para los gobiernos y las grandes empresas también usó los computadores para automatizar muchas de las tareas de recolección y procesamiento de datos, que antes eran hechas por humanos; por ejemplo, mantener y actualizar la contabilidad y los inventarios. En el mundo académico, los científicos de todos los campos empezaron a utilizar los computadores para hacer sus propios análisis. El descenso continuo de los precios de los computadores permitió su uso por empresas cada vez más pequeñas. Las empresas, las organizaciones y los gobiernos empezaron a emplear un gran número de pequeños computadores para realizar tareas que antes eran hechas por computadores centrales grandes y costosos. La reunión de varios pequeños computadores en un solo lugar se llamaba torre de servidores[cita requerida].
+
+Con la invención del microprocesador en 1970, fue posible fabricar computadores muy baratos. Nacen los computadores personales (PC), los que se hicieron famosos para llevar a cabo diferentes tareas como guardar libros, escribir e imprimir documentos, calcular probabilidades y otras tareas matemáticas repetitivas con hojas de cálculo, comunicarse mediante correo electrónico e Internet. Sin embargo, la gran disponibilidad de computadores y su fácil adaptación a las necesidades de cada persona, han hecho que se utilicen para varios propósitos.
+
+Al mismo tiempo, los pequeños computadores fueron casi siempre con una programación fija, empezaron a hacerse camino entre las aplicaciones del hogar, los coches, los aviones y la maquinaria industrial. Estos procesadores integrados controlaban el comportamiento de los aparatos más fácilmente, permitiendo el desarrollo de funciones de control más complejas como los sistemas de freno antibloqueo en los coches. A principios del siglo XXI, la mayoría de los aparatos eléctricos, casi todos los tipos de transporte eléctrico y la mayoría de las líneas de producción de las fábricas funcionan con un computador. La mayoría de los ingenieros piensa que esta tendencia va a continuar.
+
+Hacia finales de siglo XX y comienzos del XXI, los computadores personales son usados tanto para la investigación como para el entretenimiento (videojuegos), pero los grandes computadores todavía sirven para cálculos matemáticos complejos y para otros usos de la ciencia, tecnología, astronomía, medicina, etc.
+
+Tal vez el más interesante "descendiente" del cruce entre el concepto de la PC o computadora personal y los llamados supercomputadores sea la Workstation o estación de trabajo. Este término, originalmente utilizado para equipos y máquinas de registro, grabación y tratamiento digital de sonido, y ahora utilizado precisamente en referencia a estaciones de trabajo (traducido literalmente del inglés), se usa para dar nombre a equipos que, debido sobre todo a su utilidad dedicada especialmente a labores de cálculo científico, eficiencia contra reloj y accesibilidad del usuario bajo programas y software profesional y especial, permiten desempeñar trabajos de gran cantidad de cálculos y "fuerza" operativa. Una Workstation es, en esencia, un equipo orientado a trabajos personales, con capacidad elevada de cálculo y rendimiento superior a los equipos PC convencionales, que aún tienen componentes de elevado coste, debido a su diseño orientado en cuanto a la elección y conjunción sinérgica de sus componentes. En estos casos, el software es el fundamento del diseño del equipo, el que reclama, junto con las exigencias del usuario, el diseño final de la Workstation.[cita requerida]
+Etimología de la palabra ordenador
+PC con interfaz táctil.
+
+La palabra española «ordenador» proviene del término francés ordinateur, en referencia a Dios que pone orden en el mundo (Dieu qui met de l'ordre dans le monde).9​ En parte por cuestiones de marketing, puesto que la descripción realizada por IBM para su introducción en Francia en 1954 situaba las capacidades de actuación de la máquina cerca de la omnipotencia, idea equivocada que perdura hoy en día al considerar que la máquina universal de Turing es capaz de computar absolutamente todo.10​ En 1984, académicos franceses reconocieron, en el debate Les jeunes, la technique et nous, que el uso de este sustantivo es incorrecto, porque la función de un computador es procesar datos, no dar órdenes.11​ Mientras que otros, como el catedrático de filología latina Jacques Perret, conocedores del origen religioso del término, lo consideran más correcto que las alternativas.9​
+
+El uso de la palabra ordinateur se ha exportado a los idiomas de España: el aragonés, el asturiano, el gallego, el castellano, el catalán y el euskera. En el español que se habla en América, así como los demás idiomas europeos, como el portugués, el alemán y el neerlandés, se utilizan términos derivados del latín computare «calcular».
+
+La informática, también llamada computación,1​ es una ciencia que administra métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.
+
+De esta forma, la informática se refiere al procesamiento automático de información mediante dispositivos electrónicos y sistemas computacionales. Los sistemas informáticos deben contar con la capacidad de cumplir tres tareas básicas: entrada (captación de la información), procesamiento y salida (transmisión de los resultados). El conjunto de estas tres tareas se conoce como algoritmo.
+
+No existe una definición consensuada sobre el término, lo cual puede comprenderse a través de las Discusiones que acompañan esta página. Sin embargo, la Asociación de Docentes de Informática y Computación de la República Argentina han tomado una posición, definiéndola de la siguiente manera:
+
+    "La Informática es la disciplina o campo de estudio que abarca el conjunto de conocimientos, métodos y técnicas referentes al tratamiento automático de la información, junto con sus teorías y aplicaciones prácticas, con el fin de almacenar, procesar y transmitir datos e información en formato digital utilizando sistemas computacionales. Los datos son la materia prima para que, mediante su proceso, se obtenga como resultado información.  Para ello, la informática crea y/o emplea sistemas de procesamiento de datos, que incluyen medios físicos (hardware) en interacción con medios lógicos (software) y las personas que los programan y/o los usan (humanware).2​"
+
+Es por lo que se hace distinción entre este término y las Ciencias de la computación, puesto que el segundo engloba la parte más teórica mientras que informática se refiere a la aplicabilidad de esta anterior en datos usando dispositivos electrónicos. De hecho se definen cinco subdisciplinas del campo de la informática: Ciencias de la computación, ingeniería informática, sistemas de información, tecnología de la información e ingeniería de software.3​
+
+La informática, que se ha desarrollado rápidamente a partir de la segunda mitad del siglo XX con la aparición de tecnologías como el circuito integrado, el Internet y el teléfono móvil,4​ es la rama de la tecnología que estudia el tratamiento automático de la información.5​6​
+
+En 1957, Karl Steinbuch añadió la palabra alemana Informatik en la publicación de un documento denominado Informatik: Automatische Informationsverarbeitung (Informática: procesamiento automático de información).7​ El soviético Alexander Ivanovich Mikhailov fue el primero en utilizar Informatik con el significado de «estudio, organización, y diseminación de la información científica», que sigue siendo su significado en dicha lengua.7​ En inglés, la palabra informatics fue acuñada independiente y casi simultáneamente por Walter F. Bauer, en 1962, cuando Bauer cofundó la empresa Informatics General, Inc.7​
+Índice
+
+    1 Orígenes
+    2 Sistemas de tratamiento de la información
+    3 Virus informáticos
+    4 Véase también
+    5 Referencias
+    6 Enlaces externos
+
+Orígenes
+Artículo principal: Anexo:Historia de la computación
+
+La disciplina de la informática es anterior a la creación de las computadoras. Ya en la Antigüedad se conocían métodos para realizar cálculos matemáticos, por ejemplo el algoritmo de Euclides. En el siglo XVII comenzaron a inventarse máquinas calculadoras. En el siglo XIX se desarrollaron las primeras máquinas programables, es decir, que el usuario podría modificar la secuencia de acciones a realizar.
+Carcasa del procesador LGA775 de Intel, con la tarjeta madre, el ventilador del procesador, la alimentación eléctrica, y la memoria.
+
+En los inicios del procesamiento automático de la información, con la informática solo se facilitaban los trabajos repetitivos y monótonos del área administrativa. La automatización de esos procesos trajo como consecuencia directa una disminución de los costes y un incremento en la productividad. En la informática convergen los fundamentos de las ciencias de la computación, la programación y también las metodologías para el desarrollo de software, la arquitectura de las computadoras, las redes de computadores, la inteligencia artificial y ciertas cuestiones relacionadas con la electrónica. Se puede entender por informática a la unión sinérgica de todo este conjunto de disciplinas. Esta disciplina se aplica a numerosas y variadas áreas del conocimiento o la actividad humana, como por ejemplo: gestión de negocios, almacenamiento y consulta de información, monitorización y control de procesos, industria, robótica, comunicaciones, control de transportes, investigación, desarrollo de juegos, diseño computarizado, aplicaciones/herramientas multimedia, medicina, biología, física, química, meteorología, ingeniería, arte, etc. Puede tanto facilitar la toma de decisiones a nivel gerencial (en una empresa) como permitir el control de procesos críticos. Actualmente, es difícil concebir un área que no use, de alguna forma, el apoyo de la informática. Ésta puede cubrir un enorme abanico de funciones, que van desde las más simples cuestiones domésticas hasta los cálculos científicos más complejos. Entre las funciones principales de la informática se enumeran las siguientes:
+
+    Creación de nuevas especificaciones de trabajo.
+    Desarrollo e implementación de sistemas informáticos.
+    Sistematización de procesos.
+    Optimización de los métodos y sistemas informáticos existentes.
+    Facilitar la automatización de datos y formatos.
+
+Sistemas de tratamiento de la información
+
+Los sistemas computacionales, generalmente implementados como dispositivos electrónicos, permiten el procesamiento automático de la información. Conforme a ello, los sistemas informáticos deben realizar las siguientes tres tareas básicas:
+
+    Entrada: captación de la información. Normalmente son datos y órdenes ingresados por los usuarios a través de cualquier dispositivo de entrada conectado a la computadora.
+    Proceso: tratamiento de la información. Se realiza a través de programas y aplicaciones diseñadas por programadores que indican de forma secuencial cómo resolver un requerimiento.
+    Salida: transmisión de resultados. A través de los dispositivos de salida los usuarios pueden visualizar los resultados que surgen del procesamiento de los datos.
+    Sistema operativo es un conjunto de programas que permite interactuar al usuario con la computadora.
+    Sistemas de mando y control, son sistemas basados en la mecánica y motricidad de dispositivos que permiten al usuario localizar, dentro de la logística, los elementos que se demandan. Están basados en la electricidad, o sea, no en el control del flujo del electrón, sino en la continuidad o discontinuidad de una corriente eléctrica, si es alterna o continua o si es inducida, contra inducida, en fase o desfase (ver periférico de entrada).
+    Sistemas de archivo, son sistemas que permiten el almacenamiento a largo plazo de información que no se demandará por un largo periodo de tiempo. Estos sistemas usan los conceptos de biblioteca para localizar la información demandada.
+    Código ASCII es un método para la correspondencia de cadenas de bits permitiendo de esta forma la comunicación entre dispositivos digitales así como su proceso y almacenamiento, en la actualidad todos los sistemas informáticos utilizan el código ASCII para representar textos, gráficos, audio e infinidad de información para el control y manipulación de dispositivos digitales.
+
+En un editor de texto presionando las teclas ALT + el número del código ASCII, aparecerá el carácter correspondiente, solamente funciona en un teclado que tenga las teclas numéricas.
+Virus informáticos
+Véase también: Virus informático
+
+Los virus informáticos son software o fragmentos de código8​ que tiene por objetivo de alterar el funcionamiento normal de cualquier tipo de dispositivo informático o las funcionalidades de un programa, sin el permiso o el conocimiento del usuario, principalmente para lograr fines maliciosos. A modo de ejemplo, algunas acciones son :
+
+    Unirse a un programa y modificar el comportamiento de este.
+    Mostrar mensajes o imágenes, generalmente molestas.
+    Ralentizar o bloquear la computadora, reducir el espacio en el disco u otras acciones que inutilizan el ordenador.
+    Destruir o encriptar la información almacenada.
+    Robo de datos: contraseñas, usuarios, y otros tipos de datos personales o corporativos.
+
+Hay muchas formas en que un computador puede infectarse con un virus, algunas de ellas son:
+
+    Mensajes dejados en redes sociales.
+    Archivos adjuntos en los mensajes de correo electrónico.
+    Sitios web sospechosos.
+    Insertar USBs, DVDs o CDs con virus.
+    Descarga de aplicaciones o programas de internet.
+    Anuncios publicitarios falsos.9​
+
+Los métodos de prevención y recuperación de datos tras sufrir una "infección" por un virus informatica son diversos, pero actualmente existen programas antivirus que detectan una gran cantidad de ellos. Aun así siempre se recomienda :
+
+    Hacer copias de seguridad de datos valiosos.
+    Usar siempre programas originales y rechazar copias de origen dudoso.
+
+Historia de las ciencias de la computación
+Ir a la navegación
+Ir a la búsqueda
+	El texto que sigue es una traducción defectuosa.
+Si quieres colaborar con Wikipedia, busca el artículo original y mejora esta traducción.
+Copia y pega el siguiente código en la página de discusión del autor: {{subst:Aviso mal traducido|Historia de las ciencias de la computación}} ~~~~
+
+La historia de la ciencia de la computación1​ comenzó mucho antes de la moderna disciplina de ciencias de la computación que surgió en el siglo 20, y se insinúa en los siglos anteriores. La progresión de las invenciones mecánicas, su desarrollo fue grande que la ciencia de la computación se separó de las matemáticas formó un gran campo académico y la base de una masiva industria mundial.2​
+Índice
+
+    1 Primeros Pasos
+    2 Lógica Binaria
+    3 El nacimiento de las Ciencias de la Computación
+    4 Surgimiento de una disciplina
+    5 Shannon y la teoría de la información
+    6 Wiener y Cibernética
+    7 Referencias
+
+Primeros Pasos
+
+La primera herramienta conocida para su uso en el cálculo fue el ábaco, desarrollado en el período 2700-2300 AC en Sumeria. El ábaco de Sumeria consistía en una tabla de columnas sucesivas que delimitan las órdenes sucesivas de magnitud de su sistema de numeración sexagesimal.3​ Su estilo original de uso era por las líneas trazadas en la arena con guijarros. Ábacos de un diseño más moderno todavía se utilizan como herramientas de cálculo en la actualidad.
+
+El Mecanismo de Anticitera se cree que es la primera computadora analógica mecánica conocida.4​ Fue diseñado para calcular las posiciones astronómicas. Fue descubierto en 1901 en el naufragio de Antikythera fuera de la isla griega de Antikythera, entre Citera y Creta, y se ha fechado 100 años antes de Cristo. Artefactos tecnológicos de complejidad similar no reaparecieron hasta el siglo 14, cuando los relojes astronómicos mecánicos aparecieron en Europa.5​
+
+Los dispositivos mecánicos de computación analógica aparecieron unos mil años después en el mundo islámico medieval. Ejemplos de dispositivos de este período incluyen el Equatorium por Arzachel,6​ el Astrolabio mecánico de engranajes de Abu Rayhan al-Biruni,7​ y el Torquetumpor Jabir ibn Aflah.8​ Los ingenieros musulmanes construyeron una serie de autómatas, incluyendo algunos autómatas musicales que podían ser "programados" para reproducir diferentes patrones musicales. Estos dispositivos fueron desarrollados por los hermanos9​ Banu Musa10​ Al-Jazari. Matemáticos musulmanes también hicieron importantes avances en la criptografía, como el desarrollo del criptoanálisis y análisis de frecuencia por Alkindus.11​
+
+Cuando John Napier descubre los logaritmos para fines de cálculo en el siglo 1841 suscitó un período de progreso considerable por los inventores y los científicos en la fabricación de herramientas de cálculo. En 1623 Wilhelm Schickard diseñó una máquina de calcular, pero abandonó el proyecto, cuando el prototipo que había empezado a construir fue destruido por un incendio en 1624. Hacia 1640, Blaise Pascal, un matemático francés de renombre, construyó el primer dispositivo mecánico para sumar12​ sobre la base de un diseño descrito por Herón de Alejandría, matemático griego.13​ Entonces en 1672 Gottfried Wilhelm Leibniz inventó la máquina de Leibniz que completó en 1694.14​
+
+En 1837 Charles Babbage describió por primera vez su Máquina Analítica que se acepta como el primer diseño de una computadora moderna. La máquina analítica tenía memoria expandible, una unidad aritmética y lógica de las capacidades de procesamiento capaces de interpretar un lenguaje de programación con bucles y bifurcaciones condicionales. Aunque nunca se construyó, el diseño se ha estudiado ampliamente y se entiende que es Turing completa. El motor analítico habría tenido una capacidad de memoria de menos de 1 kilobyte y una velocidad de reloj de menos de 10 Hertz.
+
+Un avance considerable en las matemáticas y la teoría electrónica fue requerido antes de que las primeras computadoras modernas pudieran ser diseñadas.
+Lógica Binaria
+
+En 1703, Gottfried Wilhelm Leibniz desarrolló la lógica en un sentido matemático formal, con sus escritos sobre el sistema de numeración binario. En su sistema, los unos y los ceros también representan los valores verdaderos y falsos o los estados apagado y encendido. Pero tuvo que pasar más de un siglo antes de que George Boole publicara su álgebra de Boole en 1854 con un sistema completo que permitió que los procesos computacionales pudieran ser matemáticamente modelables.
+
+Por esos tiempos, los primeros dispositivos mecánicos que funcionaban con un patrón binario se habían inventado. La revolución industrial había impulsado la mecanización de muchas tareas, y esto incluía el tejido. El telar controlado por tarjetas perforadas de Joseph Marie Jacquard en 1801, donde un agujero perforado en la tarjeta indica un uno binario y un lugar sin perforar indica un cero binario. El telar de Jacquard estaba lejos de ser un ordenador, pero sí ponía de manifiesto que las máquinas podían ser controladas por los sistemas binarios.
+El nacimiento de las Ciencias de la Computación
+
+Antes de la década de 1920, las computadoras (a veces computadores) fueron empleados humanos que realizaban los cálculos. Estaban por lo general bajo la dirección de un físico. Miles de computadores trabajaban en el comercio, el gobierno y los centros de investigación. La mayoría de estos computadores eran mujeres, y eran conocidos por tener un grado en cálculo. Algunos realizando cálculos de astronomía para los calendarios.
+
+Después de la década de 1920, la expresión máquina de computación hacía referencia a cualquier máquina que realizara el trabajo de un computador humano, especialmente los realizados en conformidad con los métodos eficaces de la tesis de Church-Turing. La tesis establecía que un método matemático es eficaz si se podrían enunciar como una lista de instrucciones que puedan ser seguidos por un empleado humano con lápiz y papel, durante el tiempo que sea necesario, y sin ingenio ni idea.
+
+Las máquinas que calculaban con valores continuos se conocían como de tipo analógico. Estas utilizaban una maquinaria que representaba cantidades numéricas continuas, como el ángulo de rotación de un eje o diferencia de potencial eléctrico.
+
+Las máquinas digitales, en contraste a las analógicas, fueron capaces de representar un estado de un valor numérico y almacenar cada dígito individual. Las máquinas digitales utilizaban motores de diferencia o relés antes de la invención de dispositivos de memoria más rápidos.
+
+La frase máquina de computación gradualmente desapareció, después de la década de 1940, a sólo ordenador o computadora. Estos equipos fueron capaces de realizar los cálculos que se realizaron por los empleados humanos anteriores.
+
+Dado que los valores almacenados en las máquinas digitales no estaban relacionados a propiedades físicas como los dispositivos analógicos, un ordenador lógico, basado en equipos digitales, era capaz de hacer cualquier cosa que podría ser descrito "puramente mecánico." La teórica Máquina de Turing, creada por Alan Turing, es un dispositivo hipotético teorizado con el fin de estudiar las propiedades de este hardware.
+Surgimiento de una disciplina
+
+Los fundamentos matemáticos de la actual ciencia de la computación fueron propuestos por Kurt Gödel con su teorema de incompletitud (1931). En este teorema, demostró que había límites a lo que puede ser probado y refutado dentro de un sistema formal. Esto condujo a que Gödel y otros trabajaran para definir y describir estos sistemas formales, incluyendo conceptos como funciones recursivas y el cálculo lambda.
+
+1936 fue un año clave para las ciencias de la computación. Alan Turing y Alonzo Church independientemente, y también juntos, presentaron la formalización de un algoritmo, con límites en lo que puede ser calculado, y un modelo "puramente mecánico" para la computación. Estos temas son cubiertos por lo que ahora se llama la tesis de Church-Turing, una hipótesis sobre la naturaleza de dispositivos de cálculo mecánicos, como los equipos electrónicos. La tesis afirma que cualquier cálculo que sea posible se puede realizar por un algoritmo que se ejecuta en una computadora, a condición de que el tiempo y el espacio de almacenamiento se encuentran disponibles.
+
+    Estatua de Alan Turing
+
+Turing también se presenta con la tesis de una descripción de la máquina de Turing. Una máquina de Turing tiene una cinta de longitud infinita y un cabezal de lectura/escritura, que puede moverse a lo largo de la cinta, cambiando los valores a lo largo del camino. Es evidente que tal máquina nunca podría ser construida, pero sin embargo, el modelo puede simular el cómputo de un algoritmo que puede ser ejecutado en un equipo moderno.
+
+Turing es tan importante para la informática que su nombre también aparece en el Premio Turing y la prueba de Turing. Él contribuyó en gran medida a que los británicos pudieran exitosamente romper códigos secretos en la Segunda Guerra Mundial, y continuó en el diseño de computadoras y software a través de la década de 1940, pero se suicidó en 1954.
+
+En un simposio en gran escala de máquinas digitales en Cambridge, Turing dijo: "Estamos tratando de construir una máquina para hacer todo tipo de cosas diferentes, simplemente mediante la programación en lugar de mediante la adición de un aparato extra".
+
+En 1941, Konrad Zuse desarrolló el primer programa funcional controlado por un equipo Turing-completo, el Z3. Zuse, se destacó también por la máquina de calcular S2, considerado el primer proceso controlado por ordenador. Él fundó una de las primeras empresas informáticas en el año 1941, con la producción del Z4, que se convirtió en la primera computadora comercial. En 1946, diseñó el primer encuentro de alto nivel de lenguaje de programación, Plankalkül.15​ En 1969, Zuse sugirió el concepto de un universo basado en el cálculo en su libro Rechnender Raum.
+
+    Konrad Zuse en 1992
+
+En 1948, el primer ordenador práctico que podría ejecutar programas almacenados, basado en el modelo de la máquina de Turing, había sido construido - el Bebe Manchester (Manchester Baby).
+
+En 1950, el Laboratorio Nacional de Física de Gran Bretaña completó Pilot ACE, un ordenador de pequeña escala programable, basada en la filosofía de Turing.
+Shannon y la teoría de la información
+
+Antes y durante la década de 1930, los ingenieros eléctricos fueron capaces de construir circuitos electrónicos para resolver problemas matemáticos y de la lógica, pero la mayoría lo hizo de una manera ad hoc, carente de rigor teórico. Esto cambió con la publicación de Claude Elwood Shannon, de sus tesis de maestría en 1937, Un Análisis Simbólico de relé y circuitos de conmutación. Al tiempo que toma una clase de filosofía de pregrado, Shannon había estado expuesto a la obra de Boole, y reconoció que podría ser utilizada para organizar los relés electromecánicos (luego se utilizan en teléfonos conmutadores de enrutamiento) para resolver problemas de lógica. Este concepto, de la utilización de las propiedades de los interruptores eléctricos para hacer la lógica, es el concepto básico que subyace en todos los equipos electrónicos digitales, y su tesis se convirtió en la base de diseño práctico de circuitos digitales cuando se hizo ampliamente conocido entre la comunidad de ingeniería eléctrica durante y después de la Segunda Segunda Guerra Mundial.
+
+Shannon pasó a fundar el campo de la teoría de la información con su artículo titulado Una teoría matemática de la comunicación publicado en 1948, que aplicó la teoría de la probabilidad para el problema de cómo codificar mejor la información que el emisor quiere transmitir. Este trabajo es uno de los fundamentos teóricos para muchas áreas de estudio, incluyendo la compresión de datos y criptografía.
+Wiener y Cibernética
+
+A partir de experimentos con sistemas antiaéreos que interpretaban las imágenes de radar para detectar aviones enemigos, Norbert Wiener acuñó el término cibernética de la palabra griega que significa "timonel". Publicó "Cibernética" en 1948, que influyó en la inteligencia artificial. Wiener también comparó cómputo, máquina de cómputo, dispositivos de memoria, y otras similitudes cognitivas con su análisis de las ondas cerebrales.
+
+El primer fallo (bug) real de una computadora fue una polilla. La cual fue atrapada en medio de los relés en el Harvard Mark II.
+
+omograma
+Ir a la navegación
+Ir a la búsqueda
+El gráfico o carta de Smith muestra la relación existente entre la impedancia de una línea de transmisión electromagnética y su longitud.
+
+Un nomograma, ábaco o nomografo es un instrumento gráfico de cálculo, un diagrama bidimensional que permite el cómputo gráfico y aproximado de una función de cualquier número de variables. En su concepción más general, el nomograma representa simultáneamente el conjunto de las ecuaciones que definen determinado problema y el rango total de sus soluciones.
+
+Se trata de un instrumento de cálculo analógico, como lo es la regla de cálculo, por utilizar segmentos continuos de líneas para representar los valores numéricos discretos que pueden asumir las variables. Consecuencia de ello es que su precisión sea limitada, viniendo determinada por el detalle con que puedan realizarse, reproducirse, alinearse y percibirse las marcas o puntos concretos que constituyen las escalas de valores correspondientes. Los nomogramas solían utilizarse en casos en que la obtención de una respuesta exacta era imposible o muy inconveniente (cálculos ingenieriles complicados que hubiesen de realizarse en campaña o a pie de obra; situaciones repetitivas con ligera modificación de los valores de las variables; etc.), mientras que la obtención de una solución aproximada era suficiente y muy deseable.
+Índice
+
+    1 Historia
+    2 Nomogramas y tablas
+    3 Disposición y uso
+    4 Algunos ejemplos de nomograma
+        4.1 Un gráfico útil
+        4.2 Prueba χ²
+    5 Véase también
+    6 Bibliografía
+    7 Enlaces externos
+
+Historia
+
+Los astrolabios, cuadrantes y sectores de finales de la Edad Media y del Renacimiento (colectivamente llamados instrumentos matemáticos) ya estaban destinados a resolver problemas prácticos de índole matemática de forma gráfica y mecánica.
+
+La invención de la escala de Gunter en el siglo XVII constituyó la primera representación gráfica de una función mediante una escala graduada y fue esencial para todos los avances posteriores. Otro paso decisivo fue la invención por Descartes de la geometría analítica, que permite la representación gráfica de cualquier función matemática por medio de una curva.
+
+Fueron especialmente los ingenieros militares y otros funcionarios públicos, encargados de resolver regularmente problemas cuantitativos de carácter repetitivo, quienes mostraron naturalmente mayor interés en procurarse ayudas para su tarea. Así L. Pouchet publicó en 1797 una obra titulada Métrologie terrestre, que contiene un apéndice designado Arithmétique linéaire en el que se contiene el primer intento sistemático de construcción de tablas gráficas de doble entrada.
+
+En 1842 Léon Lalanne propuso el empleo de dispositivos de este género para el cálculo de desmontes y terraplenes y en 1843 formuló el principio de anamorfosis, que facilitó mucho la construcción de estos gráficos de doble entrada, a los que llamó ábacos, al sustituir en la mayoría de los casos las líneas curvas por rectas. J. Massau generalizó este principio hacia 1880.
+
+Maurice d'Ocagne reemplazó en 1884 los cuadriculados y sistemas de curvas por simples escalas graduadas, rectas o curvas, gracias a su concepción de los puntos isópletos. Posteriormente sistematizó todos estos métodos dispersos en un cuerpo definitivo de doctrina, a la que llamó nomografía.
+
+Los nomogramas tuvieron un gran desarrollo en los tres primeros cuartos del siglo XX, tanto en ingeniería civil como en las ramas de química, eléctrica, electrónica e aeronáutica. Fueron incluidos en los manuales de las disciplinas y además se publicaron colecciones separadas de ellos. Su limitada precisión, de dos o tres cifras significativas, restringe en cambio su uso en campos como la astronomía o el cálculo financiero, en los que la exactitud tiene importancia primordial.
+
+El perfeccionamiento y la popularización de las calculadoras y ordenadores electrónicos en el último cuarto del siglo XX significó la práctica desaparición de los nomogramas, al facilitar enormemente la realización completa de cálculos exactos que el operador no sabría ni siquiera plantear por sí mismo. Los nomogramas empero siguen teniendo actualmente la misma utilidad de siempre y presentan algunas ventajas específicas que no eran desconocidas para sus inventores, como es la captación sinóptica del rango de valores que puede adoptar la solución de un problema, la presentación de la estructura de las relaciones que se dan entre sus parámetros o la posibilidad de ser utilizados en casi cualquier circunstancia imaginable.
+Nomogramas y tablas
+
+Los nomogramas están íntimamente relacionados con otro instrumento tradicional de solución de problemas y de presentación sucinta de información científica, las tablas.
+
+Como decía en 1911 el ingeniero militar español Ricardo Seco, "si fuese posible reunir en un pequeño volumen una colección de tablas donde se hallasen consignados los resultados que dan las fórmulas de más frecuente aplicación para todos los valores que en la práctica pueden tomar las distintas variables que contienen, se habría llegado al desideratum que debe tratar de llenar todo manual de carácter práctico." Pero, añadía, "tal colección de tablas es irrealizable porque, descontado el excesivo trabajo, largo tiempo necesario para su construcción y gran volumen que ocuparían," si existiesen más de tres variables en la fórmula "no hay medio práctico de construirlas" (Seco, p. 1). En cambio, como ha quedado dicho, las técnicas nomográficas permiten construir nomogramas de prácticamente cualquier número de variables.
+
+D'Ocagne afirmaba en Le calcul simplifié (apartado 4.1) que "los nomogramas pueden considerarse como tablas de cálculos completos", añadiendo a las ventajas ya mencionadas que tienen sobre ellas la facilidad de interpolación visual, al tiempo que reconocía el inconveniente de que la precisión que pueden alcanzar los datos de las tablas es en principio tan grande como se quiera, mientras que la de los nomogramas es esencialmente muy limitada.
+Disposición y uso
+
+Al ser un nomograma la representación gráfica de una ecuación de varias variables, ha de constar de tantos elementos gráficos como variables tenga la ecuación. Estos elementos serán puntos o líneas, rectas o curvas, según los casos. Dados los valores de todas las variables menos una, el de esta última puede encontrarse por medio de algún recurso geométrico inmediato (que generalmente es el trazado de otra línea que pasa por ese punto).
+
+Por tanto, el nomograma de una ecuación de dos variables (y = f(x)) tendrá dos elementos gráficos, normalmente dos rectas graduadas, o escalas, dispuestas de tal modo que la determinación del valor de una de las variables (fijación de un punto de la línea) especifique el valor de la otra, la desconocida o función. El nomograma de una ecuación de tres variables (z = f(x, y)) constará normalmente de tres escalas y así sucesivamente.
+
+El arte de la nomografía consiste precisamente en elaborar dichas escalas y disponerlas en el plano de tal manera que el trazado de líneas rectas que las atraviesen determine los puntos colineares existentes en cada una de las escalas, puntos que representarán los distintos valores relacionados por la función en cada caso concreto.
+
+La disposición relativa entre estos elementos, en cambio, no puede predecirse, pues vendrá determinada por la naturaleza del problema en cuestión o por otro tipo de consideraciones. Por ejemplo, el nomograma de la función de dos variables que relaciona los grados Celsius de temperatura con los Farenheit puede consistir en dos escalas paralelas adecuadamente situadas. Para utilizarlo bastará con colocar una regla perpendicular a la escala que contenga el dato conocido; el otro se encontrará en el punto en que la regla corte a su escala correspondiente. Pero es evidente que el espacio que separa ambas escalas no desempeña ninguna función especial, por lo que se le puede reducir progresivamente hasta el extremo de hacerlo desaparecer y que ambas se confundan en una sola, que quedará así rotulada a ambos lados, siendo entonces inmediata la lectura del resultado de la conversión.
+Algunos ejemplos de nomograma
+
+    Nomograma en espiral -- la espiral de Cornu.
+    La carta de Smith, reproducida al inicio del artículo, que se utiliza en electrónica y en análisis de sistemas.
+    papel milimetrado - semilogarítmico, doblemente logarítmico, probabilístico, destinados todos ellos a representar como líneas rectas diversas funciones no lineales.
+
+Un gráfico útil
+Ley de recíprocos.
+
+El nomograma adjunto representa la siguiente función de tres variables:
+
+    1 z = 1 x + 1 y {\displaystyle {\frac {1}{z}}={\frac {1}{x}}+{\frac {1}{y}}} {\displaystyle {\frac {1}{z}}={\frac {1}{x}}+{\frac {1}{y}}}
+
+Es la fórmula que, entre otras cosas, sirve para calcular la resistencia total que presentan al paso de la corriente eléctrica dos resistores conectados en paralelo y también especifica la ley de formación de imágenes de una lente delgada en óptica. Su nomograma es interesante porque realiza un cálculo no lineal utilizando exclusivamente escalas lineales. Para utilizarlo, los valores de x y de y se aplican a los ejes horizontal y vertical; los puntos así determinados se unen luego entre sí por una línea recta. El valor de z se obtiene de la escala diagonal en el punto en que la corte dicha recta. O bien se aplica el valor de z a la diagonal y el otro valor conocido a uno de los ejes. La recta resultante cortará al otro eje en el valor de la solución.
+
+En el caso concreto de la imagen adjunta la línea verde es la que indica que dos resistores de 56 y de 33 ohm en paralelo presentan una resistencia total de unos 21 ohm, o bien que la imagen de un objeto que se encuentre a 56 cm de una lente cuya distancia focal sea de 21 cm se forma a 33 cm de ella.
+
+Valencia
+Ir a la navegación
+Ir a la búsqueda
+Para otros usos de este término, véase Valencia (desambiguación).
+València
+Valencia
+Comarca, Municipio y ciudad
+
+Flag of the Valencian Community (2x3).svg
+Bandera
+	Escudo de Valencia 2.svg
+Escudo
+
+Collagevalencia.JPG
+Valencia ubicada en España
+Valencia
+Valencia
+Ubicación de Valencia en España.
+Valencia ubicada en Provincia de Valencia
+Valencia
+Valencia
+Ubicación de Valencia en la provincia de Valencia.
+Wikimedia | © OpenStreetMap
+Mapa interactivo
+Apodo:«El Cap i casal», «La capital del Turia»
+País	Flag of Spain.svg España
+• Com. autónoma	Flag of the Valencian Community (2x3).svg Comunidad Valenciana
+• Provincia	Valencia
+• Comarca	Ciudad de Valencia
+• Partido judicial	Valencia
+Ubicación	39°28′00″N 0°22′30″OCoordenadas: 39°28′00″N 0°22′30″O (mapa)
+• Altitud	161​ msnm
+(mín.:0, máx.:1042​)
+Superficie	134,65 km²
+Núcleos de
+población
+15 núcleos
+[mostrar]
+Fundación	Romana. Año 138 a. C.3​
+Población	791 413 hab. (2018)
+• Densidad	5850,78 hab./km²
+Gentilicio	Valenciano, -na
+Predom. ling. oficial	Valenciano
+Código postal	46001-46026
+Pref. telefónico	96
+Alcalde (2015)	Joan Ribó i Canut Compromís (isotip).svg
+Presupuesto	908 714 519,06€4​ (año 2018)
+Fiestas mayores	Fallas
+Ver más...
+Hermanada con
+7 ciudades
+[mostrar]
+Patrón	San Vicente Mártir
+Patrona	Virgen de los Desamparados
+Sitio web	www.valencia.es
+[editar datos en Wikidata]
+
+Valencia (en valenciano y oficialmente València,5​ AFI: [vaˈlensia])6​es un municipio7​ y una ciudad de España, capital de la provincia homónima y de la Comunidad Valenciana. Con una población de 791 413 habitantes (INE, 2018), que sube a 1 550 885 habitantes si se incluye su espacio urbano,8​ es la tercera ciudad y área metropolitana más poblada de España, por detrás de Madrid y Barcelona.9​
+
+Valencia fue fundada por los romanos como colonia en el año 138 a. C., siendo cónsul Décimo Junio Bruto Galaico, y se denominó Valentia Edetanorum. Varios siglos después, en el año 711, los musulmanes ocuparon la ciudad aportando su lengua, religión y costumbres, como la implantación de sistemas de riego y la introducción de nuevos cultivos. En 1238 el rey cristiano Jaime I de Aragón reconquistó la ciudad, y repartió las tierras entre los nobles que le ayudaron a conquistarla, tal y como queda testimoniado en el Llibre del Repartiment, así como también creó una nueva ley para la ciudad, los Fueros de Valencia, los cuales se hicieron extensivos al resto del reino de Valencia. En el siglo XVIII, Felipe V derogó los fueros como castigo al reino de Valencia por alinearse con los austracistas en la Guerra de Sucesión española. En 1982 se instituyó a Valencia como la capital de la actual Comunidad Valenciana, tal y como recoge el Estatuto de Autonomía.
+
+La ciudad está situada a orillas del río Turia, en la costa levantina de la península ibérica, justo en el centro del golfo de Valencia, aunque en el momento que los romanos la fundaron, se encontraba en una isla fluvial del Turia, a unos cuatro kilómetros de distancia del mar. A unos diez kilómetros al sur de la ciudad se encuentra la Albufera de Valencia, la cual es propiedad del Ayuntamiento de Valencia desde 1911 cuando la compró a la Corona de España por 1 072 980,41 pesetas.10​ La albufera es uno de los lagos más grandes de España, ya que tiene cerca de 2100 hectáreas de superficie,11​ a las cuales hay que añadir una extensión de 14 100 hectáreas de marjal dedicadas al cultivo del arroz.11​ Debido a su valor cultural, histórico y ecológico, este paraje natural fue el primer parque natural que declaró la Generalidad Valenciana, en 1986.
+
+En la actualidad la economía de la ciudad se centra en los servicios, ya que cerca del 84 % de la población activa ocupada pertenece al sector servicios. No obstante, la ciudad mantiene una base industrial, con un porcentaje de población ocupada del 5,5 %. Por otro lado, las actividades agrícolas, aun teniendo una importancia relativamente menor con sólo el 1,9 % de la población activa ocupada, perviven en el término municipal con un total de 3973 hectáreas, las cuales están ocupada en su mayor parte por cultivos de huerta y cítricos.12​
+
+Su casco histórico es uno de los más extensos de España, con aproximadamente 169 hectáreas,13​ y gracias a su patrimonio histórico y monumental y sus diversos espacios escénicos y culturales la convierten en unas de las ciudades con mayor afluencia de turismo nacional e internacional de todo el país. Entre sus monumentos más representativos se encuentran el Miguelete, la Catedral, las Torres de Serranos y de Quart, la Lonja de la Seda, declarada como Patrimonio de la Humanidad por la Unesco en 1996, y la Ciudad de las Artes y las Ciencias.14​ También hay que destacar que el Museo de Bellas Artes de Valencia es el museo pictórico más importante de la Comunidad Valenciana siendo por su relevancia la segunda pinacoteca de España,15​16​ al igual que el Instituto Valenciano de Arte Moderno (IVAM), el cual tiene por objetivo el investigar y difundir el arte del siglo XX.17​
+
+Debido a su larga historia, esta es una ciudad con innumerables fiestas y tradiciones, entre las que caben destacar las fallas, las cuales fueron declaradas como fiestas de interés turístico internacional el 25 de enero de 196518​ y Patrimonio cultural inmaterial de la Humanidad por la UNESCO el 30 de noviembre de 2016,19​ y el Tribunal de las Aguas, también declarado en 2009 como Patrimonio cultural inmaterial de la Humanidad.20​ Además de esto, Valencia ha sido, y es en la actualidad, escenario de diversos eventos mundiales que han contribuido a configurar la ciudad y darle proyección internacional, como han sido la Exposición Regional de 1909,21​22​ la 32.ª23​ y la 33.ª Copa América de vela,24​ el Gran Premio de Europa de Fórmula 1,25​ el Open 500 de tenis,26​ y el Global Champions Tour de Hípica.27​
+
+Desde 2015, el alcalde es Joan Ribó, de Coalició Compromís, que llegó a la alcaldía gracias al Pacto de gobierno de la Nau, firmado por su formación con el PSPV y València en Comú.
+Índice
+
+    1 Toponimia
+    2 Elementos identitarios
+        2.1 Capitalidad
+        2.2 Símbolos
+            2.2.1 Escudo de Valencia
+            2.2.2 Bandera de Valencia
+    3 Geografía
+        3.1 Localización
+        3.2 Topografía
+        3.3 Hidrografía
+        3.4 Clima
+        3.5 Riesgos naturales
+    4 Ecología
+        4.1 Flora
+        4.2 Fauna
+        4.3 Espacios naturales
+            4.3.1 El Parque natural de la Albufera
+            4.3.2 El marjal de Rafalell y Vistabella
+            4.3.3 La huerta
+            4.3.4 Las playas urbanas
+    5 Historia
+        5.1 Edad antigua
+        5.2 Edad Media
+        5.3 Edad Moderna
+        5.4 Edad contemporánea
+    6 Demografía
+    7 Organización territorial y urbanismo
+        7.1 Distritos y barrios
+        7.2 Estructura urbana
+            7.2.1 Principales vías
+            7.2.2 Puentes del Turia
+            7.2.3 Parques y jardines
+    8 Política y gobierno
+        8.1 Administraciones públicas
+        8.2 Gobierno municipal
+            8.2.1 Alcaldía
+            8.2.2 Junta de Gobierno
+            8.2.3 Portavoces municipales
+    9 Economía
+        9.1 Estructura productiva
+            9.1.1 Agricultura
+            9.1.2 Industria
+            9.1.3 Sector servicios
+                9.1.3.1 Comercio
+                9.1.3.2 Turismo de ocio
+                9.1.3.3 Turismo de negocios
+        9.2 Mercado de Valores
+        9.3 I+D+i
+    10 Servicios públicos
+        10.1 Educación
+            10.1.1 Educación no universitaria
+            10.1.2 Educación universitaria
+        10.2 Sanidad
+        10.3 Seguridad ciudadana
+            10.3.1 Policía Local
+            10.3.2 Cuerpo Municipal de Bomberos
+    11 Transportes
+        11.1 Red vial
+        11.2 Transporte urbano
+            11.2.1 Metro y tranvía
+            11.2.2 Autobuses
+            11.2.3 Taxi
+            11.2.4 Bicicleta
+        11.3 Transporte interurbano
+            11.3.1 Autobuses
+            11.3.2 Ferrocarril
+            11.3.3 Transporte aéreo
+            11.3.4 Transporte marítimo
+    12 Patrimonio histórico-artístico
+        12.1 Monumentos y edificios religiosos
+            12.1.1 Catedral
+            12.1.2 Basílica de la Virgen
+            12.1.3 Santa Catalina Mártir
+            12.1.4 Real Parroquia de los Santos Juanes
+            12.1.5 San Juan del Hospital
+            12.1.6 Monasterio de San Miguel de los Reyes
+            12.1.7 Cruces de término
+        12.2 Monumentos y edificios civiles
+            12.2.1 Gótico valenciano
+            12.2.2 Edificios barrocos y neoclásicos
+            12.2.3 Modernismo valenciano
+            12.2.4 La obra de Santiago Calatrava
+    13 Cultura
+        13.1 Museos, archivos y bibliotecas
+        13.2 Artes escénicas
+        13.3 El Valenciano apitxat
+        13.4 Música
+        13.5 Eventos internacionales
+        13.6 Tradiciones y cultura popular
+            13.6.1 Fiestas de Interés Turístico
+            13.6.2 Indumentaria tradicional
+            13.6.3 El Tribunal de las Aguas
+            13.6.4 Tauromaquia
+            13.6.5 Gastronomía
+    14 Deportes
+        14.1 Instalaciones deportivas
+        14.2 Clubes deportivos
+            14.2.1 Clubes de fútbol
+            14.2.2 Clubes de baloncesto
+            14.2.3 Clubes de otras especialidades deportivas
+        14.3 Eventos deportivos
+            14.3.1 Eventos profesionales
+            14.3.2 Eventos populares
+    15 Ciudades hermanadas
+    16 Representación consular
+    17 Véase también
+    18 Fuentes
+        18.1 Referencias
+        18.2 Notas
+        18.3 Bibliografía
+    19 Enlaces externos
+
+Toponimia
+
+El topónimo de «Valencia» deriva del término latino Valentia Edetanorum, que le dieron los romanos al fundarla.28​ Dicha denominación puede traducirse como 'Valor (o fuerza) en la tierra de los edetanos' (o simplemente como 'Valor de los Edetanos'), y se enmarca en la costumbre, ya practicada en Italia en el siglo II a. C., de fundar colonias con topónimos alegóricos de virtudes militares.29​ Los árabes la denominaron مدينة التراب (Madīna at-Turab, 'Ciudad de la arena'), por estar emplazada en la orilla del río Turia, mientras que reservaron el término بلنسية (Balansīa) para la totalidad de la taifa de Valencia.30​ En la época de Abd al-Aziz la ciudad recuperó para sí el nombre de Balansīa,30​ que pasaría a ser Valencia, València en valenciano, tras la conquista de Jaime I.
+
+En 2016, el Pleno del Ayuntamiento acordó por unanimidad recuperar un decreto municipal no oficializado en el año 1996, por el que se inician los trámites oportunos para oficializar la denominación oficial en valenciano, València,31​ como única forma oficial,32​ cambio que tuvo lugar tras los respectivos vistos buenos de diversas instituciones gubernamentales, entre ellas la Academia Valenciana de la Lengua que considera que la grafía adecuada desde el punto de vista histórico y lingüístico de València es con 'e' abierta, aunque la pronunciación recomendada para los valencianos es con 'e' cerrada.33​ El 14 de febrero de 2017 se publicó en el Diari Oficial de la Generalitat Valenciana el cambio de denominación del municipio de Valencia por la forma exclusiva en valenciano,34​ hecho que fue oficial tras su publicación en el BOE.35​
+
+A lo largo de la historia la ciudad ha recibido varios apodos, como el de la Ciudad de las mil Torres,36​ durante los siglos XVII y XVIII, la Capital del Turia o el Cap i casal. También durante varios siglos y hasta época reciente fue conocida como Valencia del Cid.37​
+Elementos identitarios
+Capitalidad
+
+Desde su fundación, Valencia ha sido la capital de la taifa de Valencia, del reino de Valencia, de la República Española y de la actual Comunidad Valenciana. Debido a esto, en los últimos años se está trabajando en la redacción de la Carta de Valencia,38​ la cual tendría rango de norma autonómica, y regularía la gestión, organización y competencias de la capital de la Comunidad para contribuir a esclarecer y a delimitar las competencias propias del Ayuntamiento de la ciudad, así como para establecer la dotación económica presupuestaria para llevarlas a cabo.38​39​
+Símbolos
+
+Desde la conquista de la ciudad por Jaime I hasta el reinado de Pedro el Ceremonioso la ciudad utilizó como armas propias un escudo alusivo a su emplazamiento, «una ciudad amurallada sobre olas». Este emblema aparece representado en uno de los primeros sellos municipales (1312) y en el escudo esculpido en la puerta gótica de la catedral. No obstante, ya desde el siglo XIV Valencia empleó como divisa las propias armas reales, ya que el rey Pedro el Ceremonioso en reconocimiento a la resistencia opuesta por Valencia a Pedro el Cruel de Castilla durante la guerra de los Dos Pedros (1356-1365), le concedió a la ciudad de Valencia el derecho a utilizar en su escudo y bandera las armas reales de Aragón y la corona real. Además de esto, como símbolo de la lealtad de la ciudad frente a los dos asedios sufridos en la guerra con Castilla, el rey añadió a izquierda y derecha del escudo una «L» (de lealtad), timbradas con la corona real. De este modo, el consejo municipal (Consell municipal) fijó la composición del escudo ya en el año 1377:
+
+    Original:
+    «E es cert quel senyal per los molts alts Reys darago atorgat e confermat a la dita Ciutat era e es lur propri senyal Reyal de bastons o barres grogues e vermelles. [...] [L]o molt alt senyor Rey ara Regnant per son propri motiu e sa mera liberalitat tenint se aixi com fon sa merce per molt servit de la dita Ciutat senyaladament en la guerra de Castella prop passada specialment en los dos Setges e pus principalment en lo segon e derrer daquells tenguts sobre aquella per el Rey de Castella enadi la dita corona al dit senyal»
+
+
+    Traducción:
+    «Y es cierto que la señal por los muy altos Reyes de Aragón otorgada y confirmada a la dicha Ciudad era y es su propia señal Real de bastones o barras amarillas y rojas. [...] El muy alto señor Rey ahora reinante por su propia iniciativa y su mera generosidad considerándo así Su Merced cómo fue bien servido por la dicha ciudad señaladamente en la reciente guerra de Castilla, especialmente en los dos asedios y más principalmente en el segundo y último de aquellos realizados sobre ella [Valencia] por el Rey de Castilla añadió la dicha corona a la dicha señal»
+    Manual de Consells de 1377 (Archivo Histórico Municipal de Valencia, años 1375-1383, n. 17, sig. A)
+
+Escudo de Valencia
+
+El actual escudo40​ deriva de las armas reales de Aragón, aunque posteriormente se le han ido incorporando nuevos elementos, como el murciélago, lo rat penat en valenciano, una evolución de un guiverno, el cual aparece también en el escudo de la Generalidad Valenciana, y que se integró en el emblema de la ciudad en el año 1503. El murciélago ya se utilizaba en algunos casos y se asociaba a algunos mitos de la conquista de Valencia por Jaime I, aunque este no fue oficial hasta el siglo XVII. El último elemento que se incorporó al escudo se debe a Fernando VII, quién otorgó dos ramas de laurel como recompensa a la resistencia de la ciudad durante la guerra de la Independencia.
+
+En la actualidad el escudo tiene el siguiente blasonado: «En escudo losanjado, campo de oro con cuatro palos de gules, dos eles coronadas como tenantes y en la parte inferior dos ramas de laurel. Al timbre, corona real abierta surmontada de un murciélago, visto de frente y con las alas extendidas, de sable».
+Bandera de Valencia
+
+La denominada Real Señera, Señera Coronada, o Señera tricolor, es la misma bandera que la de la Comunidad Valenciana.41​ El origen de esta bandera viene de una enseña heráldica, es decir un escudo, que fue evolucionando hasta adoptar la forma de una bandera, con una corona sobre las barras de los reyes de la Corona de Aragón.42​ De este modo, actualmente la bandera de la ciudad queda establecida de la siguiente manera: «La Bandera de Valencia es la tradicional "Señera" compuesta por cuatro barras rojas sobre fondo amarillo, coronada por poseer el título de Reino y franja azul junto al asta.»
+Geografía
+Localización
+Artículos principales: Golfo de Valencia, Sistema Ibérico y Huerta de Valencia.
+Valencia y su entorno vista por el sátelite Sentinel-2 del Programa Copérnico de la Agencia Espacial Europea.
+
+La ciudad de Valencia se encuentra en la costa mediterránea de la península ibérica, sobre la gran llanura aluvial de los ríos Júcar y Turia, justo en el centro del golfo de Valencia.43​ La ciudad primitiva estaba ubicada a unos cuatro kilómetros del mar, en una isla fluvial del Turia. Los montes más cercanos a la ciudad son algunas de las últimas estribaciones del sistema Ibérico en la Comunidad Valenciana, como el Cabeçol de El Puig y la sierra Calderona, a unos 12 km y 25 km al norte de la ciudad respectivamente.43​
+
+Valencia ha sido tradicionalmente la capital de la extinta comarca histórica y natural de la Huerta de Valencia, comarca que en 198944​ se disgregó para formar las comarcas de la Huerta Norte, Huerta Sur, Huerta Oeste y ciudad de Valencia, quedando así constituida como la única ciudad-comarca de la Comunidad Valenciana, la conocida como la «Ciudad de Valencia». De este modo, la comarca de Valencia se extiende tan sólo a la ciudad, sus pedanías, y el lago de la Albufera.11​ La «Ciudad de Valencia» limita al norte con las comarcas de Huerta Norte y Campo de Turia, al este con el mar Mediterráneo, al sur con las comarcas de Huerta Sur y Ribera Baja, y al oeste con la comarca de Huerta Oeste.
+
+En cuanto a su término municipal, la ciudad y sus pedanías (incluyendo las tres que están más alejadas del núcleo urbano, que son: Casas de Bárcena, Mahuella-Tauladella y Rafalell y Vistabella) limita al norte con las poblaciones de Bétera, Rocafort, Godella, Burjasot, Moncada, Alfara del Patriarca, Vinalesa, Bonrepós y Mirambell, Tabernes Blanques, Alboraya, Masamagrell, Masalfasar, Museros, Albuixech, Albalat dels Sorells, Foyos, Meliana y Almácera; al este con el mar Mediterráneo; al sur con las localidades de Picaña, Paiporta, Sedaví, Alfafar, Masanasa, Catarroja, Albal, Silla, Sollana y Sueca; y al oeste con los municipios de Paterna, Cuart de Poblet, Mislata y Chirivella.
+
+    Panorama urbano de Valencia. En la izquierda de la imagen aparecen la Torre de Francia y el CC. Aqua, en el centro la ciudad de las Artes y las Ciencias, y al fondo el Puerto de Valencia y el mar Mediterráneo.
+
+Topografía
+Fotografía satélite de la depresión central valenciana
+
+La ciudad de Valencia se encuentra en el centro de la depresión valenciana, al sur del sector ibérico. Esta llanura es la mayor planicie de toda la cuenca mediterránea española, y se encuentra en el centro de la Comunidad Valenciana. La depresión limita con la sierra Calderona al norte, con las montañas de la serranía del Turia al noreste, con la sierra de las Cabrillas al oeste, con el macizo del Caroig al suroeste y con el Mondúver por el sur.43​
+
+Su origen se debe, en un primer momento al proceso de hundimiento del golfo de Valencia, iniciado hace unos 6 millones de años, y en un segundo lugar, al proceso de colmatación de la zona por el aporte sedimentario de los ríos Palancia, Turia y Júcar, así como también de los barrancos de Carraixet y Poyo. Este proceso se vio acelerado por la baja acción erosiva del mar, y en los últimos tiempos por la acción antrópica, ya que el hombre ha acelerado el proceso de colmatación de las zonas húmedas mediante aterramientos selectivos.45​
+
+No toda la depresión es una llanura perfecta, ya que las zonas extremadamente llanas más próximas al litoral están conectadas con extensos piedemontes interiores, como son el pla de Cuart o el campo de Liria. También cabe destacar que la llanura se encuentra salpicada por pequeñas lomas que rompen la unidad, como el Cabeçol de El Puig, la montaña de los Santos de Sueca, la sierra Perenchisa de Torrente o la montaña de las Zorras de Cullera.43​ La mayor altitud del municipio de 104 metros se encuentra en Horteta.2​ De este modo, los paisajes tradicionales de esta unidad de relieve son los campos de cultivo de la huerta y las zonas húmedas, como la albufera de Valencia11​ y los marjales de Rafalell y Vistabella y del Moro.43​46​
+Hidrografía
+Artículos principales: Vega de Valencia y Turia.
+Azud de la acequia de Mestalla en el Turia
+
+El río que atraviesa la ciudad es el Turia. Este es un río de la vertiente mediterránea de la península ibérica, el cual nace en la muela de San Juan de los montes Universales, término municipal de Guadalaviar (Teruel), y tras 280 km de recorrido desemboca al norte de la playa valenciana de Pinedo. Son famosas sus crecidas, en especial la del 14 de octubre de 1957, conocida como la gran riada de Valencia, que con un caudal de 3 700 m³/s inundó gran parte de la ciudad de Valencia produciendo una gran cantidad de daños materiales y personales.
+
+Este hecho hizo crear un proyecto para desviar dicho cauce y evitar posteriores inundaciones, así mismo procuraba generar nuevas infraestructuras para el crecimiento de la ciudad. Este proyecto se materializó con la construcción de un nuevo cauce desviándolo por el sur de la ciudad, conocido como Plan Sur;47​ dicho cauce aparentemente está seco, debido a que sólo discurre caudal por él durante las crecidas, pues los caudales ordinarios se utilizan para el regadío de la vega de Valencia en las tomas de las acequias desde el azud del Repartiment. El antiguo cauce que pasa por la zona centro de la ciudad se ha convertido en un espacio lúdico-cultural, el jardín del Turia.
+
+A lo largo de la historia se ha utilizado el agua del Turia para la irrigación de los campos de cultivo, para lo cual se desarrolló una compleja red de irrigación, cuyo eje fundamental son las acequias de la vega de Valencia.48​ Estas acequias toman sus aguas de los últimos caudales del río, aguas abajo del azud de la acequia de Moncada. Finalmente las escorrentías y aguas sobrantes del Turia se aprovechan para la acequia del Oro y los regadíos de Francos y Marjales de Valencia.
+
+Las ocho acequias son, por el margen derecho: la acequia de Quart, de esta acequia parte luego la acequia de Benàger i Faitanar que tiene categoría de acequia madre también; la acequia de Mislata;49​ la acequia de Favara;50​ y la acequia de Rovella. Y por el margen izquierdo: la acequia de Tormos; la acequia de Mestalla; y la acequia de Rascanya.
+Clima
+Climograma de Valencia51​
+E	F	M	A	M	J	J	A	S	O	N	D
+
+
+36
+
+16
+7
+
+
+
+32
+
+17
+8
+
+
+
+35
+
+19
+10
+
+
+
+37
+
+21
+11
+
+
+
+34
+
+23
+15
+
+
+
+23
+
+27
+19
+
+
+
+9
+
+30
+21
+
+
+
+19
+
+30
+22
+
+
+
+51
+
+28
+19
+
+
+
+74
+
+24
+15
+
+
+
+51
+
+20
+11
+
+
+
+52
+
+17
+8
+temperaturas en °C • totales de precipitación en mm
+Conversión sistema imperial
+[mostrar]
+Artículo principal: Clima mediterráneo
+
+Valencia cuenta con un clima mediterráneo suave y ligeramente lluvioso durante los inviernos y caluroso y seco durante los veranos. De acuerdo con los criterios de la clasificación climática de Köppen Valencia tiene un clima de transición entre los climas mediterráneo (Csa) y semiárido cálido (BSh).52​ La temperatura media anual es de 18.4 °C.53​54​55​
+
+El clima de Valencia presenta veranos cálidos e inviernos suaves. Enero es el mes más frío, con temperaturas máximas medias de 16-17 °C y temperaturas mínimas de 7-8 °C. Las nevadas y las temperaturas bajo cero son extremadamente raras dentro del núcleo urbano de la ciudad.56​ La última vez que la nieve cuajó en las calles de Valencia fue el 11 de enero de 1960. El mes más cálido es agosto, con temperaturas máximas medias de 30-31 °C y temperaturas mínimas de 21-23 °C y una humedad relativa moderadamente alta. La amplitud térmica diaria es reducida debido a la influencia marítima: en torno a los 9 °C de media. Del mismo modo la amplitud térmica anual es pequeña por la influencia del mar, situándose entre 9 y 10 °C.54​55​
+
+Las precipitaciones anuales se sitúan entre 450 y 500 mm, con mínimos marcados en verano (de junio a agosto) especialmente en julio con una media de unos 8 mm; y máximos en los meses de otoño, especialmente en septiembre y octubre (llegando la media algo por debajo de los 80 mm en octubre) por el efecto de la gota fría, que ha llegado a acumular en varias ocasiones más de 150 mm en un día, causando inundaciones. La humedad media anual es relativamente alta debido a la influencia del mar, situándose alrededor del 65 % y variando poco a lo largo del año.54​55​
+
+A continuación se muestra una tabla con los valores climatológicos en el periodo de referencia 1981-2010 del observatorio de la AEMET situado en Jardines del Real (Valencia), a 11 msnm. Los valores extremos son del período 1981-2015.
+[ocultar]Gnome-weather-few-clouds.svg  Parámetros climáticos promedio de Observatorio de Valencia (Jardines del Real) (11 msnm) (Periodo de referencia: 1981-2010. Extremas 1966-2018) WPTC Meteo task force.svg
+Mes 	Ene. 	Feb. 	Mar. 	Abr. 	May. 	Jun. 	Jul. 	Ago. 	Sep. 	Oct. 	Nov. 	Dic. 	Anual
+Temp. máx. abs. (°C) 	26.6 	29.0 	33.2 	35.2 	42.0 	38.2 	41.8 	43.0 	38.4 	35.8 	32.0 	25.2 	43.0
+Temp. máx. media (°C) 	16.4 	17.1 	19.3 	20.8 	23.4 	27.1 	29.7 	30.2 	27.9 	24.3 	19.8 	17.0 	23.0
+Temp. media (°C) 	11.8 	12.5 	14.4 	16.2 	19.0 	22.9 	25.6 	26.1 	23.5 	19.7 	15.3 	12.6 	18.4
+Temp. mín. media (°C) 	7.1 	7.8 	9.6 	11.5 	14.6 	18.6 	21.5 	21.9 	19.1 	15.2 	10.8 	8.1 	13.8
+Temp. mín. abs. (°C) 	−6.5 	−7.2 	−0.4 	1.0 	5.0 	8.5 	11.6 	12.5 	8.0 	4.1 	−0.8 	−2.8 	−7.2
+Precipitación total (mm) 	37.1 	35.9 	33.4 	37.9 	39.2 	22.3 	7.8 	20.2 	69.7 	77.0 	46.6 	48.0 	474.9
+Días de precipitaciones (≥ 1 mm) 	4.4 	3.9 	3.6 	4.8 	4.3 	2.6 	1.1 	2.4 	5.0 	5.0 	4.3 	4.8 	46.3
+Horas de sol 	171.4 	170.6 	214.7 	233.7 	258.5 	275.7 	314.5 	288.1 	234.5 	202.2 	166.7 	155.2 	2695.6
+Humedad relativa (%) 	64 	64 	63 	62 	65 	66 	67 	68 	67 	67 	66 	65 	65
+Fuente: Agencia Estatal de Meteorología54​55​
+
+A continuación algunos récords climatológicos registrados en el observatorio de la AEMET situado en Jardines del Real (Valencia), considerados a partir del año 1937 para la temperatura y precipitación y a partir de 1945 para el viento. El récord de temperatura máxima absoluta es de 43 °C registrada el 27 de agosto de 2010, y la mínima de –7.2 °C registrada el 11 de febrero de 1956. La precipitación máxima en un día es de 262,6 mm registrados el 17 de noviembre de 1956, y la máxima racha de viento es de 117 km/h registrada el 25 de febrero de 1989.57​
+Riesgos naturales
+Río Turia desbordado en la ciudad de Valencia (1957)
+
+El principal riesgo natural que sufría la ciudad de Valencia eran las inundaciones, ya que a lo largo de la historia el río Turia ocasionó varias desbordamientos e inundaciones muy graves de la ciudad. Entre todos estos desbordamientos del Turia, el más grave fue el ocurrido el 14 de octubre de 1957 con la Gran riada de Valencia, cuando se produjeron precipitaciones superiores a los 300 mm en buena parte de la cuenca hidrográfica del Turia (361 mm en Bejís, aunque esta población está ubicada en la cuenca del río Palancia), las cuales originaron dos ondas de crecida sobre Valencia, la primera de 2 700 m³/s y una velocidad media de 3,25 m/s; y la segunda, más violenta, de 3 700 m³/s y 4,16 m/s. Estas ondas de crecida inundaron la mayor parte de la capital valenciana, causando la muerte a más de 80 personas, además de cuantiosos daños materiales.
+
+Tras esta riada se proyectó desviar el cauce del Turia por el sur de Valencia, con el proyecto llamado Plan Sur. Este proyecto dotaba al río de una capacidad de desagüe de 5 000 m³/s,47​ además de otras obras menores de regulación del río. Ante la tardanza de las ayudas por parte del gobierno tras la riada, el alcalde Tomás Trénor Azcárraga se enfrentó a Francisco Franco, el cual le destituyó. Sin embargo, con su comportamiento el alcalde logró su objetivo, ya que a partir de sus críticas se agilizaron las ayudas a la ciudad y comenzaron las obras del desvío del Turia.
+
+Otro riesgo que suele afectar a la zona mediterránea de la península Ibérica son las olas de calor y de frío. Valencia sufre cada año en los meses veraniegos varias alertas por olas de calor, las cuales son según la Agencia Estatal de Meteorología (AEMET) un período de al menos 3 días con temperaturas anormalmente elevadas. Estas olas de calor pueden provocar los denominados golpes de calor, causantes incluso de muertes. Por el contrario, en los meses invernales el peligro viene por las olas de frío, ya que las temperaturas pueden llegar a caer puntualmente por debajo de los 0 °C. Esto se debe a la irrupción de corrientes de aire gélido procedentes del Ártico o de Siberia en el territorio valenciano.43​ Las principales consecuencias de las olas de frío son los cortes de carreteras por placas de hielo o el peligro de hipotermia para las personas sin hogar.
+
+El riesgo sísmico también afecta a Valencia, ya que la ciudad se encuentra en una zona de moderada peligrosidad sísmica. A lo largo de la historia Valencia ha sufrido varios terremotos,58​ siendo unos de los más fuertes el registrado el 16 de septiembre del 2003, el cual tuvo una magnitud de 4,2 en la escala Richter, aunque ese no fue el de mayor intensidad, ya que en los años 1823 y 1904 la ciudad también sufrió sendos terremotos de intensidad 5.58​ Hay que destacar que a lo largo de los años 2010 y 2011 se produjeron 16 terremotos, aunque todos ellos de baja intensidad, con magnitudes entre 1,5 y 2,8 en la escala Richter.59​
+Ecología
+Flora
+Bosque mediterráneo de la Dehesa del Saler
+
+Valencia se encuentra en el piso bioclimático termomediterráneo, por lo que su vegetación clímax es el bosque mediterráneo, mientras que la maquia se da en aquellas zonas donde ha desaparecido la vegetación arbórea.60​ Con motivo de la antropización del medio, en la mayor parte del término municipal predominan las especies vegetales nitrófilas, con la excepción de las que se dan en el entorno de los humedales costeros (Albufera y marjal de Rafalell y Vistabella) y de los cauces fluviales.61​
+
+Las principales especies arbóreas que se pueden encontrar en los espacios de bosque mediterráneo que quedan en el término municipal de Valencia (fundamentalmente en la Dehesa del Saler) son la carrasca, el pino carrasco y el taray, mientras que las especies arbustivas, las cuales se dan en el sotobosque o en zonas de maquia, son el lentisco, el enebro, la coscoja, el mirto, el tomillo, la aliaga, el romero, la satureja y el palmito.
+
+Por otra parte, las especies arbóreas asociadas al bosque de ribera (cauce del Turia) son los sauces, los alisos, los chopos o álamos, los fresnos, los olmos y los tarays, mientras que las especies arbustivas asociadas a este tipo de bosque son entre otras los juncos, los carrizos, las aneas, las adelfas y las zarzas. En torno a las zonas húmedas y acequias se encuentran varias comunidades de vegetación palustre, las cuales hunden sus raíces en el agua dulce o el lodo húmedo, como las cañas, las aneas, las mansiegas y los carrizos.
+
+En los cordones dunares más cercanos al mar destaca la presencia de «especies pioneras». Unas de estas especies son propias de las dunas móviles, como el carrizo o la campanilla de mar, y las otras son típicas de las dunas fijas, como el aladierno o el lentisco. Finalmente, en las malladas de las dunas se dan algunas especies suculentas, como la hierba salada o la salicornia.
+Fauna
+Cigüeñuelas y ánades reales en la reserva del Racó de l'Olla.
+
+El territorio valenciano presenta una gran biodiversidad, la cual es mayor en torno a la Albufera de Valencia, donde se encuentra el Centro de recuperación de fauna La Granja de El Saler.62​ Algunas especies de peces con presencia en el término municipal de Valencia son el fartet y el samarugo, especies endémicas de la Comunidad Valenciana, así como la anguila, el mújol y la lubina, de especial importancia económica.63​
+
+La extraordinaria riqueza avícola del territorio valenciano,64​ puede observarse por la gran variedad de especies que hay en el territorio de Valencia. En el término municipal pueden encontrarse varios tipos de anátidas, como el pato colorado con hasta 10 000 ejemplares, la cuchara común con hasta 20 000 ejemplares o el ánade azulón. También son destacables las colonias de garzas, pudiendo reseñar la garcilla bueyera, la garcilla cangrejera o la garza real. Por último también es destacable la presencia de especies como el charrán común, el charrán patinegro, la cigüeñuela común, la cerceta pardilla o la gaviota.
+
+Por lo que respecta a los mamíferos que se pueden encontrar en el territorio de Valencia, destacan las especies de roedores, como la rata parda, la rata de agua, el ratón de campo o el ratón moruno. Aunque también pueden encontrarse algunos grupos de musarañas, zorros y murciélagos (el murciélago de cueva, el murciélago rabudo, etc.).
+
+En el término municipal de Valencia también hay algunas especies de anfibios, como el sapo partero común, el sapo común, el sapo corredor, el sapillo pintojo, el sapo de espuelas, el sapillo moteado, el gallipato y la rana verde común.65​ Así como también hay presentes varios tipos de reptiles, como lagartos y lagartijas (la lagartija ibérica, el lagarto ocelado, el eslizón ibérico, la lagartija colirroja y la lagartija colilarga), culebras (la culebrilla ciega, la culebra de escalera, la culebra de herradura, la culebra bastarda y la víbora hocicuda), salamanquesas (la salamanquesa costera y la salamanquesa común), y tortugas o galápagos (el galápago europeo y el galápago leproso).66​
+Espacios naturales
+Artículo principal: Espacios naturales de Valencia
+
+La ciudad de Valencia cuenta en su término municipal con varios lugares y espacios naturales de especial importancia ecológica, cultural y paisajística, los cuales deben en gran parte su estado actual a la acción del hombre.
+El lago de la Albufera de Valencia
+Marjal de Rafalell y Vistabella
+El Parque natural de la Albufera
+
+Este paraje de 21 120 ha fue declarado parque natural por la Generalidad Valenciana el 23 de julio de 1986, y desde el año 1990 está incluido en la Lista de zonas húmedas de importancia internacional para las aves establecida por razón del Convenio de Ramsar de 2 de febrero de 1971. Desde el año 1992 es zona LIC (Lugar de Importancia Comunitaria) y desde 1994 está incluido en las áreas ZEPA (Zona de Especial Protección para las Aves). Esta zona húmeda se encuentra situada a unos 10 km al sur de la ciudad de Valencia,67​ y comprende un sistema formado por el lago de la Albufera, su entorno húmedo, y el cordón litoral adyacente a ambos.11​68​
+El marjal de Rafalell y Vistabella
+
+El marjal de Rafalell y Vistabella, con una extensión de 102,92 ha, es uno de los últimos marjales que se extendían al norte del río Turia desde Alboraya a Sagunto, el cual se nutre de aguas subterráneas y de restos de riego.69​70​ En cuanto a la vegetación de este humedal, hay que destacar que este está dominado por carrizales y juncales, los cuales sirven de refugio a varias especies de aves palustres y limícolas, así como también algunos vestigios de vegetación dunar sobre dunas semifijas y de vegetación de saladar, con especies como el limonio fino o la salicornia. En el marjal hay algunas acequias y pequeñas lagunas con vegetación subacuática, como la lengua de oca o la espiga de agua. Los peces con presencia en el marjal son la anguila, la lubina, el múgil y el pejerrey, aunque existen hábitats apropiados para la reintroducción de especies endémicas valencianas como el samarugo, el fartet, la colmilleja o la gambita de acequia.69​
+La huerta
+
+La huerta valenciana46​ nació en la época del Imperio romano, cuando Valencia fue un centro logístico y de hibernación para sus campañas de conquista en Iberia. Los romanos introdujeron nuevos cultivos, como los cereales, el olivo y la vid; no obstante estos y por las condiciones propias del entorno no eran lo suficientemente productivos.
+
+Aunque lo que hoy conocemos realmente como la huerta valenciana se desarrolló en la Edad Media, durante el periodo islámico. Ya que los musulmanes crearon una importante red de infraestructuras de irrigación: acequias; azudes; y pequeñas presas. Esta red derivaba las fuertes avenidas del Turia y los barrancos, consiguiendo desecar grandes zonas pantanosas y llevando el riego los campos. Al mismo tiempo se desarrollaron diversas actividades a lo largo de estas infraestructuras como: molinos de agua, donde se aprovechaba el caudal que circulaba por las acequias; lavaderos, los cuales dabanservicio a las viviendas o alquerías cercanas.
+Las playas urbanas
+
+Valencia cuenta con dos playas urbanas de arena fina y dorada, la playa de las Arenas y la playa de la Malvarrosa, las cuales delimitan por el sur con el puerto de Valencia y por el norte con la playa de la Patacona de Alboraya.71​ Son unas playas de carácter urbano, que cuentan con un extenso paseo marítimo en el que hay numerosos y amplios locales, los cuales ocupan antiguas casas de baño, y ofrecen una amplia oferta de alojamiento y gastronomía local.
+
+Las playas de la capital situadas al sur del Turia no tienen un carácter urbano tan marcado y presentan un ambiente más solitario. Desde las playas de Pinedo, con el sector de la Casa Negra donde se practica el nudismo, hasta la playa del Perellonet o del Recatí y la gola del Perelló, hay más de 15 kilómetros de costa arenosa (protegida por dunas), las cuales constituyen una oferta de playas espaciosas, rodeadas por el Parque natural de la Albufera.72​
+Historia
+Artículos principales: Historia de la ciudad de Valencia y Lista de monarcas de Valencia.
+Edad antigua
+
+Recientemente se han encontrado restos arqueológicos de los siglos IV a. C. y III a. C..73​ Estos son los testimonios más antiguos de la presencia humana en la comarca. Investigaciones recientes han permitido conocer que Valencia y su entorno, hoy incluido dentro del entorno urbano, formaban parte de una ruta comercial de cerámica de lujo.74​
+Cornucopia romana que simboliza a Valencia
+Las murallas, romana y árabe, de Valencia
+
+Valencia es una de las ciudades más antiguas de España, ya que se fundó con el nombre de Valentia Edetanorum por unos dos mil colonos romanos en el año 138 a. C., en tiempos del cónsul Décimo Junio Bruto Galaico. Esta era una ciudad clásicamente romana en su concepción, ya que se ubicó en un lugar estratégico cerca del mar, una isla fluvial atravesada por la Vía Augusta, que comunicaba la actual Andalucía (Bética) con la capital del imperio (Roma). El núcleo principal de la ciudad se localizaba en el entorno de la actual plaza de la Virgen. Allí se encontraba el foro y el cruce del Cardo y el Decumano, que eran y siguen siendo los dos ejes principales de la ciudad. El Cardo corresponde a las actuales calles Salvador-Almoina y el Decumano a la calle de los Caballeros.3​75​
+
+Durante la guerra entre Cneo Pompeyo Magno y Quinto Sertorio, en el año 75 a. C., se destruyó la ciudad de Valenctia, la cual no volvió a reconstruirse hasta pasados unos 50 años. Tras este periodo de abandono, la ciudad recuperó su población y comenzó a construir grandes obras de infraestructura, ya en el siglo I, lo cual propició que a mediados de siglo la ciudad viviera un periodo de gran crecimiento urbano. Aunque pasados los siglos, en el siglo III, Valencia vivió una nueva época de decadencia. Finalmente, durante los últimos años del Imperio romano, en el siglo IV, la ciudad comenzó a conformar una primitiva comunidad cristiana.75​76​
+Edad Media
+
+Época visigótica
+
+Unos siglos después, coincidiendo con las primeras oleadas de pueblos germánicos y con el vacío de poder dejado por la administración imperial, la iglesia asumió las riendas de la ciudad y los edificios de culto cristiano fueron reemplazando los antiguos templos romanos. Con la invasión bizantina del sudoeste de la península en 554 la ciudad cobró una importancia estratégica, instalándose en ella contingentes militares visigodos.76​ Tras la expulsión de los bizantinos en el 625 se inicia una etapa oscura, mal conocida por la historia y apenas documentada por la arqueología, que parece testimoniar un tono de vida urbana muy bajo. Durante el período visigótico fue sede episcopal de la iglesia católica, sufragánea de la archidiócesis de Toledo que comprendía la antigua provincia romana Cartaginense en la diócesis de Hispania.77​
+
+La Balansiya musulmana
+
+La etapa inmediatamente posterior a la conquista musulmana del año 711, constituye un periodo oscuro de la ciudad del que no se cuenta con gran información. Pese a esto, se conoce que Abd al-Rahman I (primer emir de Córdoba) ordenó destruir la ciudad, aunque varios años después Abd Allah al-Balansi, hijo de Abd al-Rahman I, ejerció una especie de gobierno autónomo sobre el área valenciana. Entre sus decisiones destaca la orden de construir en las afueras de la ciudad un lujoso palacio, la Russafa, origen del barrio del mismo nombre, y del que por el momento no se ha encontrado resto alguno.76​ En esta época la urbe recibió durante unos siglos el nombre de Medina al-Turab, ciudad del barro o del polvo, por el estado de abandono en que se encontraba.75​78​
+
+El mayor auge de la ciudad empezó con los reinos de taifas (siglo XI), uno de los cuales era el de Valencia. La ciudad creció, y en tiempos de Abd al-Aziz (siglo XI) se edificó una nueva muralla de la cual se conservan restos por toda Ciutat Vella. El noble castellano Rodrigo Díaz de Vivar (el Cid Campeador) entró en Valencia, quedando la ciudad en manos de tropas cristianas entre los años 1094 y 1102 estableciendo un señorío independiente en Valencia.79​ Tras la muerte del Cid, su esposa Jimena, convertida en señora de Valencia, consiguió defender la ciudad con la ayuda de su yerno Ramón Berenguer III durante un tiempo. Pero en mayo de 1102, ante la imposibilidad de defender el principado, la familia y gente del Cid abandonaron Valencia con la ayuda de Alfonso VI, no sin antes desvalijar e incendiar la ciudad.80​ Así, Valencia fue conquistada al día siguiente de nuevo por los almorávides, que restauraron el culto musulmán.
+
+La decadencia del poder almorávide coincidió con el ascenso de una nueva dinastía norteafricana, los almohades, que se hicieron con el control de la península a partir del año 1145, aunque su entrada en Valencia se vio frenada por Ibn Mardanis, monarca de Valencia y Murcia, hasta el año 1171 momento en el que finalmente la ciudad cayó en manos de los norteafricanos.75​
+
+La reconquista cristiana
+
+Entrada triunfal de Jaime I en Valencia.
+
+En 1238, la ciudad fue conquistada por Jaime I con la ayuda de tropas de las órdenes militares. Tras la victoria cristiana, la población musulmana fue expulsada y la ciudad repartida entre aquellos que habían participado en la conquista, de lo que queda testimonio en el Llibre del Repartiment.81​ Jaime I otorgó a la ciudad unas nuevas leyes, los Fueros de Valencia (els Furs), que años después hizo extensivas a todo el reino de Valencia. A partir de este momento, comenzó en la ciudad una nueva etapa histórica de la mano de una nueva sociedad y de una lengua, las cuales sentaron las bases del pueblo valenciano tal y como se conoce hoy en día.75​
+
+Según los datos sobre la capitulación de la ciudad, el reino de Valencia tenía una población de 120 000 musulmanes, 65 000 cristianos y 2 000 judíos y gracias a la capitulación y los pactos que a ella llevaron, la población valenciana pudo mayoritariamente seguir en sus tierras.77​ Así, según el historiador árabe Hussein Mones de la Universidad de El Cairo, estas fueron las palabras que el rey Zayan dijo a Jaime I en el momento que le entregó las llaves de la ciudad:
+
+    En la ciudad de Valencia conviven musulmanes, gente noble de mi pueblo, junto a cristianos y judíos. Espero que sepáis gobernarlos para que continúen viviendo en la misma armonía y para que trabajen esta noble tierra conjuntamente. Aquí, durante mi reinado, salían procesiones de Semana Santa y los cristianos profesaban su religión con toda libertad, ya que nuestro Corán reconoce a Cristo y a la Virgen. Espero que vos concedáis el mismo trato a los musulmanes de Valencia.82​
+
+La ciudad pasó por graves aprietos a mediados del siglo XIV. Por un lado, la peste negra de 1348 y las sucesivas epidemias de años siguientes, que diezmaron a la población, y por otro lado, se sucedieron una serie de guerras y revueltas, como la Guerra de la Unión, una revuelta ciudadana contra los excesos de la monarquía encabezada por Valencia como capital del reino,77​ así como la Guerra con Castilla, que obligó a levantar a toda prisa una nueva muralla para contener, en dos ocasiones (en los años 1363 y 1364), el ataque castellano. En estos años la convivencia entre las tres comunidades que ocupaban la ciudad (cristiana, judía y musulmana) fue bastante conflictiva. Los judíos, instalados en torno a la calle de la Mar, habían progresado económica y socialmente, y su barrio fue ampliando progresivamente los límites a costa de las parroquias contiguas. Por su parte, los musulmanes que permanecieron en la ciudad tras la conquista fueron instalados en una morería junto al actual mercado de Mosen Sorell. En 1391 una turba descontrolada asaltó el barrio judío, lo que supuso la práctica desaparición de esta comunidad y la conversión forzosa de sus miembros al cristianismo. En 1456, de nuevo un tumulto popular asaltó también la morería, aunque sus consecuencias fueron de menor trascendencia.76​
+
+El Siglo de Oro valenciano
+
+Tirant lo Blanch.
+Artículo principal: Siglo de Oro valenciano
+
+El siglo XV fue una época de apogeo económico, cultural y artístico para la ciudad. A lo largo de este siglo se produjo también un crecimiento demográfico que hizo de Valencia la ciudad más poblada de la Corona de Aragón.75​ La industria local (con los textiles a la cabeza) alcanzó un gran desarrollo. En esta época también se creó la Taula de canvis, banca municipal de apoyo de las operaciones comerciales. A finales de siglo se erigió la Lonja de la Seda y de los Mercaderes. La ciudad se convirtió en un emporio comercial que atrajo a mercaderes de toda Europa.
+
+Este auge económico se reflejó en el plano artístico y cultural. Se levantaron a lo largo de esta época algunos de los edificios más emblemáticos de la ciudad, como las torres de Serranos (1392), la Lonja (1482), el Miguelete o la capilla de los Reyes del convento de Santo Domingo. En pintura y escultura las tendencias flamencas e italianas tuvieron influencia sobre algunos artistas como Lluís Dalmau, Gonçal Peris o Damian Forment. En literatura, al amparo de la corte de Alfonso el Magnánimo floreció la producción escrita, de la mano de autores como Ausias March, Roig de Corella o Isabel de Villena. Hacia 1460 Joanot Martorell escribió el Tirant lo Blanch, una innovadora novela de caballería que influyó en numerosos autores posteriores, desde Cervantes a Shakespeare. También en esta época, entre los años 1499 y 1502, se fundó la Universidad de Valencia bajo el nombre de Estudi General.76​
+Edad Moderna
+Véase también: Instituciones forales de la ciudad de Valencia
+
+Valencia con los Austrias
+
+La paz de las Germanías, por Marcelino de Unceta.
+
+A raíz del descubrimiento de América, la economía europea se orientó hacia el Atlántico en detrimento del Mediterráneo. Pese a la unión dinástica con Castilla, la explotación del Mediterráneo quedó en manos de la antigua Corona de Aragón, es decir, valencianos, catalanes y mallorquines, mientras que la conquista y explotación de América era un asunto exclusivo de Castilla. Frente esto, Valencia entró en una aguda crisis económica, que se manifestó pronto con rebelión de las Germanías (1519–1522), una revuelta social en contra de la nobleza que había huido de la ciudad ante una epidemia de peste en 1519.76​ Los caudillos de la insurrección fueron cruelmente reprimidos por parte de la virreina Germana de Foix, lo que supuso la aceleración de la centralización autoritaria de Carlos I.83​
+
+La crisis se acentuó durante el siglo XVII con la expulsión de los moriscos y judíos en 1609,84​ los cuales suponían casi un tercio de toda la población del reino.76​85​ El poder de la nobleza, cada vez más preponderante, provocó la ruina del país y la bancarrota de la Taula de Canvis en 1613. Durante la llamada Sublevación de Cataluña (1640-1652), Valencia colaboró con la causa de Felipe IV con milicias y dinero, lo que provocó un período de penurias económicas acentuadas por la llegada de tropas provenientes de otras partes de España.
+
+Valencia con los Borbones
+
+Mapa de Valencia según Tomás Vicente Tosca (c. 1738).
+
+La decadencia de la ciudad tocó fondo con la Guerra de Sucesión Española (1702-1709) que significó el fin de la independencia política y jurídica del reino de Valencia. Después de la Batalla de Almansa (25 de abril de 1707), Felipe V dispuso la derogación de los Fueros valencianos como castigo al apoyo que el reino había prestado a Carlos de Austria. A partir de los Decretos de Nueva Planta rigió en Valencia el Fuero castellano.86​87​ La capitalidad del reino de Valencia pasó a Orihuela, como un ultraje a la ciudad. Felipe V ordenó que se reuniera la Audiencia con el virrey cardenal Luis de Belluga, quien se opuso al cambio de capitalidad dada la cercanía de Orihuela como centro religioso, cultural y ahora político a Murcia (capital de su otro virreinato y de su diócesis). Así, habida cuenta su odio a la ciudad de Orihuela a la que bombardeó y saqueó sin cesar durante la Guerra de Sucesión, abandonó el virreinato de Valencia como protesta ante Felipe V que finalmente devolvió la capitalidad a Valencia.76​
+
+Con la abolición de los Fueros valencianos y el acomodo del reino y de su capital a las leyes y costumbres de Castilla, los cargos del gobierno municipal dejaron de ser electivos, y pasaron a ser de designación directa del monarca, ocupados a menudo por aristócratas foráneos. Valencia se tuvo que acostumbrar a ser una ciudad ocupada, con presencia de tropas acuarteladas en la ciudadela,88​ que se encontraba junto al convento de Santo Domingo, y en otros edificios, como la misma Lonja, que fue un cuartel hasta el año 1762.76​
+Edad contemporánea
+
+El siglo XIX
+
+La ciudad de Valencia vista desde el convento de San Pío V.
+
+El siglo XIX comenzó con España encadenando guerras con Francia, Portugal o Reino Unido. pero fue la Guerra de la Independencia la que más afectó a tierras valencianas y concretamente a la capital.77​
+
+En la Guerra de la Independencia española contra el ejército de Napoleón —también conocida como Guerra del Francés— la Primera Batalla de Valencia ocurrió el 28 de junio de 1808. Todavía se pueden ver los cañonazos en las torres de Quart y Serranos. La ciudad cayó en manos de las tropas bajo el mando del mariscal Suchet el 8 de enero de 1812 tras un largo asedio. La ocupación se prolongó hasta el final de la guerra en 1814.89​ Tras la capitulación, los franceses impulsaron algunas reformas en Valencia, que llegó a ser capital de España cuando José I trasladó aquí la Corte en el verano de 1812.76​
+
+Con la retirada de los franceses, el general Elío organizó una revuelta militar en Valencia que sirvió para reponer en el trono a Fernando VII e iniciar el sexenio absolutista (1814-1820).90​ En los años siguientes, como consecuencia de la legislación sostenida por la Constitución española de 1812 que ordenaba la formación de ayuntamientos en todas aquellas poblaciones que rebasaran el mínimo de vecinos estipulado por la ley, numerosas pedanías próximas al núcleo urbano de la ciudad de Valencia en situación legal confusa se constituyen en municipios, entre ellas Ruzafa y el Grao.76​
+Plaza del Mercado a comienzos del siglo XIX en Voyage pittoresque et historique de l'Espagne
+
+Entre los años 1850 y 1851 Vicente Rodríguez de la Encina y Falcó de Belaochaga fue alcalde de la ciudad, también ocupó la dirección de la Casa de Beneficencia municipal, y fue promotor del Banco de Valencia (fundado en 1900) y director de la Sociedad Valenciana de Aguas Potables (fundada en 1846).76​ Durante el reinado de Isabel II se concedió el título de duque de Valencia al general Ramón María Narváez, aunque simplemente era un título nobiliario sin jurisdicción alguna.
+
+En la década de 1840 se introdujo la iluminación de gas y poco después comenzó el empedrado de las calles, una labor que se alargó durante varios años por la falta de recursos del ayuntamiento. En 1850 se instaló la red de agua potable y en 1882 se introdujo la energía eléctrica en la ciudad. En estos años se consolidó el crecimiento de la ciudad y se derribaron gran parte de las antiguas murallas.76​
+Cantón de Valencia.
+
+En 1860 el municipio contaba con 140 416 habitantes. En 1858 los arquitectos Sebastián Monleón Estellés, Antonino Sancho y Timoteo Calvo diseñaron el Proyecto General del Ensanche de la Ciudad de Valencia, que preveía el derribo de las murallas para permitir la expansión de la ciudad (se reprodujo una segunda versión en 1868). Ambos proyectos no obtuvieron la aprobación definitiva pero sirvieron como base para el crecimiento de la ciudad. A partir de 1866 se derribaron en su totalidad las antiguas murallas de la ciudad a fin de facilitar la expansión urbana de la misma.
+
+Durante la Revolución cantonal de 1873, se articuló en el cantón federal de Valencia (proclamado el 19 de julio y disuelto el 7 de agosto), al que se adhirieron la mayoría de los municipios de las comarcas próximas. En 1894 se fundó el Círculo de Bellas Artes de Valencia.91​
+
+Siglos XX y XXI
+
+Durante el siglo XX Valencia se mantuvo como el tercer polo demográfico de España, ya que a lo largo del siglo triplicó su población, pasando de los 213 550 habitantes del año 1900 a los 739 014 del año 2000. Del mismo modo, durante el siglo XX Valencia también fue el tercer polo industrial y económico del país, gracias a hitos tan importantes como la creación del banco de Valencia en el año 1900,92​ el desarrollo del ensanche de la ciudad, la construcción de los mercados Central y de Colón, y la construcción de la estación del Norte de ferrocarril, la cual se finalizó en el año 1921. Además de esto, la Valencia del nuevo siglo se dio a conocer con un gran evento, la exposición regional valenciana de 1909, que emulaba las exposiciones nacionales y universales, celebradas en otras ciudades del mundo. Este evento fue promovido por el ateneo mercantil de Valencia, especialmente por su presidente, Tomás Trénor y Palavicino, y contó con el apoyo del Gobierno y de la Corona, ya que fue inaugurado por Alfonso XIII.21​22​
+
+El 6 de noviembre de 1936 Valencia se convirtió en la capital de la España republicana a manos de Francisco Largo Caballero, presidente del gobierno. El 17 de mayo de 1937 el gobierno pasó a manos de Negrín, y el 31 de octubre de ese mismo año se trasladó el gobierno a Barcelona.93​
+El Palacio de la Generalidad es el símbolo de la recuperación del autogobierno en la Comunidad Valenciana.
+
+El 13 de enero de 1937 se produjo desde un buque de la marina italiana fascista el primer bombardeo oficial sobre la ciudad de Valencia. Desde este día, los bombardeos se intensificaron y se sucedieron en varias ocasiones, llegando al final de la guerra a los 442 bombardeos sobre la ciudad. Estos bombardeos dejaron 2 831 heridos y 847 muertos, aunque se calcula que la cifra de víctimas mortales fue mayor, ya que los datos anteriores son los reconocidos por el gobierno de Franco.76​
+
+A raíz de la gran riada de Valencia de 1957 se construyó un nuevo cauce para el río, en el extrarradio de la ciudad, por lo que el antiguo cauce pudo reconvertirse en una zona lúdica y ajardinada.47​ A comienzos de los sesenta comenzó la recuperación económica, y Valencia vivió un espectacular crecimiento demográfico debido a la inmigración y la ejecución de importantes obras urbanísticas y de infraestructuras.94​
+
+Con la llegada de la democracia, el antiguo reino de Valencia se instituyó en comunidad autónoma, la Comunidad Valenciana, y estableció en su Estatuto de Autonomía que la capital fuera Valencia. Pese a esto, la noche del 23 de febrero de 1981 hubo una tentativa golpista, que en Valencia encabezó Jaime Milans del Bosch, la cual fracasó.95​ La democracia propició la recuperación de la lengua y la cultura valenciana, aunque no se pudo evitar cierta crispación social en torno a los símbolos (conocido como la Batalla de Valencia).96​97​
+
+Durante los primeros 25 años de democracia, Valencia ha sufrido un gran desarrollo, principalmente por obras tan emblemáticas como el Palacio de la Música, el Palacio de Congresos, el metro, la Ciudad de las Artes y las Ciencias, de Santiago Calatrava y Félix Candela,98​ el MuVIM, el IVAM, etc. Gracias a estas obras, así como a la progresiva rehabilitación de la Ciutat Vella, cada día la ciudad atrae más y más turismo.99​
+Demografía
+Artículo principal: Demografía de Valencia
+
+La población empadronada en el municipio de Valencia es de 791 413 habitantes (INE 2018), mientras que su área metropolitana tiene 1 550 885 habitantes (INE 2013).100​ El área metropolitana de Valencia está formada principalmente por municipios situados en la Huerta de Valencia; algunas localidades como Mislata se encuentran completamente conurbadas a la ciudad, mientras que el resto se sitúan en una primera o en una segunda corona metropolitana. Los municipios del área metropolitana que destacan por su población son Torrente con 80 759 habitantes, Paterna con 67 159 habitantes, Mislata con 43 775 habitantes y Burjasot con 38 148 habitantes (INE 2013).100​
+Evolución demográfica de la ciudad de Valencia (1787 a 2018)nota 1​nota 2​

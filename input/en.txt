@@ -1,0 +1,810 @@
+Machine learning
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+For the journal, see Machine Learning (journal).
+"Statistical learning" redirects here. For statistical learning in linguistics, see statistical learning in language acquisition.
+Machine learning and
+data mining
+Kernel Machine.svg
+Problems
+[show]
+Supervised learning
+(classification • regression)
+[show]
+Clustering
+[show]
+Dimensionality reduction
+[show]
+Structured prediction
+[show]
+Anomaly detection
+[show]
+Artificial neural networks
+[show]
+Reinforcement learning
+[show]
+Theory
+[show]
+Machine-learning venues
+[show]
+Glossary of artificial intelligence
+[show]
+Related articles
+[show]
+
+    Portal-puzzle.svg Machine learning portal
+
+    vte
+
+Machine learning (ML) is the scientific study of algorithms and statistical models that computer systems use in order to perform a specific task effectively without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence. Machine learning algorithms build a mathematical model based on sample data, known as "training data", in order to make predictions or decisions without being explicitly programmed to perform the task.[1][2]:2 Machine learning algorithms are used in a wide variety of applications, such as email filtering, and computer vision, where it is infeasible to develop an algorithm of specific instructions for performing the task. Machine learning is closely related to computational statistics, which focuses on making predictions using computers. The study of mathematical optimization delivers methods, theory and application domains to the field of machine learning. Data mining is a field of study within machine learning, and focuses on exploratory data analysis through unsupervised learning.[3][4] In its application across business problems, machine learning is also referred to as predictive analytics.
+Contents
+
+    1 Overview
+        1.1 Machine learning tasks
+    2 History and relationships to other fields
+        2.1 Relation to data mining
+        2.2 Relation to optimization
+        2.3 Relation to statistics
+    3 Theory
+    4 Approaches
+        4.1 Types of learning algorithms
+            4.1.1 Supervised and semi-supervised learning
+            4.1.2 Unsupervised learning
+            4.1.3 Reinforcement learning
+        4.2 Processes and techniques
+            4.2.1 Feature learning
+            4.2.2 Sparse dictionary learning
+            4.2.3 Anomaly detection
+            4.2.4 Decision trees
+            4.2.5 Association rules
+        4.3 Models
+            4.3.1 Artificial neural networks
+            4.3.2 Support vector machines
+            4.3.3 Bayesian networks
+            4.3.4 Genetic algorithms
+    5 Applications
+    6 Limitations
+        6.1 Bias
+    7 Model assessments
+    8 Ethics
+    9 Software
+        9.1 Free and open-source software
+        9.2 Proprietary software with free and open-source editions
+        9.3 Proprietary software
+    10 Journals
+    11 Conferences
+    12 See also
+    13 References
+    14 Further reading
+    15 External links
+
+Overview
+
+The name machine learning was coined in 1959 by Arthur Samuel.[5] Tom M. Mitchell provided a widely quoted, more formal definition of the algorithms studied in the machine learning field: "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E."[6] This definition of the tasks in which machine learning is concerned offers a fundamentally operational definition rather than defining the field in cognitive terms. This follows Alan Turing's proposal in his paper "Computing Machinery and Intelligence", in which the question "Can machines think?" is replaced with the question "Can machines do what we (as thinking entities) can do?".[7] In Turing's proposal the various characteristics that could be possessed by a thinking machine and the various implications in constructing one are exposed.
+Machine learning tasks
+
+A support vector machine is a supervised learning model that divides the data into regions separated by a linear boundary. Here, the linear boundary divides the black circles from the white.
+
+Machine learning tasks are classified into several broad categories. In supervised learning, the algorithm builds a mathematical model from a set of data that contains both the inputs and the desired outputs. For example, if the task were determining whether an image contained a certain object, the training data for a supervised learning algorithm would include images with and without that object (the input), and each image would have a label (the output) designating whether it contained the object. In special cases, the input may be only partially available, or restricted to special feedback.[clarification needed] Semi-supervised learning algorithms develop mathematical models from incomplete training data, where a portion of the sample input doesn't have labels.
+
+Classification algorithms and regression algorithms are types of supervised learning. Classification algorithms are used when the outputs are restricted to a limited set of values. For a classification algorithm that filters emails, the input would be an incoming email, and the output would be the name of the folder in which to file the email. For an algorithm that identifies spam emails, the output would be the prediction of either "spam" or "not spam", represented by the Boolean values true and false. Regression algorithms are named for their continuous outputs, meaning they may have any value within a range. Examples of a continuous value are the temperature, length, or price of an object.
+
+In unsupervised learning, the algorithm builds a mathematical model from a set of data which contains only inputs and no desired output labels. Unsupervised learning algorithms are used to find structure in the data, like grouping or clustering of data points. Unsupervised learning can discover patterns in the data, and can group the inputs into categories, as in feature learning. Dimensionality reduction is the process of reducing the number of "features", or inputs, in a set of data.
+
+Active learning algorithms access the desired outputs (training labels) for a limited set of inputs based on a budget, and optimize the choice of inputs for which it will acquire training labels. When used interactively, these can be presented to a human user for labeling. Reinforcement learning algorithms are given feedback in the form of positive or negative reinforcement in a dynamic environment, and are used in autonomous vehicles or in learning to play a game against a human opponent.[2]:3 Other specialized algorithms in machine learning include topic modeling, where the computer program is given a set of natural language documents and finds other documents that cover similar topics. Machine learning algorithms can be used to find the unobservable probability density function in density estimation problems. Meta learning algorithms learn their own inductive bias based on previous experience. In developmental robotics, robot learning algorithms generate their own sequences of learning experiences, also known as a curriculum, to cumulatively acquire new skills through self-guided exploration and social interaction with humans. These robots use guidance mechanisms such as active learning, maturation, motor synergies, and imitation.[clarification needed]
+History and relationships to other fields
+See also: Timeline of machine learning
+
+Arthur Samuel, an American pioneer in the field of computer gaming and artificial intelligence, coined the term "Machine Learning" in 1959 while at IBM[8]. As a scientific endeavour, machine learning grew out of the quest for artificial intelligence. Already in the early days of AI as an academic discipline, some researchers were interested in having machines learn from data. They attempted to approach the problem with various symbolic methods, as well as what were then termed "neural networks"; these were mostly perceptrons and other models that were later found to be reinventions of the generalized linear models of statistics.[9] Probabilistic reasoning was also employed, especially in automated medical diagnosis.[10]:488
+
+However, an increasing emphasis on the logical, knowledge-based approach caused a rift between AI and machine learning. Probabilistic systems were plagued by theoretical and practical problems of data acquisition and representation.[10]:488 By 1980, expert systems had come to dominate AI, and statistics was out of favor.[11] Work on symbolic/knowledge-based learning did continue within AI, leading to inductive logic programming, but the more statistical line of research was now outside the field of AI proper, in pattern recognition and information retrieval.[10]:708–710; 755 Neural networks research had been abandoned by AI and computer science around the same time. This line, too, was continued outside the AI/CS field, as "connectionism", by researchers from other disciplines including Hopfield, Rumelhart and Hinton. Their main success came in the mid-1980s with the reinvention of backpropagation.[10]:25
+
+Machine learning, reorganized as a separate field, started to flourish in the 1990s. The field changed its goal from achieving artificial intelligence to tackling solvable problems of a practical nature. It shifted focus away from the symbolic approaches it had inherited from AI, and toward methods and models borrowed from statistics and probability theory.[11] It also benefited from the increasing availability of digitized information, and the ability to distribute it via the Internet.
+Relation to data mining
+
+Machine learning and data mining often employ the same methods and overlap significantly, but while machine learning focuses on prediction, based on known properties learned from the training data, data mining focuses on the discovery of (previously) unknown properties in the data (this is the analysis step of knowledge discovery in databases). Data mining uses many machine learning methods, but with different goals; on the other hand, machine learning also employs data mining methods as "unsupervised learning" or as a preprocessing step to improve learner accuracy. Much of the confusion between these two research communities (which do often have separate conferences and separate journals, ECML PKDD being a major exception) comes from the basic assumptions they work with: in machine learning, performance is usually evaluated with respect to the ability to reproduce known knowledge, while in knowledge discovery and data mining (KDD) the key task is the discovery of previously unknown knowledge. Evaluated with respect to known knowledge, an uninformed (unsupervised) method will easily be outperformed by other supervised methods, while in a typical KDD task, supervised methods cannot be used due to the unavailability of training data.
+Relation to optimization
+
+Machine learning also has intimate ties to optimization: many learning problems are formulated as minimization of some loss function on a training set of examples. Loss functions express the discrepancy between the predictions of the model being trained and the actual problem instances (for example, in classification, one wants to assign a label to instances, and models are trained to correctly predict the pre-assigned labels of a set of examples). The difference between the two fields arises from the goal of generalization: while optimization algorithms can minimize the loss on a training set, machine learning is concerned with minimizing the loss on unseen samples.[12]
+Relation to statistics
+
+Machine learning and statistics are closely related fields. According to Michael I. Jordan, the ideas of machine learning, from methodological principles to theoretical tools, have had a long pre-history in statistics.[13] He also suggested the term data science as a placeholder to call the overall field.[13]
+
+Leo Breiman distinguished two statistical modelling paradigms: data model and algorithmic model,[14] wherein "algorithmic model" means more or less the machine learning algorithms like Random forest.
+
+Some statisticians have adopted methods from machine learning, leading to a combined field that they call statistical learning.[15]
+Theory
+Main articles: Computational learning theory and Statistical Learning Theory
+
+A core objective of a learner is to generalize from its experience.[2][16] Generalization in this context is the ability of a learning machine to perform accurately on new, unseen examples/tasks after having experienced a learning data set. The training examples come from some generally unknown probability distribution (considered representative of the space of occurrences) and the learner has to build a general model about this space that enables it to produce sufficiently accurate predictions in new cases.
+
+The computational analysis of machine learning algorithms and their performance is a branch of theoretical computer science known as computational learning theory. Because training sets are finite and the future is uncertain, learning theory usually does not yield guarantees of the performance of algorithms. Instead, probabilistic bounds on the performance are quite common. The bias–variance decomposition is one way to quantify generalization error.
+
+For the best performance in the context of generalization, the complexity of the hypothesis should match the complexity of the function underlying the data. If the hypothesis is less complex than the function, then the model has underfit the data. If the complexity of the model is increased in response, then the training error decreases. But if the hypothesis is too complex, then the model is subject to overfitting and generalization will be poorer.[17]
+
+In addition to performance bounds, learning theorists study the time complexity and feasibility of learning. In computational learning theory, a computation is considered feasible if it can be done in polynomial time. There are two kinds of time complexity results. Positive results show that a certain class of functions can be learned in polynomial time. Negative results show that certain classes cannot be learned in polynomial time.
+Approaches
+Types of learning algorithms
+
+The types of machine learning algorithms differ in their approach, the type of data they input and output, and the type of task or problem that they are intended to solve.
+Supervised and semi-supervised learning
+Main article: Supervised learning
+
+Supervised learning algorithms build a mathematical model of a set of data that contains both the inputs and the desired outputs.[18] The data is known as training data, and consists of a set of training examples. Each training example has one or more inputs and a desired output, also known as a supervisory signal. In the case of semi-supervised learning algorithms, some of the training examples are missing the desired output. In the mathematical model, each training example is represented by an array or vector, and the training data by a matrix. Through iterative optimization of an objective function, supervised learning algorithms learn a function that can be used to predict the output associated with new inputs.[19] An optimal function will allow the algorithm to correctly determine the output for inputs that were not a part of the training data. An algorithm that improves the accuracy of its outputs or predictions over time is said to have learned to perform that task.[6]
+
+Supervised learning algorithms include classification and regression.[20] Classification algorithms are used when the outputs are restricted to a limited set of values, and regression algorithms are used when the outputs may have any numerical value within a range. Similarity learning is an area of supervised machine learning closely related to regression and classification, but the goal is to learn from examples using a similarity function that measures how similar or related two objects are. It has applications in ranking, recommendation systems, visual identity tracking, face verification, and speaker verification.
+Unsupervised learning
+Main article: Unsupervised learning
+See also: Cluster analysis
+
+Unsupervised learning algorithms take a set of data that contains only inputs, and find structure in the data, like grouping or clustering of data points. The algorithms therefore learn from test data that has not been labeled, classified or categorized. Instead of responding to feedback, unsupervised learning algorithms identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data. A central application of unsupervised learning is in the field of density estimation in statistics,[21] though unsupervised learning encompasses other domains involving summarizing and explaining data features.
+
+Cluster analysis is the assignment of a set of observations into subsets (called clusters) so that observations within the same cluster are similar according to one or more predesignated criteria, while observations drawn from different clusters are dissimilar. Different clustering techniques make different assumptions on the structure of the data, often defined by some similarity metric and evaluated, for example, by internal compactness, or the similarity between members of the same cluster, and separation, the difference between clusters. Other methods are based on estimated density and graph connectivity.
+Reinforcement learning
+Main article: Reinforcement learning
+
+Reinforcement learning is an area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward. Due to its generality, the field is studied in many other disciplines, such as game theory, control theory, operations research, information theory, simulation-based optimization, multi-agent systems, swarm intelligence, statistics and genetic algorithms.[22][23] In machine learning, the environment is typically represented as a Markov Decision Process (MDP). Many reinforcement learning algorithms use dynamic programming techniques.[22][23][24] Reinforcement learning algorithms do not assume knowledge of an exact mathematical model of the MDP, and are used when exact models are infeasible.[22][23] Reinforcement learning algorithms are used in autonomous vehicles or in learning to play a game against a human opponent.
+Processes and techniques
+
+Various processes, techniques and methods can be applied to one or more types of machine learning algorithms to enhance their performance.
+Feature learning
+Main article: Feature learning
+
+Several learning algorithms aim at discovering better representations of the inputs provided during training.[25] Classic examples include principal components analysis and cluster analysis. Feature learning algorithms, also called representation learning algorithms, often attempt to preserve the information in their input but also transform it in a way that makes it useful, often as a pre-processing step before performing classification or predictions. This technique allows reconstruction of the inputs coming from the unknown data-generating distribution, while not being necessarily faithful to configurations that are implausible under that distribution. This replaces manual feature engineering, and allows a machine to both learn the features and use them to perform a specific task.
+
+Feature learning can be either supervised or unsupervised. In supervised feature learning, features are learned using labeled input data. Examples include artificial neural networks, multilayer perceptrons, and supervised dictionary learning. In unsupervised feature learning, features are learned with unlabeled input data. Examples include dictionary learning, independent component analysis, autoencoders, matrix factorization[26] and various forms of clustering.[27][28][29]
+
+Manifold learning algorithms attempt to do so under the constraint that the learned representation is low-dimensional. Sparse coding algorithms attempt to do so under the constraint that the learned representation is sparse, meaning that the mathematical model has many zeros. Multilinear subspace learning algorithms aim to learn low-dimensional representations directly from tensor representations for multidimensional data, without reshaping them into higher-dimensional vectors.[30] Deep learning algorithms discover multiple levels of representation, or a hierarchy of features, with higher-level, more abstract features defined in terms of (or generating) lower-level features. It has been argued that an intelligent machine is one that learns a representation that disentangles the underlying factors of variation that explain the observed data.[31]
+
+Feature learning is motivated by the fact that machine learning tasks such as classification often require input that is mathematically and computationally convenient to process. However, real-world data such as images, video, and sensory data has not yielded to attempts to algorithmically define specific features. An alternative is to discover such features or representations through examination, without relying on explicit algorithms.
+Sparse dictionary learning
+Main article: Sparse dictionary learning
+
+Sparse dictionary learning is a feature learning method where a training example is represented as a linear combination of basis functions, and is assumed to be a sparse matrix. The method is strongly NP-hard and difficult to solve approximately.[32] A popular heuristic method for sparse dictionary learning is the K-SVD algorithm. Sparse dictionary learning has been applied in several contexts. In classification, the problem is to determine to which classes a previously unseen training example belongs. For a dictionary where each class has already been built, a new training example is associated with the class that is best sparsely represented by the corresponding dictionary. Sparse dictionary learning has also been applied in image de-noising. The key idea is that a clean image patch can be sparsely represented by an image dictionary, but the noise cannot.[33]
+Anomaly detection
+Main article: Anomaly detection
+
+In data mining, anomaly detection, also known as outlier detection, is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data.[34] Typically, the anomalous items represent an issue such as bank fraud, a structural defect, medical problems or errors in a text. Anomalies are referred to as outliers, novelties, noise, deviations and exceptions.[35]
+
+In particular, in the context of abuse and network intrusion detection, the interesting objects are often not rare objects, but unexpected bursts in activity. This pattern does not adhere to the common statistical definition of an outlier as a rare object, and many outlier detection methods (in particular, unsupervised algorithms) will fail on such data, unless it has been aggregated appropriately. Instead, a cluster analysis algorithm may be able to detect the micro-clusters formed by these patterns.[36]
+
+Three broad categories of anomaly detection techniques exist.[37] Unsupervised anomaly detection techniques detect anomalies in an unlabeled test data set under the assumption that the majority of the instances in the data set are normal, by looking for instances that seem to fit least to the remainder of the data set. Supervised anomaly detection techniques require a data set that has been labeled as "normal" and "abnormal" and involves training a classifier (the key difference to many other statistical classification problems is the inherent unbalanced nature of outlier detection). Semi-supervised anomaly detection techniques construct a model representing normal behavior from a given normal training data set, and then test the likelihood of a test instance to be generated by the model.
+Decision trees
+Main article: Decision tree learning
+
+Decision tree learning uses a decision tree as a predictive model to go from observations about an item (represented in the branches) to conclusions about the item's target value (represented in the leaves). It is one of the predictive modeling approaches used in statistics, data mining and machine learning. Tree models where the target variable can take a discrete set of values are called classification trees; in these tree structures, leaves represent class labels and branches represent conjunctions of features that lead to those class labels. Decision trees where the target variable can take continuous values (typically real numbers) are called regression trees. In decision analysis, a decision tree can be used to visually and explicitly represent decisions and decision making. In data mining, a decision tree describes data, but the resulting classification tree can be an input for decision making.
+Association rules
+Main article: Association rule learning
+See also: Inductive logic programming
+
+Association rule learning is a rule-based machine learning method for discovering relationships between variables in large databases. It is intended to identify strong rules discovered in databases using some measure of "interestingness".[38]
+
+Rule-based machine learning is a general term for any machine learning method that identifies, learns, or evolves "rules" to store, manipulate or apply knowledge. The defining characteristic of a rule-based machine learning algorithm is the identification and utilization of a set of relational rules that collectively represent the knowledge captured by the system. This is in contrast to other machine learning algorithms that commonly identify a singular model that can be universally applied to any instance in order to make a prediction.[39] Rule-based machine learning approaches include learning classifier systems, association rule learning, and artificial immune systems.
+
+Based on the concept of strong rules, Rakesh Agrawal, Tomasz Imieliński and Arun Swami introduced association rules for discovering regularities between products in large-scale transaction data recorded by point-of-sale (POS) systems in supermarkets.[40] For example, the rule { o n i o n s , p o t a t o e s } ⇒ { b u r g e r } {\displaystyle \{\mathrm {onions,potatoes} \}\Rightarrow \{\mathrm {burger} \}} \{{\mathrm {onions,potatoes}}\}\Rightarrow \{{\mathrm {burger}}\} found in the sales data of a supermarket would indicate that if a customer buys onions and potatoes together, they are likely to also buy hamburger meat. Such information can be used as the basis for decisions about marketing activities such as promotional pricing or product placements. In addition to market basket analysis, association rules are employed today in application areas including Web usage mining, intrusion detection, continuous production, and bioinformatics. In contrast with sequence mining, association rule learning typically does not consider the order of items either within a transaction or across transactions.
+
+Learning classifier systems (LCS) are a family of rule-based machine learning algorithms that combine a discovery component, typically a genetic algorithm, with a learning component, performing either supervised learning, reinforcement learning, or unsupervised learning. They seek to identify a set of context-dependent rules that collectively store and apply knowledge in a piecewise manner in order to make predictions.[41]
+
+Inductive logic programming (ILP) is an approach to rule-learning using logic programming as a uniform representation for input examples, background knowledge, and hypotheses. Given an encoding of the known background knowledge and a set of examples represented as a logical database of facts, an ILP system will derive a hypothesized logic program that entails all positive and no negative examples. Inductive programming is a related field that considers any kind of programming languages for representing hypotheses (and not only logic programming), such as functional programs.
+
+Inductive logic programming is particularly useful in bioinformatics and natural language processing. Gordon Plotkin and Ehud Shapiro laid the initial theoretical foundation for inductive machine learning in a logical setting.[42][43][44] Shapiro built their first implementation (Model Inference System) in 1981: a Prolog program that inductively inferred logic programs from positive and negative examples.[45] The term inductive here refers to philosophical induction, suggesting a theory to explain observed facts, rather than mathematical induction, proving a property for all members of a well-ordered set.
+Models
+Artificial neural networks
+Main article: Artificial neural network
+See also: Deep learning
+An artificial neural network is an interconnected group of nodes, akin to the vast network of neurons in a brain. Here, each circular node represents an artificial neuron and an arrow represents a connection from the output of one artificial neuron to the input of another.
+
+Artificial neural networks (ANNs), or connectionist systems, are computing systems vaguely inspired by the biological neural networks that constitute animal brains. Such systems "learn" to perform tasks by considering examples, generally without being programmed with any task-specific rules.
+
+An ANN is a model based on a collection of connected units or nodes called "artificial neurons", which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit information, a "signal", from one artificial neuron to another. An artificial neuron that receives a signal can process it and then signal additional artificial neurons connected to it. In common ANN implementations, the signal at a connection between artificial neurons is a real number, and the output of each artificial neuron is computed by some non-linear function of the sum of its inputs. The connections between artificial neurons are called "edges". Artificial neurons and edges typically have a weight that adjusts as learning proceeds. The weight increases or decreases the strength of the signal at a connection. Artificial neurons may have a threshold such that the signal is only sent if the aggregate signal crosses that threshold. Typically, artificial neurons are aggregated into layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first layer (the input layer), to the last layer (the output layer), possibly after traversing the layers multiple times.
+
+The original goal of the ANN approach was to solve problems in the same way that a human brain would. However, over time, attention moved to performing specific tasks, leading to deviations from biology. Artificial neural networks have been used on a variety of tasks, including computer vision, speech recognition, machine translation, social network filtering, playing board and video games and medical diagnosis.
+
+Deep learning consists of multiple hidden layers in an artificial neural network. This approach tries to model the way the human brain processes light and sound into vision and hearing. Some successful applications of deep learning are computer vision and speech recognition.[46]
+Support vector machines
+Main article: Support vector machines
+
+Support vector machines (SVMs), also known as support vector networks, are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.[47] An SVM training algorithm is a non-probabilistic, binary, linear classifier, although methods such as Platt scaling exist to use SVM in a probabilistic classification setting. In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
+Bayesian networks
+Main article: Bayesian network
+A simple Bayesian network. Rain influences whether the sprinkler is activated, and both rain and the sprinkler influence whether the grass is wet.
+
+A Bayesian network, belief network or directed acyclic graphical model is a probabilistic graphical model that represents a set of random variables and their conditional independence with a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases. Efficient algorithms exist that perform inference and learning. Bayesian networks that model sequences of variables, like speech signals or protein sequences, are called dynamic Bayesian networks. Generalizations of Bayesian networks that can represent and solve decision problems under uncertainty are called influence diagrams.
+Genetic algorithms
+Main article: Genetic algorithm
+
+A genetic algorithm (GA) is a search algorithm and heuristic technique that mimics the process of natural selection, using methods such as mutation and crossover to generate new genotypes in the hope of finding good solutions to a given problem. In machine learning, genetic algorithms were used in the 1980s and 1990s.[48][49] Conversely, machine learning techniques have been used to improve the performance of genetic and evolutionary algorithms.[50]
+Applications
+
+There are many applications for machine learning, including:
+
+    Agriculture
+    Anatomy
+    Adaptive websites
+    Affective computing
+    Banking
+    Bioinformatics
+    Brain–machine interfaces
+    Cheminformatics
+    Computer Networks
+    Computer vision
+    Credit-card fraud detection
+    Data quality
+    DNA sequence classification
+    Economics
+    Financial market analysis
+    General game playing
+    Handwriting recognition
+    Information retrieval
+    Insurance
+    Internet fraud detection
+    Linguistics
+    Machine learning control
+    Machine perception
+    Machine translation
+    Marketing
+    Medical diagnosis
+    Natural language processing
+    Natural language understanding
+    Online advertising
+    Optimization
+    Recommender systems
+    Robot locomotion
+    Search engines
+    Sentiment analysis
+    Sequence mining
+    Software engineering
+    Speech recognition
+    Structural health monitoring
+    Syntactic pattern recognition
+    Telecommunication
+    Theorem proving
+    Time series forecasting
+    User behavior analytics
+
+In 2006, the online movie company Netflix held the first "Netflix Prize" competition to find a program to better predict user preferences and improve the accuracy on its existing Cinematch movie recommendation algorithm by at least 10%. A joint team made up of researchers from AT&T Labs-Research in collaboration with the teams Big Chaos and Pragmatic Theory built an ensemble model to win the Grand Prize in 2009 for $1 million.[51] Shortly after the prize was awarded, Netflix realized that viewers' ratings were not the best indicators of their viewing patterns ("everything is a recommendation") and they changed their recommendation engine accordingly.[52] In 2010 The Wall Street Journal wrote about the firm Rebellion Research and their use of machine learning to predict the financial crisis.[53] In 2012, co-founder of Sun Microsystems, Vinod Khosla, predicted that 80% of medical doctors jobs would be lost in the next two decades to automated machine learning medical diagnostic software.[54] In 2014, it was reported that a machine learning algorithm had been applied in the field of art history to study fine art paintings, and that it may have revealed previously unrecognized influences between artists.[55]In 2019 Springer Nature published the first research book created using machine learning.[56]
+Limitations
+
+Although machine learning has been transformative in some fields, machine-learning programs often fail to deliver expected results.[57][58][59] Reasons for this are numerous: lack of (suitable) data, lack of access to the data, data bias, privacy problems, badly chosen tasks and algorithms, wrong tools and people, lack of resources, and evaluation problems.[60]
+
+In 2018, a self-driving car from Uber failed to detect a pedestrian, who was killed after a collision.[61] Attempts to use machine learning in healthcare with the IBM Watson system failed to deliver even after years of time and billions of investment.[62][63]
+Bias
+Main article: Algorithmic bias
+
+Machine learning approaches in particular can suffer from different data biases. A machine learning system trained on current customers only may not be able to predict the needs of new customer groups that are not represented in the training data. When trained on man-made data, machine learning is likely to pick up the same constitutional and unconscious biases already present in society.[64] Language models learned from data have been shown to contain human-like biases.[65][66] Machine learning systems used for criminal risk assessment have been found to be biased against black people.[67][68] In 2015, Google photos would often tag black people as gorillas,[69] and in 2018 this still was not well resolved, but Google reportedly was still using the workaround to remove all gorilla from the training data, and thus was not able to recognize real gorillas at all.[70] Similar issues with recognizing non-white people have been found in many other systems.[71] In 2016, Microsoft tested a chatbot that learned from Twitter, and it quickly picked up racist and sexist language.[72] Because of such challenges, the effective use of machine learning may take longer to be adopted in other domains.[73] Concern for reducing bias in machine learning and propelling its use for human good is increasingly expressed by artificial intelligence scientists, including Fei-Fei Li, who reminds engineers that "There’s nothing artificial about AI...It’s inspired by people, it’s created by people, and—most importantly—it impacts people. It is a powerful tool we are only just beginning to understand, and that is a profound responsibility.”[74]
+Model assessments
+
+Classification machine learning models can be validated by accuracy estimation techniques like the Holdout method, which splits the data in a training and test set (conventionally 2/3 training set and 1/3 test set designation) and evaluates the performance of the training model on the test set. In comparison, the K-fold-cross-validation method randomly partitions the data into K subsets and then K experiments are performed each respectively considering 1 subset for evaluation and the remaining K-1 subsets for training the model. In addition to the holdout and cross-validation methods, bootstrap, which samples n instances with replacement from the dataset, can be used to assess model accuracy.[75]
+
+In addition to overall accuracy, investigators frequently report sensitivity and specificity meaning True Positive Rate (TPR) and True Negative Rate (TNR) respectively. Similarly, investigators sometimes report the False Positive Rate (FPR) as well as the False Negative Rate (FNR). However, these rates are ratios that fail to reveal their numerators and denominators. The Total Operating Characteristic (TOC) is an effective method to express a model's diagnostic ability. TOC shows the numerators and denominators of the previously mentioned rates, thus TOC provides more information than the commonly used Receiver Operating Characteristic (ROC) and ROC's associated Area Under the Curve (AUC).[76]
+Ethics
+
+Machine learning poses a host of ethical questions. Systems which are trained on datasets collected with biases may exhibit these biases upon use (algorithmic bias), thus digitizing cultural prejudices.[77] For example, using job hiring data from a firm with racist hiring policies may lead to a machine learning system duplicating the bias by scoring job applicants against similarity to previous successful applicants.[78][79] Responsible collection of data and documentation of algorithmic rules used by a system thus is a critical part of machine learning.
+
+Because language contains biases, machines trained on language corpora will necessarily also learn bias.[80]
+
+Other forms of ethical challenges, not related to personal biases, are more seen in health care. There are concerns among health care professionals that these systems might not be designed in the public's interest, but as income generating machines. This is especially true in the United States where there is a perpetual ethical dilemma of improving health care, but also increasing profits. For example, the algorithms could be designed to provide patients with unnecessary tests or medication in which the algorithm's proprietary owners hold stakes in. There is huge potential for machine learning in health care to provide professionals a great tool to diagnose, medicate, and even plan recovery paths for patients, but this will not happen until the personal biases mentioned previously, and these "greed" biases are addressed.[81] 
+
+A computer is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via computer programming. Modern computers have the ability to follow generalized sets of operations, called programs. These programs enable computers to perform an extremely wide range of tasks. A "complete" computer including the hardware, the operating system (main software), and peripheral equipment required and used for "full" operation can be referred to as a computer system. This term may as well be used for a group of computers that are connected and work together, in particular a computer network or computer cluster.
+
+Computers are used as control systems for a wide variety of industrial and consumer devices. This includes simple special purpose devices like microwave ovens and remote controls, factory devices such as industrial robots and computer-aided design, and also general purpose devices like personal computers and mobile devices such as smartphones. The Internet is run on computers and it connects hundreds of millions of other computers and their users.
+
+Early computers were only conceived as calculating devices. Since ancient times, simple manual devices like the abacus aided people in doing calculations. Early in the Industrial Revolution, some mechanical devices were built to automate long tedious tasks, such as guiding patterns for looms. More sophisticated electrical machines did specialized analog calculations in the early 20th century. The first digital electronic calculating machines were developed during World War II. The speed, power, and versatility of computers have been increasing dramatically ever since then.
+
+Conventionally, a modern computer consists of at least one processing element, typically a central processing unit (CPU), and some form of memory. The processing element carries out arithmetic and logical operations, and a sequencing and control unit can change the order of operations in response to stored information. Peripheral devices include input devices (keyboards, mice, joystick, etc.), output devices (monitor screens, printers, etc.), and input/output devices that perform both functions (e.g., the 2000s-era touchscreen). Peripheral devices allow information to be retrieved from an external source and they enable the result of operations to be saved and retrieved.
+Contents
+
+    1 Etymology
+    2 History
+        2.1 Pre-20th century
+        2.2 First computing device
+        2.3 Analog computers
+        2.4 Digital computers
+        2.5 Modern computers
+        2.6 Mobile computers
+    3 Types
+        3.1 Based on uses
+        3.2 Based on sizes
+    4 Hardware
+        4.1 History of computing hardware
+        4.2 Other hardware topics
+        4.3 Input devices
+        4.4 Output devices
+        4.5 Control unit
+        4.6 Central processing unit (CPU)
+        4.7 Arithmetic logic unit (ALU)
+        4.8 Memory
+        4.9 Input/output (I/O)
+        4.10 Multitasking
+        4.11 Multiprocessing
+    5 Software
+        5.1 Languages
+        5.2 Programs
+    6 Networking and the Internet
+    7 Unconventional computers
+    8 Future
+        8.1 Computer architecture paradigms
+        8.2 Artificial intelligence
+    9 Professions and organizations
+    10 See also
+    11 References
+    12 Notes
+    13 External links
+
+Etymology
+A female computer, with microscope and calculator, 1952
+
+According to the Oxford English Dictionary, the first known use of the word "computer" was in 1613 in a book called The Yong Mans Gleanings by English writer Richard Braithwait: "I haue [sic] read the truest computer of Times, and the best Arithmetician that euer [sic] breathed, and he reduceth thy dayes into a short number." This usage of the term referred to a human computer, a person who carried out calculations or computations. The word continued with the same meaning until the middle of the 20th century. During the latter part of this period women were often hired as computers because they could be paid less than their male counterparts.[1] By 1943, most human computers were women.[2] From the end of the 19th century the word slowly began to take on its more familiar meaning, a machine that carries out computations.[3]
+
+The Online Etymology Dictionary gives the first attested use of "computer" in the 1640s, meaning "one who calculates"; this is an "agent noun from compute (v.)". The Online Etymology Dictionary states that the use of the term to mean "'calculating machine' (of any type) is from 1897." The Online Etymology Dictionary indicates that the "modern use" of the term, to mean "programmable digital electronic computer" dates from "1945 under this name; [in a] theoretical [sense] from 1937, as Turing machine".[4]
+History
+Main article: History of computing hardware
+Pre-20th century
+The Ishango bone
+
+Devices have been used to aid computation for thousands of years, mostly using one-to-one correspondence with fingers. The earliest counting device was probably a form of tally stick. Later record keeping aids throughout the Fertile Crescent included calculi (clay spheres, cones, etc.) which represented counts of items, probably livestock or grains, sealed in hollow unbaked clay containers.[5][6] The use of counting rods is one example.
+The Chinese Suanpan (算盘) (the number represented on this abacus is 6,302,715,408)
+
+The abacus was initially used for arithmetic tasks. The Roman abacus was developed from devices used in Babylonia as early as 2400 BC. Since then, many other forms of reckoning boards or tables have been invented. In a medieval European counting house, a checkered cloth would be placed on a table, and markers moved around on it according to certain rules, as an aid to calculating sums of money.
+The ancient Greek-designed Antikythera mechanism, dating between 150 and 100 BC, is the world's oldest analog computer.
+
+The Antikythera mechanism is believed to be the earliest mechanical analog "computer", according to Derek J. de Solla Price.[7] It was designed to calculate astronomical positions. It was discovered in 1901 in the Antikythera wreck off the Greek island of Antikythera, between Kythera and Crete, and has been dated to c. 100 BC. Devices of a level of complexity comparable to that of the Antikythera mechanism would not reappear until a thousand years later.
+
+Many mechanical aids to calculation and measurement were constructed for astronomical and navigation use. The planisphere was a star chart invented by Abū Rayhān al-Bīrūnī in the early 11th century.[8] The astrolabe was invented in the Hellenistic world in either the 1st or 2nd centuries BC and is often attributed to Hipparchus. A combination of the planisphere and dioptra, the astrolabe was effectively an analog computer capable of working out several different kinds of problems in spherical astronomy. An astrolabe incorporating a mechanical calendar computer[9][10] and gear-wheels was invented by Abi Bakr of Isfahan, Persia in 1235.[11] Abū Rayhān al-Bīrūnī invented the first mechanical geared lunisolar calendar astrolabe,[12] an early fixed-wired knowledge processing machine[13] with a gear train and gear-wheels,[14] c. 1000 AD.
+
+The sector, a calculating instrument used for solving problems in proportion, trigonometry, multiplication and division, and for various functions, such as squares and cube roots, was developed in the late 16th century and found application in gunnery, surveying and navigation.
+
+The planimeter was a manual instrument to calculate the area of a closed figure by tracing over it with a mechanical linkage.
+A slide rule
+
+The slide rule was invented around 1620–1630, shortly after the publication of the concept of the logarithm. It is a hand-operated analog computer for doing multiplication and division. As slide rule development progressed, added scales provided reciprocals, squares and square roots, cubes and cube roots, as well as transcendental functions such as logarithms and exponentials, circular and hyperbolic trigonometry and other functions. Slide rules with special scales are still used for quick performance of routine calculations, such as the E6B circular slide rule used for time and distance calculations on light aircraft.
+
+In the 1770s, Pierre Jaquet-Droz, a Swiss watchmaker, built a mechanical doll (automaton) that could write holding a quill pen. By switching the number and order of its internal wheels different letters, and hence different messages, could be produced. In effect, it could be mechanically "programmed" to read instructions. Along with two other complex machines, the doll is at the Musée d'Art et d'Histoire of Neuchâtel, Switzerland, and still operates.[15]
+
+The tide-predicting machine invented by Sir William Thomson in 1872 was of great utility to navigation in shallow waters. It used a system of pulleys and wires to automatically calculate predicted tide levels for a set period at a particular location.
+
+The differential analyser, a mechanical analog computer designed to solve differential equations by integration, used wheel-and-disc mechanisms to perform the integration. In 1876, Lord Kelvin had already discussed the possible construction of such calculators, but he had been stymied by the limited output torque of the ball-and-disk integrators.[16] In a differential analyzer, the output of one integrator drove the input of the next integrator, or a graphing output. The torque amplifier was the advance that allowed these machines to work. Starting in the 1920s, Vannevar Bush and others developed mechanical differential analyzers.
+First computing device
+A portion of Babbage's Difference engine.
+
+Charles Babbage, an English mechanical engineer and polymath, originated the concept of a programmable computer. Considered the "father of the computer",[17] he conceptualized and invented the first mechanical computer in the early 19th century. After working on his revolutionary difference engine, designed to aid in navigational calculations, in 1833 he realized that a much more general design, an Analytical Engine, was possible. The input of programs and data was to be provided to the machine via punched cards, a method being used at the time to direct mechanical looms such as the Jacquard loom. For output, the machine would have a printer, a curve plotter and a bell. The machine would also be able to punch numbers onto cards to be read in later. The Engine incorporated an arithmetic logic unit, control flow in the form of conditional branching and loops, and integrated memory, making it the first design for a general-purpose computer that could be described in modern terms as Turing-complete.[18][19]
+
+The machine was about a century ahead of its time. All the parts for his machine had to be made by hand – this was a major problem for a device with thousands of parts. Eventually, the project was dissolved with the decision of the British Government to cease funding. Babbage's failure to complete the analytical engine can be chiefly attributed to political and financial difficulties as well as his desire to develop an increasingly sophisticated computer and to move ahead faster than anyone else could follow. Nevertheless, his son, Henry Babbage, completed a simplified version of the analytical engine's computing unit (the mill) in 1888. He gave a successful demonstration of its use in computing tables in 1906.
+Analog computers
+Main article: Analog computer
+Sir William Thomson's third tide-predicting machine design, 1879–81
+
+During the first half of the 20th century, many scientific computing needs were met by increasingly sophisticated analog computers, which used a direct mechanical or electrical model of the problem as a basis for computation. However, these were not programmable and generally lacked the versatility and accuracy of modern digital computers.[20] The first modern analog computer was a tide-predicting machine, invented by Sir William Thomson in 1872. The differential analyser, a mechanical analog computer designed to solve differential equations by integration using wheel-and-disc mechanisms, was conceptualized in 1876 by James Thomson, the brother of the more famous Lord Kelvin.[16]
+
+The art of mechanical analog computing reached its zenith with the differential analyzer, built by H. L. Hazen and Vannevar Bush at MIT starting in 1927. This built on the mechanical integrators of James Thomson and the torque amplifiers invented by H. W. Nieman. A dozen of these devices were built before their obsolescence became obvious. By the 1950s, the success of digital electronic computers had spelled the end for most analog computing machines, but analog computers remained in use during the 1950s in some specialized applications such as education (control systems) and aircraft (slide rule).
+Digital computers
+
+It has been suggested that this section be split out into another article titled Digital computer. (Discuss) (May 2017)
+Electromechanical
+
+By 1938, the United States Navy had developed an electromechanical analog computer small enough to use aboard a submarine. This was the Torpedo Data Computer, which used trigonometry to solve the problem of firing a torpedo at a moving target. During World War II similar devices were developed in other countries as well.
+Replica of Zuse's Z3, the first fully automatic, digital (electromechanical) computer.
+
+Early digital computers were electromechanical; electric switches drove mechanical relays to perform the calculation. These devices had a low operating speed and were eventually superseded by much faster all-electric computers, originally using vacuum tubes. The Z2, created by German engineer Konrad Zuse in 1939, was one of the earliest examples of an electromechanical relay computer.[21]
+
+In 1941, Zuse followed his earlier machine up with the Z3, the world's first working electromechanical programmable, fully automatic digital computer.[22][23] The Z3 was built with 2000 relays, implementing a 22 bit word length that operated at a clock frequency of about 5–10 Hz.[24] Program code was supplied on punched film while data could be stored in 64 words of memory or supplied from the keyboard. It was quite similar to modern machines in some respects, pioneering numerous advances such as floating point numbers. Rather than the harder-to-implement decimal system (used in Charles Babbage's earlier design), using a binary system meant that Zuse's machines were easier to build and potentially more reliable, given the technologies available at that time.[25] The Z3 was Turing complete.[26][27]
+Vacuum tubes and digital electronic circuits
+
+Purely electronic circuit elements soon replaced their mechanical and electromechanical equivalents, at the same time that digital calculation replaced analog. The engineer Tommy Flowers, working at the Post Office Research Station in London in the 1930s, began to explore the possible use of electronics for the telephone exchange. Experimental equipment that he built in 1934 went into operation five years later, converting a portion of the telephone exchange network into an electronic data processing system, using thousands of vacuum tubes.[20] In the US, John Vincent Atanasoff and Clifford E. Berry of Iowa State University developed and tested the Atanasoff–Berry Computer (ABC) in 1942,[28] the first "automatic electronic digital computer".[29] This design was also all-electronic and used about 300 vacuum tubes, with capacitors fixed in a mechanically rotating drum for memory.[30]
+Colossus, the first electronic digital programmable computing device, was used to break German ciphers during World War II.
+
+During World War II, the British at Bletchley Park achieved a number of successes at breaking encrypted German military communications. The German encryption machine, Enigma, was first attacked with the help of the electro-mechanical bombes which were often run by women.[31][32] To crack the more sophisticated German Lorenz SZ 40/42 machine, used for high-level Army communications, Max Newman and his colleagues commissioned Flowers to build the Colossus.[30] He spent eleven months from early February 1943 designing and building the first Colossus.[33] After a functional test in December 1943, Colossus was shipped to Bletchley Park, where it was delivered on 18 January 1944[34] and attacked its first message on 5 February.[30]
+
+Colossus was the world's first electronic digital programmable computer.[20] It used a large number of valves (vacuum tubes). It had paper-tape input and was capable of being configured to perform a variety of boolean logical operations on its data, but it was not Turing-complete. Nine Mk II Colossi were built (The Mk I was converted to a Mk II making ten machines in total). Colossus Mark I contained 1,500 thermionic valves (tubes), but Mark II with 2,400 valves, was both 5 times faster and simpler to operate than Mark I, greatly speeding the decoding process.[35][36]
+ENIAC was the first electronic, Turing-complete device, and performed ballistics trajectory calculations for the United States Army.
+
+The ENIAC[37] (Electronic Numerical Integrator and Computer) was the first electronic programmable computer built in the U.S. Although the ENIAC was similar to the Colossus, it was much faster, more flexible, and it was Turing-complete. Like the Colossus, a "program" on the ENIAC was defined by the states of its patch cables and switches, a far cry from the stored program electronic machines that came later. Once a program was written, it had to be mechanically set into the machine with manual resetting of plugs and switches. The programmers of the ENIAC were six women, often known collectively as the "ENIAC girls".[38][39]
+
+It combined the high speed of electronics with the ability to be programmed for many complex problems. It could add or subtract 5000 times a second, a thousand times faster than any other machine. It also had modules to multiply, divide, and square root. High speed memory was limited to 20 words (about 80 bytes). Built under the direction of John Mauchly and J. Presper Eckert at the University of Pennsylvania, ENIAC's development and construction lasted from 1943 to full operation at the end of 1945. The machine was huge, weighing 30 tons, using 200 kilowatts of electric power and contained over 18,000 vacuum tubes, 1,500 relays, and hundreds of thousands of resistors, capacitors, and inductors.[40]
+Modern computers
+Concept of modern computer
+
+The principle of the modern computer was proposed by Alan Turing in his seminal 1936 paper,[41] On Computable Numbers. Turing proposed a simple device that he called "Universal Computing machine" and that is now known as a universal Turing machine. He proved that such a machine is capable of computing anything that is computable by executing instructions (program) stored on tape, allowing the machine to be programmable. The fundamental concept of Turing's design is the stored program, where all the instructions for computing are stored in memory. Von Neumann acknowledged that the central concept of the modern computer was due to this paper.[42] Turing machines are to this day a central object of study in theory of computation. Except for the limitations imposed by their finite memory stores, modern computers are said to be Turing-complete, which is to say, they have algorithm execution capability equivalent to a universal Turing machine.
+Stored programs
+Three tall racks containing electronic circuit boards
+A section of the Manchester Baby, the first electronic stored-program computer
+
+Early computing machines had fixed programs. Changing its function required the re-wiring and re-structuring of the machine.[30] With the proposal of the stored-program computer this changed. A stored-program computer includes by design an instruction set and can store in memory a set of instructions (a program) that details the computation. The theoretical basis for the stored-program computer was laid by Alan Turing in his 1936 paper. In 1945, Turing joined the National Physical Laboratory and began work on developing an electronic stored-program digital computer. His 1945 report "Proposed Electronic Calculator" was the first specification for such a device. John von Neumann at the University of Pennsylvania also circulated his First Draft of a Report on the EDVAC in 1945.[20]
+
+The Manchester Baby was the world's first stored-program computer. It was built at the Victoria University of Manchester by Frederic C. Williams, Tom Kilburn and Geoff Tootill, and ran its first program on 21 June 1948.[43] It was designed as a testbed for the Williams tube, the first random-access digital storage device.[44] Although the computer was considered "small and primitive" by the standards of its time, it was the first working machine to contain all of the elements essential to a modern electronic computer.[45] As soon as the Baby had demonstrated the feasibility of its design, a project was initiated at the university to develop it into a more usable computer, the Manchester Mark 1. Grace Hopper was the first person to develop a compiler for programming language.[2]
+
+The Mark 1 in turn quickly became the prototype for the Ferranti Mark 1, the world's first commercially available general-purpose computer.[46] Built by Ferranti, it was delivered to the University of Manchester in February 1951. At least seven of these later machines were delivered between 1953 and 1957, one of them to Shell labs in Amsterdam.[47] In October 1947, the directors of British catering company J. Lyons & Company decided to take an active role in promoting the commercial development of computers. The LEO I computer became operational in April 1951[48] and ran the world's first regular routine office computer job.
+Transistors
+A bipolar junction transistor
+
+The bipolar transistor was invented in 1947. From 1955 onwards transistors replaced vacuum tubes in computer designs, giving rise to the "second generation" of computers. Compared to vacuum tubes, transistors have many advantages: they are smaller, and require less power than vacuum tubes, so give off less heat. Silicon junction transistors were much more reliable than vacuum tubes and had longer, indefinite, service life. Transistorized computers could contain tens of thousands of binary logic circuits in a relatively compact space.
+
+At the University of Manchester, a team under the leadership of Tom Kilburn designed and built a machine using the newly developed transistors instead of valves.[49] Their first transistorised computer and the first in the world, was operational by 1953, and a second version was completed there in April 1955. However, the machine did make use of valves to generate its 125 kHz clock waveforms and in the circuitry to read and write on its magnetic drum memory, so it was not the first completely transistorized computer. That distinction goes to the Harwell CADET of 1955,[50] built by the electronics division of the Atomic Energy Research Establishment at Harwell.[50][51]
+Integrated circuits
+
+The next great advance in computing power came with the advent of the integrated circuit. The idea of the integrated circuit was first conceived by a radar scientist working for the Royal Radar Establishment of the Ministry of Defence, Geoffrey W.A. Dummer. Dummer presented the first public description of an integrated circuit at the Symposium on Progress in Quality Electronic Components in Washington, D.C. on 7 May 1952.[52]
+
+The first practical ICs were invented by Jack Kilby at Texas Instruments and Robert Noyce at Fairchild Semiconductor.[53] Kilby recorded his initial ideas concerning the integrated circuit in July 1958, successfully demonstrating the first working integrated example on 12 September 1958.[54] In his patent application of 6 February 1959, Kilby described his new device as "a body of semiconductor material ... wherein all the components of the electronic circuit are completely integrated".[55][56] Noyce also came up with his own idea of an integrated circuit half a year later than Kilby.[57] His chip solved many practical problems that Kilby's had not. Produced at Fairchild Semiconductor, it was made of silicon, whereas Kilby's chip was made of germanium.
+
+This new development heralded an explosion in the commercial and personal use of computers and led to the invention of the microprocessor. While the subject of exactly which device was the first microprocessor is contentious, partly due to lack of agreement on the exact definition of the term "microprocessor", it is largely undisputed that the first single-chip microprocessor was the Intel 4004,[58] designed and realized by Ted Hoff, Federico Faggin, and Stanley Mazor at Intel.[59]
+
+System on a Chip (SoCs) are complete computers on a microchip (or chip) the size of a coin.[60] They may or may not have integrated RAM and flash memory. If not integrated, The RAM is usually placed directly above (known as Package on package) or below (on the opposite side of the circuit board) the SoC, and the flash memory is usually placed right next to the SoC, this all done to improve data transfer speeds, as the data signals don't have to travel long distances. Since ENIAC in 1945, computers have advanced enormously, with modern SoCs being the size of a coin while also being hundreds of thousands of times more powerful than ENIAC, integrating billions of transistors, and consuming only a few watts of power.
+Mobile computers
+
+The first mobile computers were heavy and ran from mains power. The 50lb IBM 5100 was an early example. Later portables such as the Osborne 1 and Compaq Portable were considerably lighter but still needed to be plugged in. The first laptops, such as the Grid Compass, removed this requirement by incorporating batteries – and with the continued miniaturization of computing resources and advancements in portable battery life, portable computers grew in popularity in the 2000s.[61] The same developments allowed manufacturers to integrate computing resources into cellular phones.
+
+These smartphones and tablets run on a variety of operating systems and recently became the dominant computing device on the market, with manufacturers reporting having shipped an estimated 237 million devices in 2Q 2013.[62] Mobile devices such as smartphones are powered by System on a Chip (SoCs), which are complete computers on a microchip the size of a coin.[60]
+Types
+
+Computers are typically classified based on their uses:
+Based on uses
+
+    Analog computer
+    Digital computer
+    Hybrid computer
+
+Based on sizes
+
+    Smartphone
+    Microcomputer
+    Workstation
+    Personal computer
+    Laptop
+    Minicomputer
+    Mainframe computer
+    Supercomputer
+    Tablet computer
+
+Hardware
+Main articles: Computer hardware, Personal computer hardware, Central processing unit, and Microprocessor
+File:Computer Components.webmPlay media
+Video demonstrating the standard components of a "slimline" computer
+
+The term hardware covers all of those parts of a computer that are tangible physical objects. Circuits, computer chips, graphic cards, sound cards, memory (RAM), motherboard, displays, power supplies, cables, keyboards, printers and "mice" input devices are all hardware.
+
+A general purpose computer has four main components: the arithmetic logic unit (ALU), the control unit, the memory, and the input and output devices (collectively termed I/O). These parts are interconnected by buses, often made of groups of wires. Inside each of these parts are thousands to trillions of small electrical circuits which can be turned off or on by means of an electronic switch. Each circuit represents a bit (binary digit) of information so that when the circuit is on it represents a "1", and when off it represents a "0" (in positive logic representation). The circuits are arranged in logic gates so that one or more of the circuits may control the state of one or more of the other circuits.
+Input devices
+
+When unprocessed data is sent to the computer with the help of input devices, the data is processed and sent to output devices. The input devices may be hand-operated or automated. The act of processing is mainly regulated by the CPU. Some examples of input devices are:
+
+    Computer keyboard
+    Digital camera
+    Digital video
+    Graphics tablet
+    Image scanner
+    Joystick
+    Microphone
+    Mouse
+    Overlay keyboard
+    Real-time clock
+    Trackball
+    Touchscreen
+
+Output devices
+
+The means through which computer gives output are known as output devices. Some examples of output devices are:
+
+    Computer monitor
+    Printer
+    PC speaker
+    Projector
+    Sound card
+    Video card
+
+Control unit
+Main articles: CPU design and Control unit
+Diagram showing how a particular MIPS architecture instruction would be decoded by the control system
+
+The control unit (often called a control system or central controller) manages the computer's various components; it reads and interprets (decodes) the program instructions, transforming them into control signals that activate other parts of the computer.[64] Control systems in advanced computers may change the order of execution of some instructions to improve performance.
+
+A key component common to all CPUs is the program counter, a special memory cell (a register) that keeps track of which location in memory the next instruction is to be read from.[65]
+
+The control system's function is as follows—note that this is a simplified description, and some of these steps may be performed concurrently or in a different order depending on the type of CPU:
+
+    Read the code for the next instruction from the cell indicated by the program counter.
+    Decode the numerical code for the instruction into a set of commands or signals for each of the other systems.
+    Increment the program counter so it points to the next instruction.
+    Read whatever data the instruction requires from cells in memory (or perhaps from an input device). The location of this required data is typically stored within the instruction code.
+    Provide the necessary data to an ALU or register.
+    If the instruction requires an ALU or specialized hardware to complete, instruct the hardware to perform the requested operation.
+    Write the result from the ALU back to a memory location or to a register or perhaps an output device.
+    Jump back to step (1).
+
+Since the program counter is (conceptually) just another set of memory cells, it can be changed by calculations done in the ALU. Adding 100 to the program counter would cause the next instruction to be read from a place 100 locations further down the program. Instructions that modify the program counter are often known as "jumps" and allow for loops (instructions that are repeated by the computer) and often conditional instruction execution (both examples of control flow).
+
+The sequence of operations that the control unit goes through to process an instruction is in itself like a short computer program, and indeed, in some more complex CPU designs, there is another yet smaller computer called a microsequencer, which runs a microcode program that causes all of these events to happen.
+Central processing unit (CPU)
+
+The control unit, ALU, and registers are collectively known as a central processing unit (CPU). Early CPUs were composed of many separate components but since the mid-1970s CPUs have typically been constructed on a single integrated circuit called a microprocessor.
+Arithmetic logic unit (ALU)
+Main article: Arithmetic logic unit
+
+The ALU is capable of performing two classes of operations: arithmetic and logic.[66] The set of arithmetic operations that a particular ALU supports may be limited to addition and subtraction, or might include multiplication, division, trigonometry functions such as sine, cosine, etc., and square roots. Some can only operate on whole numbers (integers) while others use floating point to represent real numbers, albeit with limited precision. However, any computer that is capable of performing just the simplest operations can be programmed to break down the more complex operations into simple steps that it can perform. Therefore, any computer can be programmed to perform any arithmetic operation—although it will take more time to do so if its ALU does not directly support the operation. An ALU may also compare numbers and return boolean truth values (true or false) depending on whether one is equal to, greater than or less than the other ("is 64 greater than 65?"). Logic operations involve Boolean logic: AND, OR, XOR, and NOT. These can be useful for creating complicated conditional statements and processing boolean logic.
+
+Superscalar computers may contain multiple ALUs, allowing them to process several instructions simultaneously.[67] Graphics processors and computers with SIMD and MIMD features often contain ALUs that can perform arithmetic on vectors and matrices.
+Memory
+Main article: Computer data storage
+Magnetic core memory was the computer memory of choice throughout the 1960s, until it was replaced by semiconductor memory.
+
+A computer's memory can be viewed as a list of cells into which numbers can be placed or read. Each cell has a numbered "address" and can store a single number. The computer can be instructed to "put the number 123 into the cell numbered 1357" or to "add the number that is in cell 1357 to the number that is in cell 2468 and put the answer into cell 1595." The information stored in memory may represent practically anything. Letters, numbers, even computer instructions can be placed into memory with equal ease. Since the CPU does not differentiate between different types of information, it is the software's responsibility to give significance to what the memory sees as nothing but a series of numbers.
+
+In almost all modern computers, each memory cell is set up to store binary numbers in groups of eight bits (called a byte). Each byte is able to represent 256 different numbers (28 = 256); either from 0 to 255 or −128 to +127. To store larger numbers, several consecutive bytes may be used (typically, two, four or eight). When negative numbers are required, they are usually stored in two's complement notation. Other arrangements are possible, but are usually not seen outside of specialized applications or historical contexts. A computer can store any kind of information in memory if it can be represented numerically. Modern computers have billions or even trillions of bytes of memory.
+
+The CPU contains a special set of memory cells called registers that can be read and written to much more rapidly than the main memory area. There are typically between two and one hundred registers depending on the type of CPU. Registers are used for the most frequently needed data items to avoid having to access main memory every time data is needed. As data is constantly being worked on, reducing the need to access main memory (which is often slow compared to the ALU and control units) greatly increases the computer's speed.
+
+Computer main memory comes in two principal varieties:
+
+    random-access memory or RAM
+    read-only memory or ROM
+
+RAM can be read and written to anytime the CPU commands it, but ROM is preloaded with data and software that never changes, therefore the CPU can only read from it. ROM is typically used to store the computer's initial start-up instructions. In general, the contents of RAM are erased when the power to the computer is turned off, but ROM retains its data indefinitely. In a PC, the ROM contains a specialized program called the BIOS that orchestrates loading the computer's operating system from the hard disk drive into RAM whenever the computer is turned on or reset. In embedded computers, which frequently do not have disk drives, all of the required software may be stored in ROM. Software stored in ROM is often called firmware, because it is notionally more like hardware than software. Flash memory blurs the distinction between ROM and RAM, as it retains its data when turned off but is also rewritable. It is typically much slower than conventional ROM and RAM however, so its use is restricted to applications where high speed is unnecessary.[68]
+
+In more sophisticated computers there may be one or more RAM cache memories, which are slower than registers but faster than main memory. Generally computers with this sort of cache are designed to move frequently needed data into the cache automatically, often without the need for any intervention on the programmer's part.
+Input/output (I/O)
+Main article: Input/output
+Hard disk drives are common storage devices used with computers.
+
+I/O is the means by which a computer exchanges information with the outside world.[69] Devices that provide input or output to the computer are called peripherals.[70] On a typical personal computer, peripherals include input devices like the keyboard and mouse, and output devices such as the display and printer. Hard disk drives, floppy disk drives and optical disc drives serve as both input and output devices. Computer networking is another form of I/O. I/O devices are often complex computers in their own right, with their own CPU and memory. A graphics processing unit might contain fifty or more tiny computers that perform the calculations necessary to display 3D graphics.[citation needed] Modern desktop computers contain many smaller computers that assist the main CPU in performing I/O. A 2016-era flat screen display contains its own computer circuitry.
+Multitasking
+Main article: Computer multitasking
+
+While a computer may be viewed as running one gigantic program stored in its main memory, in some systems it is necessary to give the appearance of running several programs simultaneously. This is achieved by multitasking i.e. having the computer switch rapidly between running each program in turn.[71] One means by which this is done is with a special signal called an interrupt, which can periodically cause the computer to stop executing instructions where it was and do something else instead. By remembering where it was executing prior to the interrupt, the computer can return to that task later. If several programs are running "at the same time". then the interrupt generator might be causing several hundred interrupts per second, causing a program switch each time. Since modern computers typically execute instructions several orders of magnitude faster than human perception, it may appear that many programs are running at the same time even though only one is ever executing in any given instant. This method of multitasking is sometimes termed "time-sharing" since each program is allocated a "slice" of time in turn.[72]
+
+Before the era of inexpensive computers, the principal use for multitasking was to allow many people to share the same computer. Seemingly, multitasking would cause a computer that is switching between several programs to run more slowly, in direct proportion to the number of programs it is running, but most programs spend much of their time waiting for slow input/output devices to complete their tasks. If a program is waiting for the user to click on the mouse or press a key on the keyboard, then it will not take a "time slice" until the event it is waiting for has occurred. This frees up time for other programs to execute so that many programs may be run simultaneously without unacceptable speed loss.
+Multiprocessing
+Main article: Multiprocessing
+Cray designed many supercomputers that used multiprocessing heavily.
+
+Some computers are designed to distribute their work across several CPUs in a multiprocessing configuration, a technique once employed only in large and powerful machines such as supercomputers, mainframe computers and servers. Multiprocessor and multi-core (multiple CPUs on a single integrated circuit) personal and laptop computers are now widely available, and are being increasingly used in lower-end markets as a result.
+
+Supercomputers in particular often have highly unique architectures that differ significantly from the basic stored-program architecture and from general purpose computers.[73] They often feature thousands of CPUs, customized high-speed interconnects, and specialized computing hardware. Such designs tend to be useful only for specialized tasks due to the large scale of program organization required to successfully utilize most of the available resources at once. Supercomputers usually see usage in large-scale simulation, graphics rendering, and cryptography applications, as well as with other so-called "embarrassingly parallel" tasks.
+Software
+Main article: Computer software
+
+Software refers to parts of the computer which do not have a material form, such as programs, data, protocols, etc. Software is that part of a computer system that consists of encoded information or computer instructions, in contrast to the physical hardware from which the system is built. Computer software includes computer programs, libraries and related non-executable data, such as online documentation or digital media. It is often divided into system software and application software Computer hardware and software require each other and neither can be realistically used on its own. When software is stored in hardware that cannot easily be modified, such as with BIOS ROM in an IBM PC compatible computer, it is sometimes called "firmware".
+
+Industrial robot
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+This article is about manufacturing robots. For mining robots, see Automated mining.
+Part of a series on
+Automation
+Industrial robots-transparent.gif
+
+    Robotics Cybernetics
+
+Trade shows
+
+    ASP-DAC DAC DATE ICCAD
+
+Awards
+
+IEEE Robotics and Automation Award
+Robots
+
+Industrial robot
+Autonomous research robot
+Domestic robot
+General purpose
+
+Home automation
+Banking automation
+Laboratory automation
+Integrated library system
+Broadcast automation
+Console automation
+Building automation
+Specific purpose
+
+Automated attendant
+Automated guided vehicle
+Automated highway system
+Automated pool cleaner
+Automated teller machine
+Automatic painting (robotic)
+Pop music automation
+Robotic lawn mower
+Telephone switchboard
+Vending machine
+Social movements
+
+    Technocracy movement Venus Project Zeitgeist Movement
+
+    vte
+
+Articulated industrial robot operating in a foundry.
+
+An industrial robot is a robot system used for manufacturing. Industrial robots are automated, programmable and capable of movement on three or more axis.[1]
+
+Typical applications of robots include welding, painting, assembly, pick and place for printed circuit boards, packaging and labeling, palletizing, product inspection, and testing; all accomplished with high endurance, speed, and precision. They can assist in material handling.
+
+In the year 2015, an estimated 1.64 million industrial robots were in operation worldwide according to International Federation of Robotics (IFR).[2]
+Contents
+
+    1 Types and features
+    2 History of industrial robotics
+    3 Technical description
+        3.1 Defining parameters
+        3.2 Robot programming and interfaces
+        3.3 End-of-arm tooling
+        3.4 Controlling movement
+        3.5 Typical programming
+        3.6 Singularities
+    4 Market structure
+    5 Health and Safety
+    6 See also
+    7 References
+    8 Further reading
+    9 External links
+
+Types and features
+A set of six-axis robots used for welding.
+Factory Automation with industrial robots for palletizing food products like bread and toast at a bakery in Germany
+
+The most commonly used robot configurations are articulated robots, SCARA robots, delta robots and cartesian coordinate robots, (gantry robots or x-y-z robots). In the context of general robotics, most types of robots would fall into the category of robotic arms (inherent in the use of the word manipulator in ISO standard 1738). Robots exhibit varying degrees of autonomy:
+
+    Some robots are programmed to faithfully carry out specific actions over and over again (repetitive actions) without variation and with a high degree of accuracy. These actions are determined by programmed routines that specify the direction, acceleration, velocity, deceleration, and distance of a series of coordinated motions.
+    Other robots are much more flexible as to the orientation of the object on which they are operating or even the task that has to be performed on the object itself, which the robot may even need to identify. For example, for more precise guidance, robots often contain machine vision sub-systems acting as their visual sensors, linked to powerful computers or controllers.[3] Artificial intelligence, or what passes for it,[clarification needed] is becoming an increasingly important factor in the modern industrial robot.
+
+History of industrial robotics
+
+The earliest known industrial robot, conforming to the ISO definition was completed by "Bill" Griffith P. Taylor in 1937 and published in Meccano Magazine, March 1938.[4][5] The crane-like device was built almost entirely using Meccano parts, and powered by a single electric motor. Five axes of movement were possible, including grab and grab rotation. Automation was achieved using punched paper tape to energise solenoids, which would facilitate the movement of the crane's control levers. The robot could stack wooden blocks in pre-programmed patterns. The number of motor revolutions required for each desired movement was first plotted on graph paper. This information was then transferred to the paper tape, which was also driven by the robot's single motor. Chris Shute built a complete replica of the robot in 1997.
+George Devol, c. 1982
+
+George Devol applied for the first robotics patents in 1954 (granted in 1961). The first company to produce a robot was Unimation, founded by Devol and Joseph F. Engelberger in 1956. Unimation robots were also called programmable transfer machines since their main use at first was to transfer objects from one point to another, less than a dozen feet or so apart. They used hydraulic actuators and were programmed in joint coordinates, i.e. the angles of the various joints were stored during a teaching phase and replayed in operation. They were accurate to within 1/10,000 of an inch[6] (note: although accuracy is not an appropriate measure for robots, usually evaluated in terms of repeatability - see later). Unimation later licensed their technology to Kawasaki Heavy Industries and GKN, manufacturing Unimates in Japan and England respectively. For some time Unimation's only competitor was Cincinnati Milacron Inc. of Ohio. This changed radically in the late 1970s when several big Japanese conglomerates began producing similar industrial robots.
+
+In 1969 Victor Scheinman at Stanford University invented the Stanford arm, an all-electric, 6-axis articulated robot designed to permit an arm solution. This allowed it accurately to follow arbitrary paths in space and widened the potential use of the robot to more sophisticated applications such as assembly and welding. Scheinman then designed a second arm for the MIT AI Lab, called the "MIT arm." Scheinman, after receiving a fellowship from Unimation to develop his designs, sold those designs to Unimation who further developed them with support from General Motors and later marketed it as the Programmable Universal Machine for Assembly (PUMA).
+
+Industrial robotics took off quite quickly in Europe, with both ABB Robotics and KUKA Robotics bringing robots to the market in 1973. ABB Robotics (formerly ASEA) introduced IRB 6, among the world's first commercially available all electric micro-processor controlled robot. The first two IRB 6 robots were sold to Magnusson in Sweden for grinding and polishing pipe bends and were installed in production in January 1974. Also in 1973 KUKA Robotics built its first robot, known as FAMULUS,[7][8] also one of the first articulated robots to have six electromechanically driven axes.
+
+Interest in robotics increased in the late 1970s and many US companies entered the field, including large firms like General Electric, and General Motors (which formed joint venture FANUC Robotics with FANUC LTD of Japan). U.S. startup companies included Automatix and Adept Technology, Inc. At the height of the robot boom in 1984, Unimation was acquired by Westinghouse Electric Corporation for 107 million U.S. dollars. Westinghouse sold Unimation to Stäubli Faverges SCA of France in 1988, which is still making articulated robots for general industrial and cleanroom applications and even bought the robotic division of Bosch in late 2004.
+
+Only a few non-Japanese companies ultimately managed to survive in this market, the major ones being: Adept Technology, Stäubli, the Swedish-Swiss company ABB Asea Brown Boveri, the German company KUKA Robotics and the Italian company Comau.
+Technical description
+Defining parameters
+
+    Number of axes – two axes are required to reach any point in a plane; three axes are required to reach any point in space. To fully control the orientation of the end of the arm(i.e. the wrist) three more axes (yaw, pitch, and roll) are required. Some designs (e.g. the SCARA robot) trade limitations in motion possibilities for cost, speed, and accuracy.
+    Degrees of freedom – this is usually the same as the number of axes.
+    Working envelope – the region of space a robot can reach.
+    Kinematics – the actual arrangement of rigid members and joints in the robot, which determines the robot's possible motions. Classes of robot kinematics include articulated, cartesian, parallel and SCARA.
+    Carrying capacity or payload – how much weight a robot can lift.
+    Speed – how fast the robot can position the end of its arm. This may be defined in terms of the angular or linear speed of each axis or as a compound speed i.e. the speed of the end of the arm when all axes are moving.
+    Acceleration – how quickly an axis can accelerate. Since this is a limiting factor a robot may not be able to reach its specified maximum speed for movements over a short distance or a complex path requiring frequent changes of direction.
+    Accuracy – how closely a robot can reach a commanded position. When the absolute position of the robot is measured and compared to the commanded position the error is a measure of accuracy. Accuracy can be improved with external sensing for example a vision system or Infra-Red. See robot calibration. Accuracy can vary with speed and position within the working envelope and with payload (see compliance).
+    Repeatability – how well the robot will return to a programmed position. This is not the same as accuracy. It may be that when told to go to a certain X-Y-Z position that it gets only to within 1 mm of that position. This would be its accuracy which may be improved by calibration. But if that position is taught into controller memory and each time it is sent there it returns to within 0.1mm of the taught position then the repeatability will be within 0.1mm.
+
+Accuracy and repeatability are different measures. Repeatability is usually the most important criterion for a robot and is similar to the concept of 'precision' in measurement—see accuracy and precision. ISO 9283[9] sets out a method whereby both accuracy and repeatability can be measured. Typically a robot is sent to a taught position a number of times and the error is measured at each return to the position after visiting 4 other positions. Repeatability is then quantified using the standard deviation of those samples in all three dimensions. A typical robot can, of course make a positional error exceeding that and that could be a problem for the process. Moreover, the repeatability is different in different parts of the working envelope and also changes with speed and payload. ISO 9283 specifies that accuracy and repeatability should be measured at maximum speed and at maximum payload. But this results in pessimistic values whereas the robot could be much more accurate and repeatable at light loads and speeds. Repeatability in an industrial process is also subject to the accuracy of the end effector, for example a gripper, and even to the design of the 'fingers' that match the gripper to the object being grasped. For example, if a robot picks a screw by its head, the screw could be at a random angle. A subsequent attempt to insert the screw into a hole could easily fail. These and similar scenarios can be improved with 'lead-ins' e.g. by making the entrance to the hole tapered.
+
+    Motion control – for some applications, such as simple pick-and-place assembly, the robot need merely return repeatably to a limited number of pre-taught positions. For more sophisticated applications, such as welding and finishing (spray painting), motion must be continuously controlled to follow a path in space, with controlled orientation and velocity.
+    Power source – some robots use electric motors, others use hydraulic actuators. The former are faster, the latter are stronger and advantageous in applications such as spray painting, where a spark could set off an explosion; however, low internal air-pressurisation of the arm can prevent ingress of flammable vapours as well as other contaminants. Nowadays, it is highly unlikely to see any hydraulic robots in the market. Additional sealings, brushless electric motors and spark-proof protection eased the construction of units that are able to work in the environment with an explosive atmosphere.
+    Drive – some robots connect electric motors to the joints via gears; others connect the motor to the joint directly (direct drive). Using gears results in measurable 'backlash' which is free movement in an axis. Smaller robot arms frequently employ high speed, low torque DC motors, which generally require high gearing ratios; this has the disadvantage of backlash. In such cases the harmonic drive is often used.
+    Compliance - this is a measure of the amount in angle or distance that a robot axis will move when a force is applied to it. Because of compliance when a robot goes to a position carrying its maximum payload it will be at a position slightly lower than when it is carrying no payload. Compliance can also be responsible for overshoot when carrying high payloads in which case acceleration would need to be reduced.
+
+Robot programming and interfaces
+Offline programming
+A typical well-used teach pendant with optional mouse
+
+The setup or programming of motions and sequences for an industrial robot is typically taught by linking the robot controller to a laptop, desktop computer or (internal or Internet) network.
+
+A robot and a collection of machines or peripherals is referred to as a workcell, or cell. A typical cell might contain a parts feeder, a molding machine and a robot. The various machines are 'integrated' and controlled by a single computer or PLC. How the robot interacts with other machines in the cell must be programmed, both with regard to their positions in the cell and synchronizing with them.
+
+Software: The computer is installed with corresponding interface software. The use of a computer greatly simplifies the programming process. Specialized robot software is run either in the robot controller or in the computer or both depending on the system design.
+
+There are two basic entities that need to be taught (or programmed): positional data and procedure. For example, in a task to move a screw from a feeder to a hole the positions of the feeder and the hole must first be taught or programmed. Secondly the procedure to get the screw from the feeder to the hole must be programmed along with any I/O involved, for example a signal to indicate when the screw is in the feeder ready to be picked up. The purpose of the robot software is to facilitate both these programming tasks.
+
+Teaching the robot positions may be achieved a number of ways:
+
+Positional commands The robot can be directed to the required position using a GUI or text based commands in which the required X-Y-Z position may be specified and edited.
+
+Teach pendant: Robot positions can be taught via a teach pendant. This is a handheld control and programming unit. The common features of such units are the ability to manually send the robot to a desired position, or "inch" or "jog" to adjust a position. They also have a means to change the speed since a low speed is usually required for careful positioning, or while test-running through a new or modified routine. A large emergency stop button is usually included as well. Typically once the robot has been programmed there is no more use for the teach pendant. All teach pendants are equipped with a 3-position deadman switch. In the manual mode, it allows the robot to move only when it is in the middle position (partially pressed). If it is fully pressed in or completely released, the robot stops. This principle of operation allows natural reflexes to be used to increase safety.
+
+Lead-by-the-nose: this is a technique offered by many robot manufacturers. In this method, one user holds the robot's manipulator, while another person enters a command which de-energizes the robot causing it to go into limp. The user then moves the robot by hand to the required positions and/or along a required path while the software logs these positions into memory. The program can later run the robot to these positions or along the taught path. This technique is popular for tasks such as paint spraying.
+
+Offline programming is where the entire cell, the robot and all the machines or instruments in the workspace are mapped graphically. The robot can then be moved on screen and the process simulated. A robotics simulator is used to create embedded applications for a robot, without depending on the physical operation of the robot arm and end effector. The advantages of robotics simulation is that it saves time in the design of robotics applications. It can also increase the level of safety associated with robotic equipment since various "what if" scenarios can be tried and tested before the system is activated.[8] Robot simulation software provides a platform to teach, test, run, and debug programs that have been written in a variety of programming languages.
+Robotics Simulator
+
+Robot simulation tools allow for robotics programs to be conveniently written and debugged off-line with the final version of the program tested on an actual robot. The ability to preview the behavior of a robotic system in a virtual world allows for a variety of mechanisms, devices, configurations and controllers to be tried and tested before being applied to a "real world" system. Robotics simulators have the ability to provide real-time computing of the simulated motion of an industrial robot using both geometric modeling and kinematics modeling.
+
+Others in addition, machine operators often use user interface devices, typically touchscreen units, which serve as the operator control panel. The operator can switch from program to program, make adjustments within a program and also operate a host of peripheral devices that may be integrated within the same robotic system. These include end effectors, feeders that supply components to the robot, conveyor belts, emergency stop controls, machine vision systems, safety interlock systems, barcode printers and an almost infinite array of other industrial devices which are accessed and controlled via the operator control panel.
+
+The teach pendant or PC is usually disconnected after programming and the robot then runs on the program that has been installed in its controller. However a computer is often used to 'supervise' the robot and any peripherals, or to provide additional storage for access to numerous complex paths and routines.
+End-of-arm tooling
+
+The most essential robot peripheral is the end effector, or end-of-arm-tooling (EOT). Common examples of end effectors include welding devices (such as MIG-welding guns, spot-welders, etc.), spray guns and also grinding and deburring devices (such as pneumatic disk or belt grinders, burrs, etc.), and grippers (devices that can grasp an object, usually electromechanical or pneumatic). Other common means of picking up objects is by vacuum or magnets. End effectors are frequently highly complex, made to match the handled product and often capable of picking up an array of products at one time. They may utilize various sensors to aid the robot system in locating, handling, and positioning products.
+Controlling movement
+
+For a given robot the only parameters necessary to completely locate the end effector (gripper, welding torch, etc.) of the robot are the angles of each of the joints or displacements of the linear axes (or combinations of the two for robot formats such as SCARA). However, there are many different ways to define the points. The most common and most convenient way of defining a point is to specify a Cartesian coordinate for it, i.e. the position of the 'end effector' in mm in the X, Y and Z directions relative to the robot's origin. In addition, depending on the types of joints a particular robot may have, the orientation of the end effector in yaw, pitch, and roll and the location of the tool point relative to the robot's faceplate must also be specified. For a jointed arm these coordinates must be converted to joint angles by the robot controller and such conversions are known as Cartesian Transformations which may need to be performed iteratively or recursively for a multiple axis robot. The mathematics of the relationship between joint angles and actual spatial coordinates is called kinematics. See robot control
+
+Positioning by Cartesian coordinates may be done by entering the coordinates into the system or by using a teach pendant which moves the robot in X-Y-Z directions. It is much easier for a human operator to visualize motions up/down, left/right, etc. than to move each joint one at a time. When the desired position is reached it is then defined in some way particular to the robot software in use, e.g. P1 - P5 below.
+Typical programming
+
+Most articulated robots perform by storing a series of positions in memory, and moving to them at various times in their programming sequence. For example, a robot which is moving items from one place to another might have a simple 'pick and place' program similar to the following:
+
+Define points P1–P5:
+
+    Safely above workpiece (defined as P1)
+    10 cm Above bin A (defined as P2)
+    At position to take part from bin A (defined as P3)
+    10 cm Above bin B (defined as P4)
+    At position to take part from bin B. (defined as P5)
+
+Define program:
+
+    Move to P1
+    Move to P2
+    Move to P3
+    Close gripper
+    Move to P2
+    Move to P4
+    Move to P5
+    Open gripper
+    Move to P4
+    Move to P1 and finish
+
+For examples of how this would look in popular robot languages see industrial robot programming.
+Singularities
+
+The American National Standard for Industrial Robots and Robot Systems — Safety Requirements (ANSI/RIA R15.06-1999) defines a singularity as “a condition caused by the collinear alignment of two or more robot axes resulting in unpredictable robot motion and velocities.” It is most common in robot arms that utilize a “triple-roll wrist”. This is a wrist about which the three axes of the wrist, controlling yaw, pitch, and roll, all pass through a common point. An example of a wrist singularity is when the path through which the robot is traveling causes the first and third axes of the robot's wrist (i.e. robot's axes 4 and 6) to line up. The second wrist axis then attempts to spin 180° in zero time to maintain the orientation of the end effector. Another common term for this singularity is a “wrist flip”. The result of a singularity can be quite dramatic and can have adverse effects on the robot arm, the end effector, and the process. Some industrial robot manufacturers have attempted to side-step the situation by slightly altering the robot's path to prevent this condition. Another method is to slow the robot's travel speed, thus reducing the speed required for the wrist to make the transition. The ANSI/RIA has mandated that robot manufacturers shall make the user aware of singularities if they occur while the system is being manually manipulated.
+
+A second type of singularity in wrist-partitioned vertically articulated six-axis robots occurs when the wrist center lies on a cylinder that is centered about axis 1 and with radius equal to the distance between axes 1 and 4. This is called a shoulder singularity. Some robot manufacturers also mention alignment singularities, where axes 1 and 6 become coincident. This is simply a sub-case of shoulder singularities. When the robot passes close to a shoulder singularity, joint 1 spins very fast.
+
+The third and last type of singularity in wrist-partitioned vertically articulated six-axis robots occurs when the wrist's center lies in the same plane as axes 2 and 3.
+
+Singularities are closely related to the phenomena of gimbal lock, which has a similar root cause of axes becoming lined up.
+
+A video illustrating these three types of singular configurations is available here.[10]
+Market structure
+
+According to the International Federation of Robotics (IFR) study World Robotics 2018, there were about 2,097,500 operational industrial robots by the end of 2017. This number is estimated to reach 3,788,000 by the end of 2021.[11] For the year 2017 the IFR estimates the worldwide sales of industrial robots with US$16.2 billion. Including the cost of software, peripherals and systems engineering, the annual turnover for robot systems is estimated to be US$48.0 billion in 2017.[11]
+
+China is the largest industrial robot market, with 137,900 units sold in 2017.[11] Japan had the largest operational stock of industrial robots, with 286,554 at the end of 2015.[12] The United States industrial robot-makers shipped 35,880 robot to factories in the US in 2018 and this was 7% more than in 2017.[13]
+
+The biggest customer of industrial robots is automotive industry with 33% market share, then electrical/electronics industry with 32%, metal and machinery industry with 12%, rubber and plastics industry with 5%, food industry with 3%.[11] In textiles, apparel and leather industry, 1,580 units are operational.[14]
+
+Workplace robotics safety
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+A black and white drawing of a man pinned between a robot arm and a metal pole.
+An artist's representation of an industrial robot accident that occurred in 1984.[1]
+
+Workplace robotics safety is an aspect of occupational safety and health when robots are used in the workplace. This includes traditional industrial robots as well as emerging technologies such as drone aircraft and wearable robotic exoskeletons. Types of accidents include collisions, crushing, and injuries from mechanical parts. Hazard controls include physical barriers, good work practices, and proper maintenance.
+Contents
+
+    1 Background
+    2 Hazards
+        2.1 Emerging technologies
+    3 Hazard controls
+    4 Regulations
+    5 See also
+    6 External links
+    7 References
+
+Background
+
+Many workplace robots are industrial robots used in manufacturing. According to the International Federation of Robotics, 1.7 million new robots are expected to be used in factories between 2017 and 2020.[2] Emerging robot technologies include collaborative robots,[3] personal care robots, construction robots, exoskeletons,[4] autonomous vehicles,[5] such as Google’s self-driving car project, and drone aircraft (also known as unmanned aerial vehicles or UAVs).[6]
+
+Advances in automation technologies (e.g. fixed robots, collaborative and mobile robots, and exoskeletons) have the potential to improve work conditions but also to introduce workplace hazards in manufacturing workplaces.[1] Fifty-six percent of robot injuries are classified as pinch injuries and 44% of injuries are classified as impact injuries. A 1987 study found that line workers are at the greatest risk, followed by maintenance workers, and programmers. Poor workplace design and human error caused most injuries.[3][5] Despite the lack of occupational surveillance data on injuries associated specifically with robots, researchers from the US National Institute for Occupational Safety and Health (NIOSH) identified 61 robot-related deaths between 1992 and 2015 using keyword searches of the Bureau of Labor Statistics (BLS) Census of Fatal Occupational Injuries research database (see info from Center for Occupational Robotics Research). Using data from the Bureau of Labor Statistics, NIOSH and its state partners have investigated 4 robot-related fatalities under the Fatality Assessment and Control Evaluation Program. In addition the Occupational Safety and Health Administration (OSHA) has investigated robot-related deaths and injuries, which can be reviewed at OSHA Accident Search page. Injuries and fatalities could increase over time because of the increasing number of collaborative and co-existing robots, powered exoskeletons, and autonomous vehicles into the work environment.
+
+Safety standards are being developed by the Robotic Industries Association (RIA) in conjunction with the American National Standards Institute (ANSI).[2] On October 5, 2017, OSHA, NIOSH and RIA signed an alliance to work together to enhance technical expertise, identify and help address potential workplace hazards associated with traditional industrial robots and the emerging technology of human-robot collaboration installations and systems, and help identify needed research to reduce workplace hazards. On October 16 NIOSH launched the Center for Occupational Robotics Research to "provide scientific leadership to guide the development and use of occupational robots that enhance worker safety, health, and well being." So far, the research needs identified by NIOSH and its partners include: tracking and preventing injuries and fatalities, intervention and dissemination strategies to promote safe machine control and maintenance procedures, and on translating effective evidence-based interventions into workplace practice.
+Hazards
+
+Many hazards and injuries can result from the use of robots in the workplace. Some robots, notably those in a traditional industrial environment, are fast and powerful. This increases the potential for injury as one swing from a robotic arm, for example, could cause serious bodily harm.[7] There are additional risks when a robot malfunctions or is in need of maintenance. A worker that is working on the robot may be injured because a malfunctioning robot is typically unpredictable. For example, a robotic arm that is part of a car assembly line may experience a jammed motor. A worker that is working to fix the jam may suddenly get hit by the arm the moment it becomes unjammed. Additionally, if a worker is standing in a zone that is overlapping with nearby robotic arms, he or she may get injured by other moving equipment.[5]
+
+There are four types of accidents that can occur with robots: impact or collision accidents, crushing and trapping accidents, mechanical part accidents, and other accidents. Impact or collision accidents occur generally from malfunctions and unpredicted changes. Crushing and trapping accidents occur when a part of a worker’s body becomes trapped or caught on robotic equipment. Mechanical part accidents can occur when a robot malfunctions and starts to "break down," where the ejection of parts or exposed wire can cause serious injury. Other accidents at just general accidents that occur from working with robots.[7]
+
+There are seven sources of hazards that are associated with human interaction with robots and machines: human errors, control errors, unauthorized access, mechanical failures, environmental sources, power systems, and improper installation. Human errors could be anything from one line of incorrect code to a loose bolt on a robotic arm. Many hazards can stem from human-based error. Control errors are intrinsic and are usually not controllable nor predictable. Unauthorized access hazards occur when a person who is not familiar with the area enters the domain of a robot. Mechanical failures can happen at any time, and a faulty unit is usually unpredictable. Environmental sources are things such as electromagnetic or radio interference in the environment that can cause a robot to malfunction. Power systems are pneumatic, hydraulic, or electrical power sources; these power sources can malfunction and cause fires, leaks, or electrical shocks. Improper installation is fairly self-explanatory; a loose bolt or an exposed wire can lead to inherent hazards.[7]
+Emerging technologies
+
+Emerging robotic technologies can reduce hazards to workers, but can also introduce new hazards. For example, robotic exoskeletons can be used in construction to reduce load to the spine, improve posture, and reduce fatigue; however, they can also increase chest pressure, limit mobility when moving out of the way of a falling object, and cause balance problems.[4] Unmanned aerial vehicles are being used in the construction industry to do monitoring and inspections of buildings under construction. This reduces the need for humans to be in hazardous locations, but the risk of a UAV collision presents a hazard to workers.[6] For collaborative robots, isolation is not possible. Possible hazard controls include collision avoidance systems, and making the robot less stiff to lessen the impact force.[3]
+Hazard controls
+
+There are a few ways to prevent injuries by implementing hazard controls. There can be risk assessments at each of the various stages of a robot’s development. Risk assessments can help gather information about a robot’s status, how well it is being maintained, and if repairs are needed soon. By being aware of the status of a robot, injuries can be prevented and hazards reduced.[7]
+
+Safeguarding devices can be implemented to reduce the risk of injuries. These can include engineering controls such as physical barriers, guard rails, presence-sensing safeguarding devices, etc. Awareness devices are usually used in conjunction with safeguarding devices. They are usually a system of rope or chain barriers with lights, signs, whistles, and horns. Their purpose it to be able to alert workers or personnel of certain dangers.[7]
+
+Operator safeguards can also be in place. These usually utilize safeguarding devices to protect the operator and reduce risk of injury. Additionally, when an operator is within close proximity of a robot, the working speed of the robot can be reduced to insure that the operator is in full control. This can be done by placing the robot in the manual or teach mode. It is also crucial to inform the programmer of the robot of what type of work the robot will be doing, how it will interact with other robots, and how it will work in relation to an operator.[7]
+
+Proper maintenance of robotic equipment is also critical in order to reduce hazards. Maintaining a robot insures that it continues to function properly, thereby reducing the risks associated with a malfunction.[7]
